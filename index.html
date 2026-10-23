@@ -236,7 +236,7 @@ background-size:240px 220px}
 .ann-mode{cursor:crosshair}
 .ann-mode ::selection{background:rgba(194,65,44,.22)}
 .ann-box{position:fixed;z-index:2000;pointer-events:none;background:rgba(194,65,44,.14);border:2px dashed var(--accent);border-radius:4px;display:none}
-.ann-fab{position:fixed;right:18px;bottom:76px;width:44px;height:44px;border-radius:50%;background:var(--night);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1200;box-shadow:0 4px 14px rgba(20,24,40,.25)}
+.ann-fab{position:fixed;right:18px;bottom:76px;width:44px;height:44px;border-radius:50%;background:var(--night);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1600;box-shadow:0 4px 14px rgba(20,24,40,.25)}
 .ann-fab-list{right:72px;bottom:76px}
 .ann-fab:hover{opacity:.92}
 .ann-fab.on{background:var(--accent)}
@@ -401,7 +401,8 @@ var CHANGELOG = [
   ]},
   {ver:"1.1.1", date:"2026-10-23", title:"批注体验优化", items:[
     "修复：进入批注模式不再自动弹出右侧面板，避免遮挡正文；按钮点击后变色表示已激活。",
-    "优化：批注细节改由点左下角「查看批注」按钮查看，面板不再自动抢占视线。"
+    "优化：批注细节改由点左下角「查看批注」按钮查看，面板不再自动抢占视线。",
+    "修复：查看面板开启后，右下角两个按钮浮于面板之上，可再次点击关闭面板或退出批注模式。"
   ]}
 ];
 var M = null;
