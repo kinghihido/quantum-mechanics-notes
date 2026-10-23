@@ -231,6 +231,56 @@ background-size:240px 220px}
 .err-box{border:1px solid var(--line-2);border-left:4px solid var(--accent);background:#fff;border-radius:10px;padding:20px 22px;margin:30px 0}
 .err-box h2{margin:0 0 8px;font-family:var(--serif);font-size:20px}
 .err-box code{font-family:var(--mono);background:var(--paper-3);padding:1px 6px;border-radius:5px}
+
+/* ===== 批注模式（框选段落 → 写意见 → 复制发给我） ===== */
+.ann-mode{cursor:crosshair}
+.ann-mode ::selection{background:rgba(194,65,44,.22)}
+.ann-box{position:fixed;z-index:2000;pointer-events:none;background:rgba(194,65,44,.14);border:2px dashed var(--accent);border-radius:4px;display:none}
+.ann-fab{position:fixed;right:18px;bottom:76px;width:44px;height:44px;border-radius:50%;background:var(--night);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1200;box-shadow:0 4px 14px rgba(20,24,40,.25)}
+.ann-fab-list{right:72px;bottom:76px}
+.ann-fab:hover{opacity:.92}
+.ann-fab.on{background:var(--accent)}
+.ann-count{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:11px;line-height:18px;text-align:center;padding:0 5px;font-weight:700}
+.ann-panel{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:92vw;background:var(--paper);border-left:1px solid var(--line-2);box-shadow:-12px 0 36px rgba(20,24,40,.16);z-index:1500;transform:translateX(105%);transition:transform .22s ease;display:flex;flex-direction:column}
+.ann-panel.open{transform:translateX(0)}
+.ann-panel-head{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.ann-panel-head h3{margin:0;font-family:var(--serif);font-size:19px}
+.ann-x{width:32px;height:32px;border:none;background:none;color:var(--ink-3);font-size:15px;cursor:pointer;margin-left:auto;border-radius:8px}
+.ann-x:hover{background:var(--paper-2);color:var(--ink)}
+.ann-tools{display:flex;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.ann-tool{flex:1;padding:9px 6px;border:1px solid var(--line-2);border-radius:8px;background:#fff;font-size:13px;cursor:pointer;color:var(--ink)}
+.ann-tool:hover{border-color:var(--accent);color:var(--accent-ink)}
+.ann-tool-danger:hover{border-color:var(--accent);color:var(--accent)}
+.ann-tip{font-size:12.5px;color:var(--ink-2);background:var(--amber-bg);border:1px solid var(--line-2);border-radius:8px;margin:12px 18px 4px;padding:10px 12px;line-height:1.6}
+.ann-list{flex:1;overflow:auto;padding:12px 18px 24px}
+.ann-empty{color:var(--ink-3);font-size:13px;line-height:1.7}
+.ann-item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
+.ann-item-top{display:flex;align-items:center}
+.ann-time{font-size:11.5px;color:var(--ink-3)}
+.ann-del{width:26px;height:26px;border:none;background:none;color:var(--ink-3);cursor:pointer;margin-left:auto;border-radius:6px;font-size:12px}
+.ann-del:hover{background:var(--paper-3);color:var(--accent)}
+.ann-page{font-size:13px;font-weight:600;color:var(--accent-ink);margin:6px 0 2px}
+.ann-comment{font-size:14px;color:var(--ink);margin:4px 0;line-height:1.6}
+.ann-quote{font-size:13px;color:var(--ink-2);background:var(--paper-2);border-radius:6px;padding:8px 10px;margin:6px 0 2px;line-height:1.6;border-left:3px solid var(--line-2)}
+.ann-item-ops{margin-top:6px;text-align:right}
+.ann-jump{font-size:12.5px;color:var(--accent-ink);text-decoration:none}
+.ann-jump:hover{text-decoration:underline}
+.ann-composer{position:fixed;z-index:1700;width:min(560px,92vw);background:#fff;border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 60px rgba(20,24,40,.25);padding:16px 18px}
+.ann-composer-q-label{font-size:12px;color:var(--ink-3);margin-bottom:4px;letter-spacing:.05em}
+.ann-composer-quote{font-size:13.5px;color:var(--ink-2);background:var(--paper-2);border-left:3px solid var(--accent);border-radius:6px;padding:8px 10px;max-height:96px;overflow:auto;line-height:1.6;margin-bottom:10px}
+#annComment{width:100%;border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;font-size:15px;font-family:var(--sans);color:var(--ink);resize:vertical;min-height:64px;outline:none;line-height:1.6}
+#annComment:focus{border-color:var(--accent)}
+.ann-composer-ops{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
+.ann-composer-ops button{padding:9px 18px;border:1px solid var(--line-2);border-radius:9px;background:#fff;font-size:14px;cursor:pointer}
+.ann-composer-ops .primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.ann-toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--night);color:#fff;font-size:13.5px;padding:11px 20px;border-radius:99px;z-index:1800;opacity:0;pointer-events:none;transition:all .25s ease;box-shadow:0 8px 24px rgba(20,24,40,.3);max-width:88vw;text-align:center}
+.ann-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.ann-flash{animation:annFlash 2.4s ease}
+@keyframes annFlash{0%,100%{background:transparent}12%{background:rgba(232,178,122,.5)}55%{background:rgba(232,178,122,.5)}}
+@media (max-width:860px){
+  .ann-fab{bottom:70px}
+  .ann-fab-list{right:66px;bottom:70px}
+}
 </style>
 </head>
 <body>
@@ -283,11 +333,46 @@ background-size:240px 220px}
       <a href="#/changelog">版本记录</a>
       <a href="#/about">关于 / 更新方法</a>
     </nav>
-    <div class="foot-ver" id="footVer">v1.0.1</div>
+    <div class="foot-ver" id="footVer">v1.1.0</div>
   </div>
 </footer>
 
 <button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<!-- ===== 批注工具（框选段落 → 写意见 → 复制发给我） ===== -->
+<button class="ann-ui ann-fab" id="annModeBtn" title="批注模式（Alt+A）" aria-label="开启批注模式">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l3.6-1 11-11-2.6-2.6-11 11L3 21z"/><path d="M13.5 7.5l2.6 2.6"/></svg>
+</button>
+<button class="ann-ui ann-fab ann-fab-list" id="annTogglePanel" title="查看批注" aria-label="查看批注列表">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+  <span id="annCount" class="ann-count" hidden>0</span>
+</button>
+
+<aside class="ann-ui ann-panel" id="annPanel" aria-label="批注列表">
+  <div class="ann-panel-head">
+    <h3>批注</h3>
+    <span id="annCountHd"></span>
+    <button id="annClosePanel" class="ann-x" aria-label="关闭">✕</button>
+  </div>
+  <div class="ann-tools">
+    <button id="annCopyBtn" class="ann-tool">复制批注报告</button>
+    <button id="annExportBtn" class="ann-tool">导出 JSON</button>
+    <button id="annClearBtn" class="ann-tool ann-tool-danger">清空</button>
+  </div>
+  <div class="ann-tip">用法：按 <b>Alt+A</b> 进入批注模式 → 拖动框选不满意的段落 → 写下意见保存 → 点「复制批注报告」，粘贴到豆包对话发给我。</div>
+  <div id="annList" class="ann-list"></div>
+</aside>
+
+<div class="ann-ui ann-composer" id="annComposer" style="display:none">
+  <div class="ann-composer-q-label">原文引用</div>
+  <div class="ann-composer-quote" id="annQuoteBox"></div>
+  <textarea id="annComment" rows="3" placeholder="哪里让你不满意？讲不通、跳步、公式写错、太啰嗦……写下来发给我"></textarea>
+  <div class="ann-composer-ops">
+    <button id="annCancelBtn">取消</button>
+    <button id="annSaveBtn" class="primary">保存批注</button>
+  </div>
+</div>
+<div class="ann-ui ann-toast" id="annToast" role="status"></div>
 
 <script src="https://fastly.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -297,7 +382,7 @@ background-size:240px 220px}
 (function(){
 "use strict";
 var MANIFEST_URL = "content/manifest.json";
-var VERSION = "1.0.1";
+var VERSION = "1.1.0";
 var CHANGELOG = [
   {ver:"1.0.0", date:"2026-10-23", title:"站点上线", items:[
     "发布 GitHub Pages 静态站，覆盖五章节 16 模块、50 个知识点、12 篇课堂笔记、9 篇答疑记录。",
@@ -307,6 +392,12 @@ var CHANGELOG = [
     "修复：知识点 / 笔记页通过「上一节 / 下一节」跳转后停留页面中部，现统一回到顶部。",
     "修复：公式缺失或乱码——① 修正 manifest 中两个失效内容路径（自旋态空间、迈克尔逊-莫雷实验笔记），恢复页面加载；② 数学公式渲染前先保护 $..$ 段，避免星号、下划线被 Markdown 当作强调标记破坏 LaTeX。",
     "新增：本页版本记录模块，footer 显示当前版本号。"
+  ]},
+  {ver:"1.1.0", date:"2026-10-23", title:"批注模式（框选反馈）", items:[
+    "新增：批注模式（Alt+A）——拖动框选不满意的段落，写下意见保存，批注随浏览器持久化。",
+    "新增：批注面板——按页面查看 / 定位 / 删除批注，点「定位」自动跳到对应段落并高亮。",
+    "新增：一键「复制批注报告」——生成结构化 Markdown（页面 / 地址 / 意见 / 原文引用），直接粘贴到豆包对话即可让 AI 精准修改。",
+    "新增：「导出 JSON」备份批注；移动端点击段落即可快速批注。"
   ]}
 ];
 var M = null;
@@ -716,7 +807,7 @@ function renderAbout(){
     '<h2>致谢与免责</h2>' +
     '<p>笔记基于课堂讲授与教材（曾谨言《量子力学·卷Ⅰ》为主，Griffiths 辅）整理，公式与结论已尽力核对，但仍可能有错漏——发现错误欢迎提 Issue 或在站内留言指正。本站不提供任何形式的课程官方资料替代。</p>' +
     '<h2>更新记录</h2>' +
-    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
+    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
     '</div></div>';
   document.title = "关于 · 量子力学学习笔记";
   window.scrollTo(0,0);
@@ -854,7 +945,302 @@ function boot(){
       '<p><button style="padding:8px 16px;border-radius:8px;border:1px solid var(--line-2);background:var(--paper);cursor:pointer" onclick="location.reload()">重试</button></p></div></div>';
   });
 }
+/* ========== 批注模式（框选段落 → 写意见 → 复制发给我） ========== */
+var ANN_KEY = "qm_annotations_v1";
+var ANN = [];
+var annActive = false;
+var annBoxEl = null, annDrag = null;
+var annPendingQuote = null;
+var annToastTimer = null;
+var annCoarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+
+function loadAnns(){ try { ANN = JSON.parse(localStorage.getItem(ANN_KEY) || "[]") || []; } catch(e){ ANN = []; } }
+function saveAnns(){ try { localStorage.setItem(ANN_KEY, JSON.stringify(ANN)); } catch(e){} }
+function annToast(msg){
+  var t = document.getElementById("annToast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(annToastTimer);
+  annToastTimer = setTimeout(function(){ t.classList.remove("show"); }, 3200);
+}
+function annCountAll(){
+  var c = document.getElementById("annCount");
+  var hd = document.getElementById("annCountHd");
+  if(c){ c.hidden = ANN.length === 0; c.textContent = ANN.length; }
+  if(hd){ hd.textContent = ANN.length ? "共 " + ANN.length + " 条" : ""; }
+}
+function curPageLabel(){
+  var r = parseRoute();
+  if(r.name === "point"){ var p = POINTS.find(function(x){ return x.key === r.key; }); return p ? (p.mod.name + " / " + p.title) : r.key; }
+  if(r.name === "note"){ var n = NOTES.find(function(x){ return x.key === r.key; }); return n ? ("课堂笔记 / " + n.title) : r.key; }
+  if(r.name === "qaItem"){ var q = QAS.find(function(x){ return x.key === r.key; }); return q ? ("答疑 / " + q.title) : r.key; }
+  if(r.name === "module"){ var m = MODULES[parseInt(r.id, 10) || 0]; return m ? ("模块 / " + m.name) : r.id; }
+  return "其他页面";
+}
+function annQuoteFromSelection(){
+  var sel = window.getSelection();
+  var s = sel && sel.toString ? sel.toString() : "";
+  s = String(s).trim().replace(/\s+/g, " ");
+  return s ? (s.length > 400 ? s.slice(0, 400) + "…" : s) : "";
+}
+function annHitText(cx, cy){
+  var el = document.elementFromPoint(cx, cy);
+  for(var i = 0; el && i < 10; i++){
+    if(el.nodeType === 1){
+      var tag = el.tagName;
+      if(/^(P|H1|H2|H3|H4|H5|LI|TD|TH|BLOCKQUOTE|PRE|A)$/.test(tag) && el.textContent && el.textContent.trim().length > 3){
+        var t = el.textContent.trim().replace(/\s+/g, " ");
+        return t.length > 400 ? t.slice(0, 400) + "…" : t;
+      }
+    }
+    el = el.parentElement;
+  }
+  return "";
+}
+function annOpenComposer(quote, rect){
+  var pos = document.getElementById("annComposer");
+  document.getElementById("annQuoteBox").textContent = quote || "（未捕获到文本，可手动粘贴）";
+  pos.setAttribute("data-quote", quote || "");
+  document.getElementById("annComment").value = "";
+  var top = 20 + Math.round(innerHeight * 0.12);
+  if(rect){
+    if(rect.y + rect.h + 16 + 240 < innerHeight) top = rect.y + rect.h + 16;
+    else if(rect.y - 260 > 8) top = rect.y - 260;
+  }
+  pos.style.top = Math.max(8, top) + "px";
+  pos.style.left = "50%";
+  pos.style.transform = "translateX(-50%)";
+  pos.style.display = "block";
+  document.getElementById("annComment").focus();
+}
+function annCloseComposer(){
+  var c = document.getElementById("annComposer");
+  if(c) c.style.display = "none";
+}
+function annAdd(comment, quote){
+  var item = {
+    id: "a" + Date.now() + Math.floor(Math.random() * 1000),
+    hash: location.hash || "#/",
+    page: curPageLabel(),
+    time: new Date().toLocaleString("zh-CN", {hour12:false}),
+    quote: quote || "",
+    comment: comment || ""
+  };
+  ANN.push(item);
+  saveAnns();
+  annRenderPanel();
+  return item;
+}
+function annIsUi(t){
+  return !!(t && t.closest && t.closest(".ann-ui, .ann-box, .back-top, .site-head"));
+}
+function annOnDown(e){
+  if(e.button !== 0 || annIsUi(e.target)) return;
+  var vr = view.getBoundingClientRect();
+  if(e.clientY < vr.top || e.clientY > vr.bottom || e.clientX < vr.left || e.clientX > vr.right) return;
+  annDrag = {x0: e.clientX, y0: e.clientY, x1: e.clientX, y1: e.clientY};
+  if(!annBoxEl){
+    annBoxEl = document.createElement("div");
+    annBoxEl.className = "ann-box";
+    document.body.appendChild(annBoxEl);
+  }
+  annBoxEl.style.display = "block";
+  annBoxEl.style.left = e.clientX + "px";
+  annBoxEl.style.top = e.clientY + "px";
+  annBoxEl.style.width = "0px";
+  annBoxEl.style.height = "0px";
+}
+function annOnMove(e){
+  if(!annDrag) return;
+  annDrag.x1 = e.clientX; annDrag.y1 = e.clientY;
+  var x = Math.min(annDrag.x0, annDrag.x1), y = Math.min(annDrag.y0, annDrag.y1);
+  annBoxEl.style.left = x + "px";
+  annBoxEl.style.top = y + "px";
+  annBoxEl.style.width = Math.abs(annDrag.x1 - annDrag.x0) + "px";
+  annBoxEl.style.height = Math.abs(annDrag.y1 - annDrag.y0) + "px";
+}
+function annOnUp(){
+  if(!annDrag) return;
+  var d = annDrag;
+  var w = Math.abs(d.x1 - d.x0), h = Math.abs(d.y1 - d.y0);
+  annDrag = null;
+  if(annBoxEl) annBoxEl.style.display = "none";
+  if(w < 6 && h < 6) return;
+  var quote = annQuoteFromSelection();
+  if(!quote) quote = annHitText((d.x0 + d.x1) / 2, (d.y0 + d.y1) / 2);
+  try { window.getSelection().removeAllRanges(); } catch(_) {}
+  annOpenComposer(quote, {x: Math.min(d.x0, d.x1), y: Math.min(d.y0, d.y1), w: w, h: h});
+}
+function annOnTap(e){
+  if(annIsUi(e.target)) return;
+  if(e.target.closest && e.target.closest("#articleBody, .article") === null) return;
+  var quote = annHitText(e.clientX, e.clientY);
+  if(!quote) return;
+  e.preventDefault();
+  annOpenComposer(quote, {x: e.clientX - 10, y: e.clientY, w: 20, h: 4});
+}
+function annEnableDrag(){
+  if(annCoarse){ document.addEventListener("click", annOnTap); }
+  else {
+    document.addEventListener("mousedown", annOnDown);
+    document.addEventListener("mousemove", annOnMove);
+    document.addEventListener("mouseup", annOnUp);
+  }
+}
+function annDisableDrag(){
+  document.removeEventListener("click", annOnTap);
+  document.removeEventListener("mousedown", annOnDown);
+  document.removeEventListener("mousemove", annOnMove);
+  document.removeEventListener("mouseup", annOnUp);
+}
+function annSetActive(on){
+  annActive = !!on;
+  document.body.classList.toggle("ann-mode", annActive);
+  var btn = document.getElementById("annModeBtn");
+  if(btn) btn.classList.toggle("on", annActive);
+  if(annActive){ annEnableDrag(); annOpenPanel(); }
+  else { annDisableDrag(); if(annBoxEl) annBoxEl.style.display = "none"; annCloseComposer(); }
+  annToast(annActive ? "批注模式已开启：拖动框选不满意的段落（Alt+A 退出）" : "批注模式已关闭");
+}
+function annOpenPanel(){ document.getElementById("annPanel").classList.add("open"); annRenderPanel(); }
+function annClosePanel(){ document.getElementById("annPanel").classList.remove("open"); }
+function annRenderPanel(){
+  var list = document.getElementById("annList");
+  if(!list) return;
+  annCountAll();
+  if(!ANN.length){ list.innerHTML = '<p class="ann-empty">还没有批注。按 <b>Alt+A</b> 进入批注模式，拖动框选不满意的段落，写一句意见保存。</p>'; return; }
+  list.innerHTML = ANN.map(function(a){
+    return '<div class="ann-item">' +
+      '<div class="ann-item-top"><span class="ann-time">' + a.time + '</span>' +
+      '<button class="ann-del" data-id="' + a.id + '" title="删除批注" aria-label="删除批注">✕</button></div>' +
+      '<div class="ann-page">' + escapeHtml(a.page) + '</div>' +
+      (a.comment ? '<div class="ann-comment">' + escapeHtml(a.comment) + '</div>' : '') +
+      (a.quote ? '<div class="ann-quote">' + escapeHtml(a.quote) + '</div>' : '') +
+      '<div class="ann-item-ops"><a class="ann-jump" href="' + a.hash + '" data-quote="' + escapeHtml(a.quote || "") + '">定位到该段落 →</a></div>' +
+      '</div>';
+  }).join("");
+}
+function annReport(){
+  var lines = [];
+  lines.push("【批注汇报】量子力学学习网站 v" + VERSION);
+  lines.push("生成时间：" + new Date().toLocaleString("zh-CN", {hour12:false}));
+  lines.push("批注总数：" + ANN.length);
+  lines.push("");
+  ANN.forEach(function(a, i){
+    lines.push("## 批注 " + (i + 1));
+    lines.push("- 页面：" + a.page);
+    lines.push("- 地址：" + (location.origin + location.pathname + a.hash));
+    lines.push("- 时间：" + a.time);
+    if(a.comment) lines.push("- 意见：" + a.comment);
+    if(a.quote) lines.push("- 原文引用：");
+    lines.push("> " + a.quote.split("\n").join("\n> "));
+    lines.push("");
+  });
+  return lines.join("\n");
+}
+function annCopy(){
+  var txt = annReport();
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = txt;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch(e) {}
+    document.body.removeChild(ta);
+    annToast("已复制批注报告，直接粘贴到豆包对话发给我即可");
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ annToast("已复制批注报告，直接粘贴到豆包对话发给我即可"); }, fallback);
+  } else fallback();
+}
+function annExportJson(){
+  var blob = new Blob([JSON.stringify(ANN, null, 2)], {type: "application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "量子力学批注-" + new Date().toISOString().slice(0, 10) + ".json";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+function annClear(){
+  if(!ANN.length) return;
+  if(!confirm("确定清除全部 " + ANN.length + " 条批注？")) return;
+  ANN = []; saveAnns(); annRenderPanel(); annToast("已清空全部批注");
+}
+function annLocate(quote){
+  var key = String(quote || "").trim().slice(0, 18);
+  if(!key) return;
+  var nodes = view.querySelectorAll("#articleBody p, #articleBody li, #articleBody h2, #articleBody h3, #articleBody h4, #articleBody td, #articleBody blockquote");
+  for(var i = 0; i < nodes.length; i++){
+    var t = nodes[i].textContent.trim().replace(/\s+/g, " ");
+    if(t.indexOf(key) >= 0){
+      nodes[i].classList.add("ann-flash");
+      setTimeout(function(){ nodes[i].classList.remove("ann-flash"); }, 2500);
+      nodes[i].scrollIntoView({behavior: "smooth", block: "center"});
+      return;
+    }
+  }
+}
+function annWaitLocate(){
+  var tries = 0;
+  var iv = setInterval(function(){
+    tries++;
+    var body = document.getElementById("articleBody");
+    if(body && body.querySelector("p, li, h2, h3")){
+      clearInterval(iv);
+      setTimeout(function(){ annLocate(annPendingQuote); }, 120);
+    } else if(tries > 40){ clearInterval(iv); }
+  }, 100);
+}
+function annInit(){
+  loadAnns();
+  document.getElementById("annModeBtn").addEventListener("click", function(){ annSetActive(!annActive); });
+  document.getElementById("annTogglePanel").addEventListener("click", function(){
+    var p = document.getElementById("annPanel");
+    if(p.classList.contains("open")) annClosePanel(); else annOpenPanel();
+  });
+  document.getElementById("annClosePanel").addEventListener("click", annClosePanel);
+  document.getElementById("annSaveBtn").addEventListener("click", function(){
+    var comment = document.getElementById("annComment").value.trim();
+    var quote = document.getElementById("annComposer").getAttribute("data-quote") || "";
+    if(!comment && !quote){ annToast("写一句意见，或保留引用文本再保存"); return; }
+    annAdd(comment, quote);
+    annCloseComposer();
+    annToast("已保存批注（共 " + ANN.length + " 条），面板可查看 / 复制");
+  });
+  document.getElementById("annCancelBtn").addEventListener("click", annCloseComposer);
+  document.getElementById("annCopyBtn").addEventListener("click", annCopy);
+  document.getElementById("annExportBtn").addEventListener("click", annExportJson);
+  document.getElementById("annClearBtn").addEventListener("click", annClear);
+  document.getElementById("annList").addEventListener("click", function(e){
+    var del = e.target.closest(".ann-del");
+    if(del){
+      var id = del.getAttribute("data-id");
+      ANN = ANN.filter(function(a){ return a.id !== id; });
+      saveAnns(); annRenderPanel(); annToast("已删除该批注");
+      return;
+    }
+    var jump = e.target.closest(".ann-jump");
+    if(jump){
+      e.preventDefault();
+      annClosePanel();
+      annPendingQuote = jump.getAttribute("data-quote") || "";
+      var h = jump.getAttribute("href") || "#/";
+      location.hash = h.charAt(0) === "#" ? h.slice(1) : h;
+      annWaitLocate();
+    }
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.altKey && (e.key === "a" || e.key === "A")){ e.preventDefault(); annSetActive(!annActive); return; }
+    if(e.key === "Escape"){
+      if(document.getElementById("annComposer").style.display !== "none") annCloseComposer();
+      else if(annActive) annSetActive(false);
+      else if(document.getElementById("annPanel").classList.contains("open")) annClosePanel();
+    }
+  });
+  annRenderPanel();
+}
+
 boot();
+annInit();
 })();
 
 </script>
