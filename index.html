@@ -70,6 +70,7 @@ a:hover{color:var(--accent)}
 .foot-links{display:flex;gap:14px;font-size:14px}
 .foot-links a{color:#C7CDDC;text-decoration:none}
 .foot-links a:hover{color:#fff}
+.foot-ver{flex-basis:100%;font-size:12px;color:#7C8498;letter-spacing:.4px}
 
 /* ===== Hero ===== */
 .hero{background:var(--night);color:#E7E9F1;position:relative;overflow:hidden}
@@ -212,6 +213,8 @@ background-size:240px 220px}
 .item-card .meta{margin-top:6px;font-size:12.5px;color:var(--ink-3)}
 .item-card .ex{margin-top:8px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
 .item-card .ex b{font-weight:700}
+.ver-line{display:flex;align-items:center;gap:10px}
+.ver-badge{display:inline-block;background:var(--accent);color:#fff;font-size:12.5px;font-weight:700;font-family:var(--mono);padding:2px 9px;border-radius:99px;letter-spacing:.3px}
 .mod-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0 22px}
 .mod-head h1{margin:0;font-size:clamp(22px,3vw,30px)}
 .mod-head .chip{margin-left:0}
@@ -252,6 +255,7 @@ background-size:240px 220px}
       <a href="#/progress" data-nav="progress">学习进度</a>
       <a href="#/notes" data-nav="notes">课堂笔记</a>
       <a href="#/qa" data-nav="qa">答疑记录</a>
+      <a href="#/changelog" data-nav="changelog">版本记录</a>
       <a href="#/about" data-nav="about">关于</a>
     </nav>
     <div class="head-search" id="headSearch">
@@ -276,8 +280,10 @@ background-size:240px 220px}
     <nav class="foot-links" aria-label="页脚导航">
       <a href="#/framework">体系总览</a>
       <a href="#/progress">学习进度</a>
+      <a href="#/changelog">版本记录</a>
       <a href="#/about">关于 / 更新方法</a>
     </nav>
+    <div class="foot-ver" id="footVer">v1.0.1</div>
   </div>
 </footer>
 
@@ -291,6 +297,18 @@ background-size:240px 220px}
 (function(){
 "use strict";
 var MANIFEST_URL = "content/manifest.json";
+var VERSION = "1.0.1";
+var CHANGELOG = [
+  {ver:"1.0.0", date:"2026-10-23", title:"站点上线", items:[
+    "发布 GitHub Pages 静态站，覆盖五章节 16 模块、50 个知识点、12 篇课堂笔记、9 篇答疑记录。",
+    "深色星空首页 + 奶油纸正文；hash 路由六视图；KaTeX 公式渲染。"
+  ]},
+  {ver:"1.0.1", date:"2026-10-23", title:"修复与版本模块", items:[
+    "修复：知识点 / 笔记页通过「上一节 / 下一节」跳转后停留页面中部，现统一回到顶部。",
+    "修复：公式缺失或乱码——① 修正 manifest 中两个失效内容路径（自旋态空间、迈克尔逊-莫雷实验笔记），恢复页面加载；② 数学公式渲染前先保护 $..$ 段，避免星号、下划线被 Markdown 当作强调标记破坏 LaTeX。",
+    "新增：本页版本记录模块，footer 显示当前版本号。"
+  ]}
+];
 var M = null;
 var POINTS = [], NOTES = [], QAS = [], MODULES = [];
 var PATHMAP = {}, ALIASES = {};
@@ -327,6 +345,7 @@ function parseRoute(hash){
   if(h === "notes") return {name:"notes"};
   if(h === "qa") return {name:"qa"};
   if(h === "about") return {name:"about"};
+  if(h === "changelog") return {name:"changelog"};
   if(seg[0] === "module") return {name:"module", id:seg[1]};
   if(seg[0] === "p") return {name:"point", key:seg[1]};
   if(seg[0] === "n") return {name:"note", key:seg[1]};
@@ -344,10 +363,21 @@ function normPath(p){
   });
   return out.join("/");
 }
+/* 公式保护：先占位替换 $..$ / $$..$$ 段，再让 marked 解析，最后还原，避免 * _ 等符号被当强调标记破坏 LaTeX */
+function protectMath(text){
+  var ph = [];
+  text = text.replace(/\$\$[\s\S]+?\$\$/g, function(m){ ph.push(m); return "\u0000KX" + (ph.length-1) + "\u0000"; });
+  text = text.replace(/\$[^$\n]+?\$/g, function(m){ ph.push(m); return "\u0000KX" + (ph.length-1) + "\u0000"; });
+  return {text:text, ph:ph};
+}
+function restoreMath(html, ph){
+  return html.replace(/\u0000KX(\d+)\u0000/g, function(m, i){ return ph[+i] || ""; });
+}
 function renderMD(text, baseDir, container, opts){
   opts = opts || {};
   text = String(text).replace(/<!--\s*nav-start\s*-->[\s\S]*$/, "");
-  container.innerHTML = marked.parse(text, {gfm:true, breaks:false});
+  var pm = protectMath(text);
+  container.innerHTML = restoreMath(marked.parse(pm.text, {gfm:true, breaks:false}), pm.ph);
   // 表格外包滚动容器
   container.querySelectorAll("table").forEach(function(t){
     var w = document.createElement("div");
@@ -466,7 +496,7 @@ function renderHome(){
     return '<a class="mod-card' + (m.status === "todo" ? " todo" : "") + '" href="#/module/' + m.idx + '">' +
       '<div class="mc-top"><span class="mc-name">' + m.name + '</span>' + chip + '</div>' +
       '<p class="mc-ch">第' + m.chapter + '章节</p>' +
-      '<p class="mc-count">' + (n ? '<b>' + n + '</b> 个知识点' : "尚未成文，待补") + '</p></div>';
+      '<p class="mc-count">' + (n ? '<b>' + n + '</b> 个知识点' : "尚未成文，待补") + '</p></a>';
   }).join("");
   var chs = [
     {no:"第一章", name:"量子论诞生 · 波函数与薛定谔方程", desc:"实验反常如何逼出波函数与 Born 概率诠释，再到定态方程。", hour:"4 学时 · L1–L2", mods:"模块 1–3"},
@@ -608,9 +638,11 @@ function renderPointPage(key){
     else html += '<a class="next" href="#/module/' + m.idx + '"><div class="dir">本节结束 →</div><div class="ttl">返回模块页</div></a>';
     document.getElementById("pnNav").innerHTML = html;
     document.title = p.title + " · 量子力学学习笔记";
+    window.scrollTo(0,0);
   }).catch(function(e){
     document.getElementById("articleBody").innerHTML =
       '<div class="err-box"><h2>知识点加载失败</h2><p>无法读取 <code>' + escapeHtml(p.path) + '</code>。若你是直接双击打开本地文件，请改用 GitHub Pages 或本地服务器访问。</p></div>';
+    window.scrollTo(0,0);
   });
 }
 function dirOf(path){
@@ -658,9 +690,11 @@ function renderItemPage(backRoute, backName, title, path){
   fetch("content/" + path, {cache:"no-store"}).then(function(r){ return r.text(); }).then(function(t){
     renderMD(t, dirOf(path), document.getElementById("articleBody"), {toc:true});
     document.title = title + " · 量子力学学习笔记";
+    window.scrollTo(0,0);
   }).catch(function(){
     document.getElementById("articleBody").innerHTML =
       '<div class="err-box"><h2>加载失败</h2><p>无法读取 <code>' + escapeHtml(path) + '</code>。</p></div>';
+    window.scrollTo(0,0);
   });
 }
 
@@ -682,9 +716,23 @@ function renderAbout(){
     '<h2>致谢与免责</h2>' +
     '<p>笔记基于课堂讲授与教材（曾谨言《量子力学·卷Ⅰ》为主，Griffiths 辅）整理，公式与结论已尽力核对，但仍可能有错漏——发现错误欢迎提 Issue 或在站内留言指正。本站不提供任何形式的课程官方资料替代。</p>' +
     '<h2>更新记录</h2>' +
-    '<p>2026-10-23：站点上线（v1）。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。</p>' +
+    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
     '</div></div>';
   document.title = "关于 · 量子力学学习笔记";
+  window.scrollTo(0,0);
+}
+
+/* ---------- 版本记录页 ---------- */
+function renderChangelog(){
+  var cards = CHANGELOG.map(function(c){
+    return '<div class="item-card"><div class="ver-line"><span class="ver-badge">v' + c.ver + '</span><span class="meta">' + c.date + '</span></div>' +
+      '<h3 style="margin:10px 0 6px">' + escapeHtml(c.title) + '</h3>' +
+      '<div class="ex">' + c.items.map(function(it){ return '<p style="margin:4px 0">' + escapeHtml(it) + '</p>'; }).join("") + '</div></div>';
+  }).join("");
+  view.innerHTML =
+    '<div class="wrap"><div class="page-head"><h1>版本记录</h1><p class="sub">当前版本 <b>v' + VERSION + '</b> · 每次迭代在此留档。</p></div>' +
+    '<div class="list cols2">' + cards + '</div></div>';
+  document.title = "版本记录 · 量子力学学习笔记";
   window.scrollTo(0,0);
 }
 
@@ -781,6 +829,7 @@ function dispatch(){
     case "notes": renderNotesPage(); break;
     case "qa": renderQaPage(); break;
     case "about": renderAbout(); break;
+    case "changelog": renderChangelog(); break;
     case "module": renderModulePage(parseInt(route.id, 10) || 0); break;
     case "point": renderPointPage(route.key); break;
     case "note": renderNotePage(route.key); break;
