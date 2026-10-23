@@ -1166,16 +1166,24 @@ function annClear(){
   ANN = []; saveAnns(); annRenderPanel(); annToast("已清空全部批注");
 }
 function annLocate(quote){
-  var key = String(quote || "").trim().slice(0, 18);
-  if(!key) return;
-  var nodes = view.querySelectorAll("#articleBody p, #articleBody li, #articleBody h2, #articleBody h3, #articleBody h4, #articleBody td, #articleBody blockquote");
-  for(var i = 0; i < nodes.length; i++){
-    var t = nodes[i].textContent.trim().replace(/\s+/g, " ");
-    if(t.indexOf(key) >= 0){
-      nodes[i].classList.add("ann-flash");
-      setTimeout(function(){ nodes[i].classList.remove("ann-flash"); }, 2500);
-      nodes[i].scrollIntoView({behavior: "smooth", block: "center"});
-      return;
+  var q = String(quote || "").trim();
+  if(!q) return;
+  /* 多候选键：开头可能落在页面标题（articleBody 之外），故同时取中间段与末尾段提高命中 */
+  var keys = [q.slice(0, 18)];
+  if(q.length > 24) keys.push(q.slice(Math.floor(q.length / 2), Math.floor(q.length / 2) + 18));
+  keys.push(q.slice(-18));
+  var nodes = view.querySelectorAll("#articleBody p, #articleBody li, #articleBody h1, #articleBody h2, #articleBody h3, #articleBody h4, #articleBody h5, #articleBody td, #articleBody th, #articleBody blockquote, #articleBody pre, .page-head h1");
+  for(var k = 0; k < keys.length; k++){
+    var key = keys[k];
+    if(!key) continue;
+    for(var i = 0; i < nodes.length; i++){
+      var t = nodes[i].textContent.trim().replace(/\s+/g, " ");
+      if(t.indexOf(key) >= 0){
+        nodes[i].classList.add("ann-flash");
+        (function(n){ setTimeout(function(){ n.classList.remove("ann-flash"); }, 2500); })(nodes[i]);
+        nodes[i].scrollIntoView({behavior: "smooth", block: "center"});
+        return;
+      }
     }
   }
 }
