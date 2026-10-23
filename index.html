@@ -268,6 +268,9 @@ background-size:240px 220px}
 .ann-composer{position:fixed;z-index:1700;width:min(560px,92vw);background:#fff;border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 60px rgba(20,24,40,.25);padding:16px 18px}
 .ann-composer-q-label{font-size:12px;color:var(--ink-3);margin-bottom:4px;letter-spacing:.05em}
 .ann-composer-quote{font-size:13.5px;color:var(--ink-2);background:var(--paper-2);border-left:3px solid var(--accent);border-radius:6px;padding:8px 10px;max-height:96px;overflow:auto;line-height:1.6;margin-bottom:10px}
+.ann-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.ann-chip{border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);font-size:13px;padding:10px 14px;border-radius:99px;cursor:pointer;min-height:42px;line-height:1.4;font-family:var(--sans)}
+.ann-chip:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--paper-2)}
 #annComment{width:100%;border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;font-size:15px;font-family:var(--sans);color:var(--ink);resize:vertical;min-height:64px;outline:none;line-height:1.6}
 #annComment:focus{border-color:var(--accent)}
 .ann-composer-ops{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
@@ -333,7 +336,7 @@ background-size:240px 220px}
       <a href="#/changelog">版本记录</a>
       <a href="#/about">关于 / 更新方法</a>
     </nav>
-    <div class="foot-ver" id="footVer">v1.1.1</div>
+    <div class="foot-ver" id="footVer">v1.1.2</div>
   </div>
 </footer>
 
@@ -366,6 +369,13 @@ background-size:240px 220px}
 <div class="ann-ui ann-composer" id="annComposer" style="display:none">
   <div class="ann-composer-q-label">原文引用</div>
   <div class="ann-composer-quote" id="annQuoteBox"></div>
+  <div class="ann-chips" id="annChips" role="group" aria-label="常用批注选项">
+    <button type="button" class="ann-chip" data-comment="【公式乱码】此处公式显示乱码或缺失，请修复公式渲染并补全正确公式。">公式乱码</button>
+    <button type="button" class="ann-chip" data-comment="【数学知识】这里涉及的数学知识建议补充说明（相关定理、符号含义），让我能跟上推导。">数学知识</button>
+    <button type="button" class="ann-chip" data-comment="【扩充描述】这段话太晦涩，请扩充描述，把原来的意思用更通俗的话重新讲一遍。">扩充描述</button>
+    <button type="button" class="ann-chip" data-comment="【完整由来】请补充完整由来：不要直接撂公式，把每一步是怎么推理出来的写清楚。">完整由来</button>
+    <button type="button" class="ann-chip" data-comment="【精简略写】内容过于冗长，请精简改写，保留核心结论即可。">精简略写</button>
+  </div>
   <textarea id="annComment" rows="3" placeholder="哪里让你不满意？讲不通、跳步、公式写错、太啰嗦……写下来发给我"></textarea>
   <div class="ann-composer-ops">
     <button id="annCancelBtn">取消</button>
@@ -382,7 +392,7 @@ background-size:240px 220px}
 (function(){
 "use strict";
 var MANIFEST_URL = "content/manifest.json";
-var VERSION = "1.1.1";
+var VERSION = "1.1.2";
 var CHANGELOG = [
   {ver:"1.0.0", date:"2026-10-23", title:"站点上线", items:[
     "发布 GitHub Pages 静态站，覆盖五章节 16 模块、50 个知识点、12 篇课堂笔记、9 篇答疑记录。",
@@ -403,6 +413,10 @@ var CHANGELOG = [
     "修复：进入批注模式不再自动弹出右侧面板，避免遮挡正文；按钮点击后变色表示已激活。",
     "优化：批注细节改由点左下角「查看批注」按钮查看，面板不再自动抢占视线。",
     "修复：查看面板开启后，右下角两个按钮浮于面板之上，可再次点击关闭面板或退出批注模式。"
+  ]},
+  {ver:"1.1.2", date:"2026-10-23", title:"批注常用快捷选项", items:[
+    "新增：批注编辑框内置 5 个一键标签——公式乱码 / 数学知识 / 扩充描述 / 完整由来 / 精简略写，点一下意见自动填好，无需打字。",
+    "约定：「完整由来」不直接撂公式，要求写清每一步推理；「扩充描述」把晦涩原话补讲一遍。"
   ]}
 ];
 var M = null;
@@ -812,7 +826,7 @@ function renderAbout(){
     '<h2>致谢与免责</h2>' +
     '<p>笔记基于课堂讲授与教材（曾谨言《量子力学·卷Ⅰ》为主，Griffiths 辅）整理，公式与结论已尽力核对，但仍可能有错漏——发现错误欢迎提 Issue 或在站内留言指正。本站不提供任何形式的课程官方资料替代。</p>' +
     '<h2>更新记录</h2>' +
-    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。2026-10-23：v1.1.1 批注体验优化（进入批注模式不再自动弹出面板遮挡正文，按钮变色表示已激活）。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
+    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。2026-10-23：v1.1.1 批注体验优化（进入批注模式不再自动弹出面板遮挡正文，按钮变色表示已激活）。2026-10-23：v1.1.2 批注新增常用快捷选项（公式乱码 / 数学知识 / 扩充描述 / 完整由来 / 精简略写），一键填入意见。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
     '</div></div>';
   document.title = "关于 · 量子力学学习笔记";
   window.scrollTo(0,0);
@@ -1221,6 +1235,13 @@ function annInit(){
   });
   document.getElementById("annCancelBtn").addEventListener("click", annCloseComposer);
   document.getElementById("annCopyBtn").addEventListener("click", annCopy);
+  document.querySelectorAll(".ann-chip").forEach(function(ch){
+    ch.addEventListener("click", function(){
+      var cm = document.getElementById("annComment");
+      cm.value = ch.getAttribute("data-comment") || "";
+      cm.focus();
+    });
+  });
   document.getElementById("annExportBtn").addEventListener("click", annExportJson);
   document.getElementById("annClearBtn").addEventListener("click", annClear);
   document.getElementById("annList").addEventListener("click", function(e){
