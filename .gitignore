@@ -1,0 +1,13 @@
+# WPS 云盘 / 系统临时文件
+~$*
+*.tmp
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# 本地自检截图产物（不属于交付物）
+_shots/
