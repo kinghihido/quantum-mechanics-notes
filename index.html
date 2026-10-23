@@ -333,7 +333,7 @@ background-size:240px 220px}
       <a href="#/changelog">版本记录</a>
       <a href="#/about">关于 / 更新方法</a>
     </nav>
-    <div class="foot-ver" id="footVer">v1.1.0</div>
+    <div class="foot-ver" id="footVer">v1.1.1</div>
   </div>
 </footer>
 
@@ -382,7 +382,7 @@ background-size:240px 220px}
 (function(){
 "use strict";
 var MANIFEST_URL = "content/manifest.json";
-var VERSION = "1.1.0";
+var VERSION = "1.1.1";
 var CHANGELOG = [
   {ver:"1.0.0", date:"2026-10-23", title:"站点上线", items:[
     "发布 GitHub Pages 静态站，覆盖五章节 16 模块、50 个知识点、12 篇课堂笔记、9 篇答疑记录。",
@@ -398,6 +398,10 @@ var CHANGELOG = [
     "新增：批注面板——按页面查看 / 定位 / 删除批注，点「定位」自动跳到对应段落并高亮。",
     "新增：一键「复制批注报告」——生成结构化 Markdown（页面 / 地址 / 意见 / 原文引用），直接粘贴到豆包对话即可让 AI 精准修改。",
     "新增：「导出 JSON」备份批注；移动端点击段落即可快速批注。"
+  ]},
+  {ver:"1.1.1", date:"2026-10-23", title:"批注体验优化", items:[
+    "修复：进入批注模式不再自动弹出右侧面板，避免遮挡正文；按钮点击后变色表示已激活。",
+    "优化：批注细节改由点左下角「查看批注」按钮查看，面板不再自动抢占视线。"
   ]}
 ];
 var M = null;
@@ -807,7 +811,7 @@ function renderAbout(){
     '<h2>致谢与免责</h2>' +
     '<p>笔记基于课堂讲授与教材（曾谨言《量子力学·卷Ⅰ》为主，Griffiths 辅）整理，公式与结论已尽力核对，但仍可能有错漏——发现错误欢迎提 Issue 或在站内留言指正。本站不提供任何形式的课程官方资料替代。</p>' +
     '<h2>更新记录</h2>' +
-    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
+    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。2026-10-23：v1.1.1 批注体验优化（进入批注模式不再自动弹出面板遮挡正文，按钮变色表示已激活）。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
     '</div></div>';
   document.title = "关于 · 量子力学学习笔记";
   window.scrollTo(0,0);
@@ -1097,7 +1101,7 @@ function annSetActive(on){
   document.body.classList.toggle("ann-mode", annActive);
   var btn = document.getElementById("annModeBtn");
   if(btn) btn.classList.toggle("on", annActive);
-  if(annActive){ annEnableDrag(); annOpenPanel(); }
+  if(annActive){ annEnableDrag(); }
   else { annDisableDrag(); if(annBoxEl) annBoxEl.style.display = "none"; annCloseComposer(); }
   annToast(annActive ? "批注模式已开启：拖动框选不满意的段落（Alt+A 退出）" : "批注模式已关闭");
 }
