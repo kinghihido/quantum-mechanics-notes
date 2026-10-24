@@ -525,7 +525,7 @@ function renderMD(text, baseDir, container, opts){
     var anchor = "";
     var base = href.split("#")[0];
     if(href.indexOf("#") >= 0) anchor = href.slice(href.indexOf("#"));
-    if(/\.md$/i.test(base)) return;
+    if(!/\.md$/i.test(base)) return;
     var decoded = base;
     try { decoded = decodeURIComponent(base); } catch(e){}
     var resolved = normPath(baseDir + "/" + decoded.replace(/\\/g, "/"));
@@ -550,8 +550,10 @@ function renderMD(text, baseDir, container, opts){
     try{
       renderMathInElement(container, {
         delimiters:[
+          {left:"$$", right:"$$", display:true},
+          {left:"$", right:"$", display:false},
           {left:"\\[", right:"\\]", display:true},
-          {left:"\\\\(", right:"\\\\)", display:false}
+          {left:"\\(", right:"\\)", display:false}
         ],
         throwOnError:false, strict:false
       });
