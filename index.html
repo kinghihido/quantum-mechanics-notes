@@ -245,7 +245,7 @@ a:hover{text-decoration:underline}
 /* ================= 配置与版本 ================= */
 var VERSION = "2.1.7";
 var CHANGELOG = [
-  ["2.1.7","图谱交互大修：点击公式节点即「聚焦」——选中节点移到画布中央（带绿框放大），只显示它和直接相连的邻居，边在聚焦中保持绿/灰两色，点空白或「退出聚焦」按钮返回全图（修复点击后节点跑没的问题）；侧边栏公式全面 LaTeX 渲染——推导正文与注释里的公式自动识别并转成 KaTeX（不再显示原始 latex 源码）；搜索栏升级——支持编号/名称/公式/注释关键词，实时列出结果、点击直接聚焦跳转；新增 8 条亲手推导打卡（M16→M38 行波、M38→F121 含时薛定谔、F121→F123 概率流、F121→F124 连续性方程直接推、F123→F124、F121→F125 定态分解、F125→F126 定态方程、F133→F118 群速度驻相），对应边已变绿。"],
+  ["2.1.7","图谱交互大修：点击公式节点即「聚焦」——选中节点移到画布中央（带绿框放大），只显示它和直接相连的邻居，边在聚焦中保持绿/灰两色，点空白或「退出聚焦」按钮返回全图（修复点击后节点跑没的问题）；侧边栏公式全面 LaTeX 渲染——推导正文与注释里的公式自动识别并转成 KaTeX（不再显示原始 latex 源码）；搜索栏升级——支持编号/名称/公式/注释关键词，实时列出结果、点击直接聚焦跳转；新增 8 条亲手推导打卡（M16→M38 行波、M38→F121 含时薛定谔、F121→F123 概率流、F121→F124 连续性方程直接推、F123→F124、F121→F125 定态分解、F125→F126 定态方程、F133→F118 群速度驻相），对应边已变绿；修复脚本库（ECharts/marked/KaTeX）与数据文件加载竞态导致图谱偶发白屏的问题。"],
   ["2.1.6","公式图谱推导边第二轮全面复核（v2.1.5 之后的纠错延续）：删除 6 条错误或跳步边——对易子定义→ΔxΔp（正确链为广义不确定→ΔxΔp）、张量积→自旋态空间（自旋来自 Stern–Gerlach 实验，非张量积推论）、对称守恒律→宇称（宇称是分立对称，不属 Noether 连续对称框架）、级数解法→SL 理论、对易子→相容观测量（共同本征态来自谱定理）、谐振子能谱→相干态定义（改为占据数表象→相干态定义）；新增 5 条正确边——德布罗意→康普顿散射（光子动量假设 p=h/λ）、含时薛定谔方程→概率流密度、初值问题三步解→定态性质、德布罗意→动量算符（平面波本征态要求）、占据数表象→相干态定义；并补动量算符/自旋态空间/概率流/定态性质/宇称/CSCO 的来路说明。"],
   ["2.1.5","公式图谱「公设」节点全面补来历，纠正「公设=凭空」的错误：含时薛定谔方程 F121 改由行波假设（M38）+ 德布罗意关系（F107）+ 经典能量关系 E=p²/2m 启发式构造，附完整推导并诚实标注公设化仅发生在「线性叠加推广」与「时间一阶」两处；删除 4 条逻辑错误边（行波→德布罗意（颠倒）、统计方差→ΔxΔp、TDSE→线性性（方向反）、时间演化→平移生成元（弱连）），F121 入边改回 M38/F107 并列；普朗克能量子、Born 诠释、态叠加、厄米性、正则对易、测量公设等根节点全部补实验/历史动机说明。"],
   ["2.1.4","公式图谱推导逻辑全面修正（科学事实纠错）：删除 13 条不符合物理/数学逻辑的推导边——含时薛定谔方程改标为基本公设（不再标为由哈密顿算符推出）、测量公设与普朗克能量子改标为公设、删除欧拉公式→能量子、对易子→能量-时间不确定、打靶法→节点定理、无限深阱→势阶反射、打靶法/方势垒→WKB、Ehrenfest→守恒判据、Dirac符号→宇称、动量算符→平移生成元、零点能→有限深阱等错误连接；补齐 10 条正确逻辑边——广义不确定→ΔxΔp 特例、量子拍→能量-时间不确定、SL 理论→节点定理、一维定态方程→势阶反射/有限深阱/WKB、定态方程→自由粒子解/一维定态、海森堡绘景→守恒判据、对称守恒律→平移生成元；并修正 F121/F133/F139/F148/F164 节点说明。"],
@@ -288,6 +288,7 @@ function mdToHtml(md){
   return html;
 }
 function renderMarkdown(md){
+  if(typeof marked==="undefined"){var d=document.createElement("div");d.textContent=md;return d;}
   /* 提取"补充"块 <details class="sup">…</details>：内部单独走完整 markdown 管线（支持 LaTeX） */
   var sups = [];
   md = md.replace(/<details class="sup">([\s\S]*?)<\/details>/g, function(m, inner){
@@ -311,20 +312,22 @@ function renderMarkdown(md){
     if(m)a.setAttribute("data-f",m[1]);
     a.addEventListener("click",function(){window.location.hash="#/graph?f="+m[1];});
   });
-  renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  if(typeof renderMathInElement==="function")renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
   return box;
 }
 function loadMD(path,el){
-  fetch(path).then(function(r){
-    if(!r.ok)throw new Error("HTTP "+r.status);
-    return r.text();
-  }).then(function(t){
-    var box = renderMarkdown(t);
-    el.innerHTML="";
-    el.appendChild(box);
-  }).catch(function(e){
-    el.innerHTML='<div class="err">内容加载失败（'+path+'）。请通过 GitHub Pages 或本地 HTTP 服务访问本站，<code>file://</code> 下无法读取内容文件。</div>';
-  });
+  whenLib(["marked"],function(){
+    fetch(path).then(function(r){
+      if(!r.ok)throw new Error("HTTP "+r.status);
+      return r.text();
+    }).then(function(t){
+      var box = renderMarkdown(t);
+      el.innerHTML="";
+      el.appendChild(box);
+    }).catch(function(e){
+      el.innerHTML='<div class="err">内容加载失败（'+path+'）。请通过 GitHub Pages 或本地 HTTP 服务访问本站，<code>file://</code> 下无法读取内容文件。</div>';
+    });
+  },"内容库加载等待超时：marked 库未就绪（'+path+'）");
 }
 
 /* ================= 路由 ================= */
@@ -377,8 +380,20 @@ function graphInit(){
     fetch("content/formulas-proofs.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).catch(function(){return {};})
   ]).then(function(arr){
     GF.edges=arr[0].edges;
-    buildGraph(arr[0].nodes,arr[1]||{});
+    whenLib(["echarts"],function(){buildGraph(arr[0].nodes,arr[1]||{});},"公式图谱");
   }).catch(function(e){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败：'+(e&&e.message?esc(e.message):String(e))+'（请通过 GitHub Pages 访问）</div>';});
+}
+function whenLib(libs,ok,failTag){
+  var miss=libs.filter(function(k){return typeof window[k]==="undefined";});
+  if(miss.length===0){ok();return;}
+  var n=0;
+  var t=setInterval(function(){
+    var m2=libs.filter(function(k){return typeof window[k]==="undefined";});
+    if(m2.length===0){clearInterval(t);ok();return;}
+    if(++n>40){clearInterval(t);
+      try{document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">'+failTag+'依赖的脚本库（'+m2.join("、")+'）加载失败，请刷新重试</div>';}catch(e){}
+    }
+  },500);
 }
 function buildGraph(nodes, proofs){
   GF.nodes=nodes;
@@ -526,7 +541,7 @@ function showCard(id){
   card.innerHTML=h;
   card.classList.add("open");
   var box=card;
-  renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  if(typeof renderMathInElement==="function")renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
 }
 function showEdgeCard(e){
   var card=document.getElementById("fcard");
@@ -543,7 +558,7 @@ function showEdgeCard(e){
   card.classList.add("open");
   var proofBox=renderMarkdown(e.proof);
   document.getElementById("fcProof").appendChild(proofBox);
-  renderMathInElement(card,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  if(typeof renderMathInElement==="function")renderMathInElement(card,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
 }
 function closeCard(){document.getElementById("fcard").classList.remove("open");}
 function catOf(n){
