@@ -1,45 +1,41 @@
-# 手动更新指南（三步）
+# 手动更新指南（v2.0.0 · 四支柱）
 
-网站内容全部是 Markdown，更新不用懂代码。每次更新只需三步。
+网站内容全部是 Markdown / JSON，更新不用懂代码。四支柱各自独立维护：
 
-## 第 1 步：放文件
+## 支柱① 数学前备库（content/math.md）
 
-| 想加的内容 | 放到哪里 | 命名要求 |
-|---|---|---|
-| 新知识点 | `content/modules/模块N-主题/` | `N.小节号-名称.md`（如 `4.10-量子隧穿应用.md`）；模块文件夹不存在就先建 |
-| 课堂笔记 | `content/notes/` | `序号-标题.md`（如 `13-定态微扰引入.md`） |
-| 答疑记录 | `content/qa/` | `YYYY-MM-DD-主题.md`（如 `2026-11-01-角动量对易答疑.md`） |
-| 体系总览 / 学习进度 | `content/framework.md` / `content/progress.md` | 直接编辑覆盖 |
+- 单文件，条目编号 M01–M56，按大类（A 线性代数 / B 微积分 / C 常微分 / D 偏微分 / E 傅里叶 / F 复变 / G 特殊函数 / H 概率统计 / I 数值方法）排列。
+- 新条目在对应大类末尾追加，编号顺延；改动公式用 LaTeX（行内 `$…$`、独立行 `$$…$$`）。
 
-知识点文件建议沿用固定骨架：`# 编号　标题` → `> 模块与状态` → `## 速览` → `## 精要` → `## 相关知识点` → `## 例题` → `## 易错点` → `## 问答记录` → `## 留白`。
+## 支柱② 量子力学概论（content/overview.md）
 
-公式用 LaTeX：行内 `$E_n=\hbar\omega(n+\tfrac12)$`，独立行用 `$$…$$`。
+- 十章叙事长文，公式一律不推导，只用编号链接 `[F121](#graph?f=F121)` 指到图谱；编号必须对应 formulas.json 中真实存在的节点。
+- 改文字不影响其他支柱；新增公式时先在图谱登记编号，再回来引用。
 
-## 第 2 步：更新清单
+## 支柱③ 公式图谱（content/formulas.json）
 
-在网站根目录运行：
+- 结构：`nodes`（id=编号、name、formula、module、note、app、pre）与 `edges`（source→target）。
+- 新增公式：在 nodes 追加一条（编号 F 段内顺延），在 edges 补上前置依赖边，再在 overview.md 里引用。
+- `app: true` 表示应用公式（图谱里标「应用」、不再给推导）；`note` 可写用途说明。
+- 校验：节点/边格式必须自洽（无悬空引用、无自环），改完建议本地开 `python -m http.server` 实测蛛网。
 
-```bash
-python tools/build_manifest.py
-```
+## 支柱④ 例题精解（content/problems/ + content/manifest.json）
 
-脚本会扫描三个 content 目录，自动重新生成 `content/manifest.json`（含每个知识点的标题、路径、模块状态与章节）。没有 Python 时，也可以手动按现有格式往 `manifest.json` 对应数组里补一条记录。
+- 每个模块一个文件，如 `content/problems/模块4-一维束缚态.md`。
+- 例题格式固定：题号 + **应用公式**（`[F145](#graph?f=F145)` 链接清单）→ 已知/求 → 严谨分步解（含 ⚠️ 易错标注、全程带单位）。
+- 新模块：写例题文件后，在 `content/manifest.json` 里把对应模块的 `problem` 字段填上文件路径。
 
-> 模块状态（已整理/部分覆盖/待补）与所属章节定义在 `tools/build_manifest.py` 顶部的 `MODULE_META` 字典里，改名或新建模块时改这里。
-
-## 第 3 步：提交并发布
+## 提交与发布
 
 ```bash
 git add -A
-git commit -m "更新：新增 xxx"
+git commit -m "更新：…"
 git push
 ```
 
-仓库开启 GitHub Pages（Settings → Pages → Deploy from a branch → main / root）后，每次推送都会自动发布，约 1 分钟内生效。
+GitHub Pages 每次推送自动发布，约 1 分钟生效。
 
 ## 本地预览
-
-直接双击 `index.html` 打不开（浏览器禁止读取本地文件），用本地服务器：
 
 ```bash
 python -m http.server 8000
@@ -48,5 +44,6 @@ python -m http.server 8000
 
 ## 常见问题
 
-- **链接报"原文未收录"**：知识点里的旧链接指向笔记库其他位置（如 `01-课件/`），站点没有收录这些文件，会显示灰色占位；这是正常的。
-- **改了文件名/移动文件**：重跑 `build_manifest.py`；旧链接失效会在页面上显示"原文未收录"。
+- **公式乱码**：检查 LaTeX 里是否含 `<`、`>`、`*` 等字符——渲染管线已对公式做 HTML 转义保护，但写法上尽量用 `\langle`/`\rangle`、`\ast` 等转义符更稳。
+- **蛛网空白**：多为 CDN 加载失败；确认能访问 jsDelivr（fastly.jsdelivr.net），刷新重试。
+- **链接跳转后不在顶部**：网址带 `#/graph?f=Fxxx` 直达弹卡属正常设计；普通章节跳转会回到页面顶部。
