@@ -1,1 +1,2112 @@
-{"version":"0.1.0","groups":{"math":"数学前备库","m0":"模块1 · 旧量子论与诞生","m1":"模块2 · 波函数与统计诠释","m2":"模块3 · 薛定谔方程与概率守恒","m3":"模块4 · 一维束缚态","m4":"模块5 · 散射与隧穿","m6":"模块8 · 态矢量与表象","m7":"模块9 · 厄米算符与本征值问题","m8":"模块10 · 对易与相容观测量","m9":"模块11 · 时间演化与守恒量","m10":"模块12 · 对称守恒律","m13":"模块15 · 谐振子代数解法与相干态","m11":"模块13 · 角动量代数","m12":"模块14 · 自旋与Zeeman","m14":"模块16 · 全同粒子"},"nodes":[{"id":"M01","name":"向量空间与基","latex":"\\vec v=\\sum_i c_i\\vec e_i, \\ \\dim V=n","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M02","name":"内积与正交","latex":"\\langle\\varphi|\\psi\\rangle,\\ \\langle e_i|e_j\\rangle=\\delta_{ij}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M03","name":"线性算符与矩阵表示","latex":"\\hat A|e_j\\rangle=\\sum_i A_{ij}|e_i\\rangle,\\ A_{ij}=\\langle e_i|\\hat A|e_j\\rangle","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M04","name":"本征方程","latex":"\\hat A|a\\rangle=a|a\\rangle","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M05","name":"厄米矩阵：实谱+正交完备","latex":"\\hat A^\\dagger=\\hat A\\ \\Rightarrow\\ a\\in\\mathbb R,\\ \\langle a|a'\\rangle=\\delta_{aa'}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M06","name":"对易子与相容可观测量","latex":"[\\hat A,\\hat B]=\\hat A\\hat B-\\hat B\\hat A","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M07","name":"幺正变换（换基）","latex":"\\hat U^\\dagger\\hat U=1\\ \\Rightarrow\\ \\langle U\\psi|U\\varphi\\rangle=\\langle\\psi|\\varphi\\rangle","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M08","name":"矩阵迹","latex":"\\operatorname{Tr}A=\\sum_i A_{ii},\\ \\operatorname{Tr}(AB)=\\operatorname{Tr}(BA)","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M09","name":"投影算符与谱分解","latex":"\\hat A=\\sum_a a\\,|a\\rangle\\langle a|,\\ \\sum_a|a\\rangle\\langle a|=1","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M10","name":"张量积（多粒子）","latex":"|\\psi\\rangle=|\\psi_1\\rangle\\otimes|\\psi_2\\rangle,\\ \\dim\\mathcal H=\\dim\\mathcal H_1\\dim\\mathcal H_2","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M11","name":"行列式与特征多项式","latex":"\\det(\\hat A-\\lambda I)=0","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M12","name":"偏导与链式法则","latex":"\\frac{df}{dt}=\\sum_i\\frac{\\partial f}{\\partial x_i}\\frac{dx_i}{dt}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M13","name":"分部积分","latex":"\\int_a^b u\\,dv=uv\\Big|_a^b-\\int_a^b v\\,du","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M14","name":"换元积分","latex":"\\int f(g(x))g'(x)\\,dx=\\int f(u)\\,du","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M15","name":"泰勒展开","latex":"f(x)=\\sum_n\\frac{f^{(n)}(a)}{n!}(x-a)^n","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M16","name":"欧拉公式与复数","latex":"e^{i\\theta}=\\cos\\theta+i\\sin\\theta","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M17","name":"高斯积分","latex":"\\int_{-\\infty}^{\\infty}e^{-\\alpha x^2}dx=\\sqrt{\\pi/\\alpha}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M18","name":"反常积分与平方可积","latex":"\\int_{-\\infty}^{\\infty}|f(x)|^2dx<\\infty","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M19","name":"极值与二阶判据","latex":"f'(x_0)=0,\\ f''(x_0)>0\\Rightarrow\\text{极小}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M20","name":"散度定理","latex":"\\int_V\\nabla\\cdot\\vec F\\,dV=\\oint_S\\vec F\\cdot d\\vec S","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M21","name":"一阶ODE与分离变量","latex":"\\int\\frac{dy}{h(y)}=\\int g(x)\\,dx","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M22","name":"二阶常系数ODE","latex":"y''+k^2y=0\\Rightarrow y=A\\sin kx+B\\cos kx;\\ y''-\\kappa^2y=0\\Rightarrow Ce^{\\kappa x}+De^{-\\kappa x}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M23","name":"Wronskian与线性独立","latex":"W[y_1,y_2]=y_1y_2'-y_2y_1',\\ W'=0\\Rightarrow W\\equiv\\text{常数}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M24","name":"级数解法（Frobenius）","latex":"y=\\sum_{n=0}^{\\infty}a_nx^n\\ \\text{代入方程逐项定系数}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M25","name":"Sturm–Liouville 理论","latex":"-\\frac{d}{dx}\\left[p(x)\\frac{dy}{dx}\\right]+q(x)y=\\lambda\\rho(x)y","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M26","name":"边界值问题→离散谱","latex":"\\text{二阶线性方程+两端齐次边界}\\Rightarrow\\text{分立}\\ \\lambda_n","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M27","name":"分离变量法（PDE）","latex":"\\psi=X(x)Y(y)Z(z),\\ E=E_x+E_y+E_z","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M28","name":"三大线性方程类比","latex":"i\\hbar\\partial_t\\psi=-\\frac{\\hbar^2}{2m}\\partial_x^2\\psi","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M29","name":"本征函数展开","latex":"f(x)=\\sum_n c_n\\varphi_n(x),\\ c_n=\\langle\\varphi_n|f\\rangle","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M30","name":"傅里叶级数","latex":"f(x)=\\sum_n c_ne^{2\\pi inx/L},\\ c_n=\\frac1L\\int_0^L f e^{-2\\pi inx/L}dx","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M31","name":"傅里叶变换与逆变换","latex":"\\tilde f(k)=\\int f(x)e^{-ikx}dx,\\ f(x)=\\frac1{2\\pi}\\int\\tilde f(k)e^{ikx}dk","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M32","name":"狄拉克δ函数","latex":"\\int f(x)\\delta(x-x_0)dx=f(x_0)","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M33","name":"卷积定理","latex":"\\mathcal F\\{f*g\\}=\\tilde f(k)\\tilde g(k)","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M34","name":"高斯波包与展宽","latex":"\\sigma_x\\sigma_k\\ge\\tfrac12,\\ \\sigma_x(t)=\\sigma_x(0)\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_x^2}\\right)^2}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M35","name":"帕塞瓦尔定理","latex":"\\int|f(x)|^2dx=\\frac1{2\\pi}\\int|\\tilde f(k)|^2dk","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M36","name":"复平面与解析函数","latex":"f'(z)\\ \\text{存在}\\Leftrightarrow\\partial_xu=\\partial_yv,\\ \\partial_yu=-\\partial_xv","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M37","name":"留数定理","latex":"\\oint f(z)dz=2\\pi i\\sum\\operatorname{Res}f","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M38","name":"行波解与相位","latex":"\\psi=Ae^{i(kx-\\omega t)},\\ p=\\hbar k","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M39","name":"伽马函数","latex":"\\Gamma(z)=\\int_0^\\infty t^{z-1}e^{-t}dt,\\ \\Gamma(n+1)=n!,\\ \\Gamma(1/2)=\\sqrt\\pi","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M40","name":"贝塞尔函数","latex":"x^2y''+xy'+(x^2-n^2)y=0\\Rightarrow y=J_n(x)","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M41","name":"勒让德多项式","latex":"\\int_{-1}^1 P_lP_{l'}dx=\\frac2{2l+1}\\delta_{ll'}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M42","name":"球谐函数","latex":"\\int Y_{lm}^*Y_{l'm'}d\\Omega=\\delta_{ll'}\\delta_{mm'}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M43","name":"埃尔米特多项式","latex":"H_n''-2\\xi H_n'+2nH_n=0,\\ \\int H_nH_me^{-\\xi^2}d\\xi\\propto\\delta_{nm}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M44","name":"拉盖尔多项式","latex":"xL_n''+(1-x)L_n'+nL_n=0","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M45","name":"正交多项式统一性质","latex":"\\text{Rodrigues 公式、递推、完备性}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M46","name":"概率密度与归一化","latex":"\\rho(x)\\ge0,\\ \\int\\rho(x)dx=1","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M47","name":"期望/方差/标准差","latex":"\\langle x\\rangle=\\int x\\rho\\,dx,\\ \\sigma^2=\\langle x^2\\rangle-\\langle x\\rangle^2","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M48","name":"高斯分布","latex":"\\rho(x)=\\frac1{\\sqrt{2\\pi\\sigma^2}}e^{-(x-\\mu)^2/2\\sigma^2}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M49","name":"泊松分布","latex":"P(n)=\\frac{\\lambda^n}{n!}e^{-\\lambda},\\ \\langle n\\rangle=\\lambda,\\ \\sigma=\\sqrt\\lambda","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M50","name":"协方差与相关性","latex":"\\operatorname{Cov}(x,y)=\\langle xy\\rangle-\\langle x\\rangle\\langle y\\rangle","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M51","name":"中心极限定理","latex":"\\text{大量独立变量之和}\\to\\text{高斯分布}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M52","name":"欧拉法/龙格–库塔","latex":"y_{n+1}=y_n+hf(x_n,y_n)\\ (\\text{欧拉})","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M53","name":"有限差分","latex":"\\psi''(x_j)\\approx\\frac{\\psi_{j+1}-2\\psi_j+\\psi_{j-1}}{\\Delta^2}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M54","name":"矩阵本征值数值解","latex":"\\text{幂法/QR/Lanczos}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M55","name":"打靶法","latex":"\\text{扫参数 }E\\text{ 使边界条件满足；本征值处解翻号}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"M56","name":"谱方法","latex":"\\text{完备正交基展开，微分对角化，指数收敛}","group":"math","module":"数学前备库","link":"math.md","deriv":"","app":false,"note":""},{"id":"F101","name":"普朗克能量子","latex":"E=h\\nu=\\hbar\\omega","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"黑体辐射解释：能量以 hν 的整数倍交换。"},{"id":"F102","name":"光电效应方程","latex":"E_{kin}=h\\nu-W","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"金属表面电子被光子逐出，动能=光子能量-逸出功。"},{"id":"F103","name":"康普顿散射","latex":"\\Delta\\lambda=\\frac{h}{mc}(1-\\cos\\theta)","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"光子与电子弹性碰撞，波长红移只依赖散射角。"},{"id":"F104","name":"玻尔量子化条件","latex":"L=n\\hbar,\\ n=1,2,3,\\ldots","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"角动量量子化，驻波条件 2πr=nλ 的轨道表述。"},{"id":"F105","name":"氢原子能级","latex":"E_n=-\\frac{me^4}{2(4\\pi\\epsilon_0)^2\\hbar^2}\\frac1{n^2}=-\\frac{13.6\\,\\mathrm{eV}}{n^2}","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"库仑势+玻尔条件 ⇒ 氢光谱分立。"},{"id":"F106","name":"里德伯公式","latex":"\\frac1\\lambda=R_H\\left(\\frac1{n_f^2}-\\frac1{n_i^2}\\right)","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"光谱线频率=能级差/h，经验公式的理论根源。"},{"id":"F107","name":"德布罗意波长","latex":"\\lambda=\\frac hp=\\frac{2\\pi\\hbar}{p}","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"物质波假设：动量↔波长；电子衍射验证。"},{"id":"F108","name":"精细结构常数","latex":"\\alpha=\\frac{e^2}{4\\pi\\epsilon_0\\hbar c}\\approx\\frac1{137}","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":false,"note":"无量纲耦合常数，衡量电磁作用强度。"},{"id":"F109","name":"石墨烯透光率","latex":"T=\\left(1+\\frac{\\pi\\alpha}{2}\\right)^{-2}\\approx 1-\\pi\\alpha\\approx0.977","group":"m0","module":"模块1 · 旧量子论与诞生","link":"","deriv":"","app":true,"note":"【应用】单层石墨烯吸收 πα≈2.3%，与几何无关。"},{"id":"F110","name":"Born 统计诠释","latex":"P(x)\\,dx=|\\psi(x)|^2dx","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"波函数模方=概率密度；测量结果的统计分布。"},{"id":"F111","name":"归一化条件","latex":"\\int_{-\\infty}^{\\infty}|\\psi(x)|^2dx=1","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"粒子总概率=1；平方可积性。"},{"id":"F112","name":"力学量期望值","latex":"\\langle A\\rangle=\\int\\psi^*\\hat A\\psi\\,dx","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"可观测量=厄米算符；期望=内积。"},{"id":"F113","name":"动量算符","latex":"\\hat p=-i\\hbar\\nabla","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"动量作为算符；与平面波本征态自洽。"},{"id":"F114","name":"动量分布","latex":"\\varphi(p)=\\frac1{(2\\pi\\hbar)^{3/2}}\\int\\psi(r)e^{-ip\\cdot r/\\hbar}d^3r","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"动量空间波函数=位置波函数的傅里叶变换。"},{"id":"F115","name":"位置-动量不确定度","latex":"\\sigma_x\\sigma_p\\ge\\frac{\\hbar}{2}","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"两个共轭量不可同时精确确定。"},{"id":"F116","name":"态叠加原理","latex":"\\psi=\\sum_n c_n\\psi_n","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"任意态可叠加为基态线性组合；干涉由此而来。"},{"id":"F117","name":"量子拍","latex":"|\\psi|^2=|\\psi_1|^2+|\\psi_2|^2+2\\operatorname{Re}(\\psi_1^*\\psi_2e^{-i(E_1-E_2)t/\\hbar})","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"叠加态概率含拍频项 (E₁−E₂)/ℏ，随时间振荡。"},{"id":"F118","name":"波包群速度","latex":"v_g=\\frac{d\\omega}{dk}\\Big|_{k_0}","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"波包传播速度=色散关系导数（经典速度的对应）。"},{"id":"F119","name":"色散展宽","latex":"\\sigma_x(t)=\\sigma_x(0)\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_x^2}\\right)^2}","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"自由波包随时间展宽（质量越小、初包越窄展得越快）。"},{"id":"F120","name":"平面波与δ归一化","latex":"\\langle p|p'\\rangle=\\delta(p-p'),\\ \\psi_p=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar}","group":"m1","module":"模块2 · 波函数与统计诠释","link":"","deriv":"","app":false,"note":"连续谱本征函数用δ函数归一；动量本征态=平面波。"},{"id":"F121","name":"含时薛定谔方程","latex":"i\\hbar\\frac{\\partial\\psi}{\\partial t}=\\hat H\\psi","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"量子动力学基本方程；一阶时间、线性、幺正演化。"},{"id":"F122","name":"哈密顿算符","latex":"\\hat H=-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r)","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"经典能量对应量子算符：T→-ℏ²∇²/2m，V→乘函数。"},{"id":"F123","name":"概率流密度","latex":"\\vec j=\\frac{\\hbar}{2mi}(\\psi^*\\nabla\\psi-\\psi\\nabla\\psi^*)","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"粒子流动的局域描述；实波函数 j=0。"},{"id":"F124","name":"连续性方程","latex":"\\frac{\\partial\\rho}{\\partial t}+\\nabla\\cdot\\vec j=0","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"概率守恒的局域形式；由薛定谔方程直接推出。"},{"id":"F125","name":"定态分解","latex":"\\psi(x,t)=\\varphi(x)e^{-iEt/\\hbar}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"分离变量 ansatz：能量守恒时时间因子可分离。"},{"id":"F126","name":"定态薛定谔方程","latex":"\\hat H\\varphi=E\\varphi","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"能量本征方程；束缚态得离散谱。"},{"id":"F127","name":"厄米算符定义","latex":"\\int\\psi^*\\hat A\\varphi\\,dx=\\int(\\hat A\\psi)^*\\varphi\\,dx","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"可观测量的数学条件；保证实期望。"},{"id":"F128","name":"厄米→实本征值","latex":"\\hat A^\\dagger=\\hat A\\Rightarrow a\\in\\mathbb R","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"本征值方程 ⟨a|Â|a⟩=a⟨a|a⟩ 两边取共轭比较。"},{"id":"F129","name":"本征函数正交完备","latex":"\\int\\varphi_m^*\\varphi_ndx=\\delta_{mn},\\ \\{\\varphi_n\\}\\text{完备}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"厄米算符不同本征值的本征函数正交；构成完备基。"},{"id":"F130","name":"初值问题三步解","latex":"\\psi(x,t)=\\sum_n c_n\\varphi_n(x)e^{-iE_nt/\\hbar}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"①展开初态 ②各分量独立演化 ③重组=任意时刻态。"},{"id":"F131","name":"展开系数","latex":"c_n=\\int\\varphi_n^*(x)\\psi(x,0)\\,dx","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"投影到能量本征基；|c_n|²=测到 E_n 的概率。"},{"id":"F132","name":"箱归一化","latex":"\\int_{\\text{box}}|\\psi|^2d^3r=1","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"有限大盒子内归一，处理自由/连续谱的权宜。"},{"id":"F133","name":"自由粒子平面波解","latex":"\\psi=Ae^{i(kx-\\omega t)},\\ \\omega=\\frac{\\hbar k^2}{2m}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"V=0 时薛定谔方程的基本解；色散关系。"},{"id":"F134","name":"正则对易关系","latex":"[\\hat x,\\hat p]=i\\hbar","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"位置与动量的代数关系；量子力学的基石公设。"},{"id":"F135","name":"定态性质","latex":"\\langle A\\rangle=\\sum_n|c_n|^2a_n\\ \\text{不随时间变（定态）}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"定态中一切不显含时间的可观测量期望恒定。"},{"id":"F136","name":"全局概率守恒","latex":"\\frac{d}{dt}\\int|\\psi|^2d^3r=0","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"全空间概率不随时间变；归一化自洽。"},{"id":"F137","name":"薛定谔方程线性性","latex":"\\psi=\\alpha\\psi_1+\\beta\\psi_2\\ \\text{仍是解}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"方程对 ψ 线性⇒叠加原理；干涉实验基础。"},{"id":"F138","name":"动量本征态","latex":"\\hat p\\,\\psi_p=p\\,\\psi_p,\\ \\psi_p=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"动量的本征函数=平面波；连续谱。"},{"id":"F139","name":"能量-时间不确定度","latex":"\\Delta E\\Delta t\\ge\\frac{\\hbar}{2}","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"态寿命与能级宽度的关系；跃迁线宽。"},{"id":"F140","name":"广义不确定关系","latex":"\\sigma_A\\sigma_B\\ge\\frac12|\\langle[\\hat A,\\hat B]\\rangle|","group":"m2","module":"模块3 · 薛定谔方程与概率守恒","link":"","deriv":"","app":false,"note":"任意两可观测量由对易子限制同时可测性。"},{"id":"F141","name":"一维定态方程","latex":"-\\frac{\\hbar^2}{2m}\\psi''+V(x)\\psi=E\\psi","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"由 F126（定态方程）取一维：\\(\\hat H=\\frac{\\hat p^2}{2m}+V\\)，\\(\\hat p=-i\\hbar\\frac{d}{dx}\\)。","app":false,"note":""},{"id":"F142","name":"无限深势阱能级","latex":"E_n=\\frac{n^2\\pi^2\\hbar^2}{2ma^2},\\ n=1,2,3,\\ldots","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"阱内 F141 化为 \\(\\psi''+k^2\\psi=0\\)（k²=2mE/ℏ²），通解 \\(A\\sin kx+B\\cos kx\\)；边界 \\(\\psi(0)=0\\Rightarrow B=0\\)，\\(\\psi(a)=0\\Rightarrow ka=n\\pi\\)。","app":false,"note":""},{"id":"F143","name":"无限深势阱波函数","latex":"\\psi_n=\\sqrt{\\frac2a}\\sin\\frac{n\\pi x}{a}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"由 F142 的 \\(k=n\\pi/a\\)，归一化 \\(\\int_0^a A^2\\sin^2(n\\pi x/a)dx=A^2 a/2=1\\)。","app":false,"note":""},{"id":"F144","name":"本征函数正交归一","latex":"\\int_0^a\\psi_m\\psi_ndx=\\delta_{mn}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"①厄米性（F128/F129）一般结论；②直接积化和差：\\(\\sin A\\sin B=\\frac12[\\cos(A-B)-\\cos(A+B)]\\) 逐项积分。","app":false,"note":""},{"id":"F145","name":"阱中 ⟨x²⟩","latex":"\\langle x^2\\rangle=a^2\\left(\\frac13-\\frac1{2n^2\\pi^2}\\right)","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"\\(\\langle x^2\\rangle=\\frac2a\\int x^2\\sin^2 dx=\\frac{a^2}3-\\frac1a J\\)；\\(J=\\int_0^a x^2\\cos(2n\\pi x/a)dx\\) 分部积分两次得 \\(a^3/2n^2\\pi^2\\)。","app":false,"note":""},{"id":"F146","name":"零点能（不确定度下限）","latex":"E_{\\min}=\\frac{\\pi^2\\hbar^2}{2ma^2}>0","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"由 F142 取 n=1；也可由 F115：\\(\\Delta p\\sim\\hbar/a\\Rightarrow E\\sim\\Delta p^2/2m>0\\)。","app":false,"note":""},{"id":"F147","name":"有限深阱超越方程","latex":"\\tan z=\\sqrt{\\frac{z_0^2}{z^2}-1},\\quad z=ka,\\ z_0=\\frac{a\\sqrt{2mV_0}}{\\hbar}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"分区解+\\(\\psi,\\psi'\\)连续（连接条件）：偶宇称 \\(\\kappa=k\\tan(ka)\\)，\\(\\kappa=\\sqrt{-2mE}/\\hbar\\)。无量纲化即得。","app":false,"note":""},{"id":"F148","name":"一维至少一个束缚态","latex":"\\text{任何对称有限深阱 }V_0>0\\text{ 至少有一个束缚态}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"\\(\\tan z\\) 首支 \\((0,\\pi/2)\\) 恒与右端曲线相交（F147 图解）。","app":false,"note":""},{"id":"F149","name":"谐振子能级","latex":"E_n=\\left(n+\\frac12\\right)\\hbar\\omega","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"无量纲化 \\(\\psi''=(\\xi^2-\\epsilon)\\psi\\)；渐近 \\(\\psi\\sim e^{-\\xi^2/2}\\)，级数截断条件 \\(\\epsilon=2n+1\\)。","app":false,"note":""},{"id":"F150","name":"谐振子波函数","latex":"\\psi_n=N_nH_n(\\xi)e^{-\\xi^2/2},\\quad \\xi=\\sqrt{\\frac{m\\omega}{\\hbar}}x","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"级数解法：令 \\(\\psi=h(\\xi)e^{-\\xi^2/2}\\)，h 满足 Hermite 方程（M43）；截断⇒多项式。","app":false,"note":""},{"id":"F151","name":"谐振子零点能","latex":"E_0=\\frac12\\hbar\\omega","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"由 F149 取 n=0；最小不确定高斯态（F115 取等号）的必然结果。","app":false,"note":""},{"id":"F152","name":"谐振子 Virial 定理","latex":"\\langle T\\rangle=\\langle V\\rangle=\\frac{E_n}{2}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"\\(\\langle T\\rangle=\\frac{\\hbar^2}{2m}\\int|\\psi'|^2dx\\)（分部积分，M13），谐振子势 \\(V\\propto x^2\\) 下两式成比例相等。","app":false,"note":""},{"id":"F153","name":"三维势箱能级","latex":"E=\\frac{\\hbar^2\\pi^2}{2mL^2}(n_x^2+n_y^2+n_z^2)","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"分离变量（M27）：三个一维阱能级相加。","app":false,"note":""},{"id":"F154","name":"态密度（3D）","latex":"g(E)=\\frac{dN}{dE}\\propto V\\sqrt E","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"量子数空间第一卦限球：\\(N\\propto(n_x^2+n_y^2+n_z^2)^{3/2}\\propto E^{3/2}\\)，求导得 \\(\\sqrt E\\)。","app":false,"note":""},{"id":"F155","name":"杂质能级（类氢模型）","latex":"E_d=E_1\\frac{m^*/m}{\\epsilon^2},\\quad a^*=a_0\\frac{\\epsilon}{m^*/m}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"氢原子解（F105，a₀）做替换 \\(m\\to m^*,\\ \\epsilon_0\\to\\epsilon\\epsilon_0\\)。","app":true,"note":""},{"id":"F156","name":"节点定理","latex":"\\text{第 }n\\text{ 个束缚态恰有 }n-1\\text{ 个节点；基态无节点}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"打靶法扫描 E：每跨一个本征值右端多穿一次轴；基态带节点则取 |ψ| 抹尖角使 E 更小（矛盾）。","app":false,"note":""},{"id":"F157","name":"一维束缚态非简并","latex":"E\\text{ 对应唯一（至多相位）束缚态}","group":"m3","module":"模块4 · 一维束缚态","link":"","deriv":"Wronskian（M23）：\\(W'=0\\)，两端 W=0 ⇒ W≡0 ⇒ 两解成比例。","app":false,"note":""},{"id":"F158","name":"势阶反射系数","latex":"R=\\left(\\frac{k_1-k_2}{k_1+k_2}\\right)^2,\\ T=1-R","group":"m4","module":"模块5 · 散射与隧穿","link":"","deriv":"分区平面波+\\(\\psi,\\psi'\\)连续，消系数。","app":false,"note":""},{"id":"F159","name":"方势垒隧穿概率","latex":"T\\simeq\\frac{16k^2\\kappa^2}{(k^2+\\kappa^2)^2}e^{-2\\kappa a}\\quad(\\kappa a\\gg1)","group":"m4","module":"模块5 · 散射与隧穿","link":"","deriv":"三层平面波匹配（或 F160 的精确式极限），指数衰减主导。","app":true,"note":""},{"id":"F160","name":"WKB 隧穿概率","latex":"T\\approx e^{-2\\int_{x_1}^{x_2}\\kappa(x)dx},\\quad \\kappa=\\frac{\\sqrt{2m(V-E)}}{\\hbar}","group":"m4","module":"模块5 · 散射与隧穿","link":"","deriv":"禁区内波函数指数衰减，积分衰减系数；由 M55/F159 推广到任意形状势垒。","app":true,"note":""},{"id":"F161","name":"Dirac 符号与内积","latex":"|\\psi\\rangle,\\ \\langle\\varphi|\\psi\\rangle,\\ \\langle\\varphi|\\psi\\rangle^*=\\langle\\psi|\\varphi\\rangle","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"态=矢量、内积=投影；位置表象 \\(\\langle x|\\psi\\rangle=\\psi(x)\\)。","app":false,"note":""},{"id":"F162","name":"基变换（表象变换）","latex":"|\\psi\\rangle=\\sum_n c_n|e_n\\rangle,\\quad c_n=\\langle e_n|\\psi\\rangle","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"完备基 \\(\\{|e_n\\rangle\\}\\) 展开（M02/M29）；换基=幺正变换（M07）。","app":false,"note":""},{"id":"F163","name":"算符的矩阵表示","latex":"A_{ij}=\\langle e_i|\\hat A|e_j\\rangle","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"M03 在物理中的直接落位。","app":false,"note":""},{"id":"F164","name":"测量公设与投影概率","latex":"P(a)=\\langle\\psi|\\hat P_a|\\psi\\rangle=|\\langle a|\\psi\\rangle|^2,\\quad \\hat P_a=|a\\rangle\\langle a|","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"测量某本征值的概率=态在该本征方向的投影模方（M09）。","app":false,"note":""},{"id":"F165","name":"密度矩阵","latex":"\\rho=\\sum_i p_i|\\psi_i\\rangle\\langle\\psi_i|,\\ \\operatorname{Tr}\\rho=1,\\ \\langle A\\rangle=\\operatorname{Tr}(\\rho A)","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"混合态的统计描述；纯态 \\(\\rho^2=\\rho\\)。","app":false,"note":""},{"id":"F166","name":"能量表象","latex":"c_n(t)=c_n(0)e^{-iE_nt/\\hbar},\\quad \\langle H\\rangle=\\sum_n|c_n|^2E_n","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"取能量本征基，演化对角化（F130）。","app":false,"note":""},{"id":"F167","name":"位置↔动量表象","latex":"\\langle x|p\\rangle=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar},\\quad \\varphi(p)=\\langle p|\\psi\\rangle","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"动量基=平面波（F138），两表象由傅里叶变换联系（M31）。","app":false,"note":""},{"id":"F168","name":"矩阵力学≡波动力学","latex":"\\text{海森堡矩阵 ↔ 薛定谔微分方程 同一理论}","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"同一厄米算符的不同表象（F162），可观测值不变。","app":false,"note":""},{"id":"F169","name":"自旋 1/2 态空间","latex":"|\\uparrow\\rangle,|\\downarrow\\rangle,\\quad \\mathcal H=\\mathbb C^2","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"两维态空间；任意态 \\(\\alpha|\\uparrow\\rangle+\\beta|\\downarrow\\rangle\\)（Bloch 球）。","app":false,"note":""},{"id":"F170","name":"厄米算符谱分解","latex":"\\hat A=\\sum_a a\\,\\hat P_a,\\quad \\hat P_a=|a\\rangle\\langle a|","group":"m6","module":"模块8 · 态矢量与表象","link":"","deriv":"M09 物理版：可观测量=实谱厄米算符的谱分解。","app":false,"note":""},{"id":"F171","name":"三维正则对易","latex":"[\\hat x_i,\\hat p_j]=i\\hbar\\delta_{ij},\\quad [\\hat x_i,\\hat x_j]=[\\hat p_i,\\hat p_j]=0","group":"m8","module":"模块10 · 对易与相容观测量","link":"","deriv":"F134 的多分量推广。","app":false,"note":""},{"id":"F172","name":"相容观测量与 CSCO","latex":"[\\hat A,\\hat B]=0\\ \\Rightarrow\\ \\text{有共同本征态},\\quad \\text{CSCO=可完全标记态的一组对易算符}","group":"m8","module":"模块10 · 对易与相容观测量","link":"","deriv":"M06 物理应用；本征值组唯一标记量子态。","app":false,"note":""},{"id":"F173","name":"广义不确定关系","latex":"\\sigma_A\\sigma_B\\ge\\frac12|\\langle[\\hat A,\\hat B]\\rangle|","group":"m8","module":"模块10 · 对易与相容观测量","link":"","deriv":"罗伯逊不等式：由态|s⟩=|(Â−⟨A⟩)B̂ψ⟩ 的柯西-施瓦茨导出。","app":false,"note":""},{"id":"F174","name":"Ehrenfest 定理","latex":"\\frac{d\\langle A\\rangle}{dt}=\\frac{i}{\\hbar}\\langle[\\hat H,\\hat A]\\rangle+\\left\\langle\\frac{\\partial\\hat A}{\\partial t}\\right\\rangle","group":"m9","module":"模块11 · 时间演化与守恒量","link":"","deriv":"\\(\\frac{d}{dt}\\langle\\psi|\\hat A|\\psi\\rangle\\) 展开，用 F121 及其共轭；经典极限得牛顿方程。","app":false,"note":""},{"id":"F175","name":"时间演化算符","latex":"\\hat U(t,t_0)=e^{-i\\hat H(t-t_0)/\\hbar},\\quad |\\psi(t)\\rangle=\\hat U|\\psi(t_0)\\rangle","group":"m9","module":"模块11 · 时间演化与守恒量","link":"","deriv":"\\(\\hat H\\) 不显含 t 时 F121 的积分形式；幺正（M07）。","app":false,"note":""},{"id":"F176","name":"守恒量判据","latex":"[\\hat H,\\hat A]=0\\ \\Rightarrow\\ \\langle A\\rangle\\text{ 恒定}","group":"m9","module":"模块11 · 时间演化与守恒量","link":"","deriv":"F174 中 \\(\\partial\\hat A/\\partial t=0\\) 时 \\(d\\langle A\\rangle/dt=0\\)。","app":false,"note":""},{"id":"F177","name":"对称性与守恒律","latex":"\\text{空间平移→动量守恒；时间平移→能量守恒；旋转→角动量守恒}","group":"m9","module":"模块11 · 时间演化与守恒量","link":"","deriv":"Noether 对应：连续对称生成元与 H 对易（F176）。","app":false,"note":""},{"id":"F178","name":"薛定谔绘景 vs 海森堡绘景","latex":"\\text{态演化 ↔ 算符演化 } \\frac{d\\hat A_H}{dt}=\\frac{i}{\\hbar}[\\hat H,\\hat A_H]","group":"m9","module":"模块11 · 时间演化与守恒量","link":"","deriv":"由 F175 的幺正变换 F162 得到算符运动方程。","app":false,"note":""},{"id":"F179","name":"宇称算符","latex":"\\hat P\\psi(x)=\\psi(-x),\\ \\hat P^2=1,\\ \\hat P|p\\rangle=|-p\\rangle","group":"m10","module":"模块12 · 对称守恒律","link":"","deriv":"定义：空间反演（x→-x）。对偶对称势 \\(V(-x)=V(x)\\) 有 \\([\\hat P,\\hat H]=0\\)，束缚态可取确定宇称（非简并时 \\(\\psi(-x)=\\pm\\psi(x)\\)）。本征值 \\(p=\\pm1\\)（p²=1）。","app":false,"note":"对称算符示例：偶对称势中宇称是守恒量（可好量子数）。"},{"id":"F180","name":"平移与动量（对称生成元）","latex":"\\hat T(a)=e^{-ia\\hat p/\\hbar},\\quad \\hat T(a)\\psi(x)=\\psi(x-a)","group":"m10","module":"模块12 · 对称守恒律","link":"","deriv":"无穷小平移 \\(I-i a\\hat p/\\hbar\\) 的指数化；平移不变（V 周期性/均匀）⇒ \\([\\hat H,\\hat p]=0\\) ⇒ 动量守恒。","app":false,"note":"对称性→守恒律的标准例子：空间平移不变⇔动量守恒。"},{"id":"F181","name":"升降算符","latex":"\\hat a=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x+\\frac{i}{m\\omega}\\hat p\\right),\\quad \\hat a^\\dagger=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x-\\frac{i}{m\\omega}\\hat p\\right)","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"定义（线性组合消去交叉项）；\\([\\hat a,\\hat a^\\dagger]=1\\)（由 F134）。","app":false,"note":""},{"id":"F182","name":"谐振子哈密顿（占据数形式）","latex":"\\hat H=\\hbar\\omega\\left(\\hat N+\\frac12\\right),\\quad \\hat N=\\hat a^\\dagger\\hat a","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"由 F181 反解 x,p 代入 \\(p^2/2m+m\\omega^2x^2/2\\) 化简。","app":false,"note":""},{"id":"F183","name":"谐振子能谱（代数推导）","latex":"E_n=\\left(n+\\frac12\\right)\\hbar\\omega","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"\\(\\hat N|n\\rangle=n|n\\rangle\\)；\\(\\hat a\\) 降 n、\\(\\hat a^\\dagger\\) 升 n，谱下界 \\(\\hat a|0\\rangle=0\\) ⇒ 整数谱。","app":false,"note":""},{"id":"F184","name":"谐振子矩阵元","latex":"\\langle n|\\hat a|n'\\rangle=\\sqrt n\\,\\delta_{n,n'-1},\\quad \\langle n|\\hat a^\\dagger|n'\\rangle=\\sqrt{n+1}\\,\\delta_{n,n'+1}","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"由升降作用直接读出；跃迁选择定则来源。","app":true,"note":""},{"id":"F185","name":"相干态定义","latex":"\\hat a|\\alpha\\rangle=\\alpha|\\alpha\\rangle,\\quad |\\alpha\\rangle=e^{-|\\alpha|^2/2}\\sum_n\\frac{\\alpha^n}{\\sqrt{n!}}|n\\rangle","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"升降算符本征态；位移算符 \\(D(\\alpha)=e^{\\alpha\\hat a^\\dagger-\\alpha^*\\hat a}\\) 作用基态。","app":false,"note":""},{"id":"F186","name":"相干态性质","latex":"\\langle x\\rangle(t)=\\sqrt{\\frac{2\\hbar}{m\\omega}}\\operatorname{Re}(\\alpha e^{-i\\omega t}),\\quad \\sigma_x\\sigma_p=\\frac{\\hbar}{2}","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"高斯波包（M48），最小不确定（F115 取等）；等间距能级⇒不扩散。","app":true,"note":""},{"id":"F187","name":"占据数表象","latex":"|n\\rangle=\\frac{(\\hat a^\\dagger)^n}{\\sqrt{n!}}|0\\rangle,\\quad \\hat N|n\\rangle=n|n\\rangle","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"Fock 态构造；光子/声子数态。","app":false,"note":""},{"id":"F188","name":"角动量算符与对易","latex":"[\\hat L_i,\\hat L_j]=i\\hbar\\epsilon_{ijk}\\hat L_k","group":"m11","module":"模块13 · 角动量代数","link":"","deriv":"","app":false,"note":"【待建】模块13 内容未学。"},{"id":"F189","name":"角动量量子化","latex":"\\hat L^2|l,m\\rangle=\\hbar^2l(l+1)|l,m\\rangle,\\quad \\hat L_z|l,m\\rangle=\\hbar m|l,m\\rangle","group":"m11","module":"模块13 · 角动量代数","link":"","deriv":"","app":false,"note":"【待建】模块13 内容未学。"},{"id":"F190","name":"自旋算符与 Pauli 矩阵","latex":"\\hat S=\\frac{\\hbar}{2}\\vec\\sigma,\\quad \\sigma_x=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\sigma_y=\\begin{pmatrix}0&-i\\\\i&0\\end{pmatrix},\\sigma_z=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}","group":"m12","module":"模块14 · 自旋与Zeeman","link":"","deriv":"","app":false,"note":"【待建】模块14 内容未学。"},{"id":"F191","name":"Zeeman 效应","latex":"\\Delta E=\\mu_B g B m_j,\\quad \\mu_B=\\frac{e\\hbar}{2m_e}","group":"m12","module":"模块14 · 自旋与Zeeman","link":"","deriv":"","app":false,"note":"【待建】模块14 内容未学。"},{"id":"F192","name":"全同粒子与交换对称","latex":"\\psi(\\ldots,i,\\ldots,j,\\ldots)=\\pm\\psi(\\ldots,j,\\ldots,i,\\ldots)","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F193","name":"Slater 行列式","latex":"\\Psi=\\frac1{\\sqrt{N!}}\\det|\\varphi_i(r_j)|","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F194","name":"Bose–Einstein 分布","latex":"\\bar n_i=\\frac1{e^{(\\epsilon_i-\\mu)/kT}-1}","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F195","name":"Fermi–Dirac 分布","latex":"\\bar n_i=\\frac1{e^{(\\epsilon_i-\\mu)/kT}+1}","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F196","name":"费米能","latex":"\\epsilon_F=\\frac{\\hbar^2}{2m}(3\\pi^2 n)^{2/3}","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F197","name":"泡利不相容","latex":"\\text{两个全同费米子不能处于同一单粒子态}","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F198","name":"热平衡密度矩阵","latex":"\\rho=\\frac{e^{-\\beta\\hat H}}{\\operatorname{Tr}e^{-\\beta\\hat H}},\\quad \\beta=1/kT","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"},{"id":"F199","name":"谐振子相干态在材料中的应用","latex":"\\text{光场/声子相干态、压缩态}","group":"m13","module":"模块15 · 谐振子代数解法与相干态","link":"","deriv":"","app":false,"note":"【待建】模块15 延伸。"},{"id":"F200","name":"占位：统计与热力学衔接","latex":"\\text{密度算符→配分函数 }Z=\\operatorname{Tr}e^{-\\beta\\hat H}","group":"m14","module":"模块16 · 全同粒子","link":"","deriv":"","app":false,"note":"【待建】模块16 内容未学。"}],"edges":[{"from":"M16","to":"M38"},{"from":"M31","to":"M32"},{"from":"M31","to":"M35"},{"from":"M22","to":"M23"},{"from":"M24","to":"M25"},{"from":"M25","to":"M26"},{"from":"M26","to":"M29"},{"from":"M17","to":"M34"},{"from":"M47","to":"M34"},{"from":"M16","to":"F101"},{"from":"F101","to":"F102"},{"from":"F101","to":"F103"},{"from":"M38","to":"F107"},{"from":"F107","to":"F104"},{"from":"F104","to":"F105"},{"from":"F105","to":"F106"},{"from":"F108","to":"F109"},{"from":"F110","to":"F111"},{"from":"F110","to":"F112"},{"from":"M31","to":"F114"},{"from":"F113","to":"F114"},{"from":"M47","to":"F115"},{"from":"M06","to":"F115"},{"from":"F115","to":"F140"},{"from":"F134","to":"F140"},{"from":"F116","to":"F117"},{"from":"F133","to":"F118"},{"from":"M34","to":"F119"},{"from":"M32","to":"F120"},{"from":"F138","to":"F120"},{"from":"F122","to":"F121"},{"from":"F121","to":"F124"},{"from":"F123","to":"F124"},{"from":"F121","to":"F125"},{"from":"F125","to":"F126"},{"from":"F127","to":"F128"},{"from":"F127","to":"F129"},{"from":"M05","to":"F129"},{"from":"F129","to":"F130"},{"from":"F130","to":"F131"},{"from":"M29","to":"F130"},{"from":"F121","to":"F136"},{"from":"F121","to":"F137"},{"from":"F113","to":"F138"},{"from":"F134","to":"F139"},{"from":"F141","to":"F142"},{"from":"F142","to":"F143"},{"from":"F143","to":"F144"},{"from":"F143","to":"F145"},{"from":"F142","to":"F146"},{"from":"F146","to":"F147"},{"from":"F147","to":"F148"},{"from":"M24","to":"F149"},{"from":"F149","to":"F150"},{"from":"F149","to":"F151"},{"from":"M13","to":"F152"},{"from":"M27","to":"F153"},{"from":"F153","to":"F154"},{"from":"F105","to":"F155"},{"from":"M55","to":"F156"},{"from":"M23","to":"F157"},{"from":"F142","to":"F158"},{"from":"F158","to":"F159"},{"from":"M55","to":"F160"},{"from":"F159","to":"F160"},{"from":"M02","to":"F161"},{"from":"F161","to":"F162"},{"from":"M03","to":"F163"},{"from":"M09","to":"F164"},{"from":"M08","to":"F165"},{"from":"F130","to":"F166"},{"from":"M31","to":"F167"},{"from":"F162","to":"F168"},{"from":"M10","to":"F169"},{"from":"M09","to":"F170"},{"from":"F134","to":"F171"},{"from":"M06","to":"F172"},{"from":"F134","to":"F173"},{"from":"F171","to":"F173"},{"from":"F121","to":"F174"},{"from":"F121","to":"F175"},{"from":"F174","to":"F176"},{"from":"F176","to":"F177"},{"from":"F175","to":"F178"},{"from":"F134","to":"F181"},{"from":"F181","to":"F182"},{"from":"F182","to":"F183"},{"from":"F183","to":"F184"},{"from":"F183","to":"F185"},{"from":"F185","to":"F186"},{"from":"F182","to":"F187"},{"from":"F181","to":"F187"},{"from":"F113","to":"F180"},{"from":"F175","to":"F180"},{"from":"F177","to":"F179"},{"from":"F161","to":"F179"}]}
+{
+ "version": "0.1.0",
+ "groups": {
+  "math": "数学前备库",
+  "m0": "模块1 · 旧量子论与诞生",
+  "m1": "模块2 · 波函数与统计诠释",
+  "m2": "模块3 · 薛定谔方程与概率守恒",
+  "m3": "模块4 · 一维束缚态",
+  "m4": "模块5 · 散射与隧穿",
+  "m6": "模块8 · 态矢量与表象",
+  "m7": "模块9 · 厄米算符与本征值问题",
+  "m8": "模块10 · 对易与相容观测量",
+  "m9": "模块11 · 时间演化与守恒量",
+  "m10": "模块12 · 对称守恒律",
+  "m13": "模块15 · 谐振子代数解法与相干态",
+  "m11": "模块13 · 角动量代数",
+  "m12": "模块14 · 自旋与Zeeman",
+  "m14": "模块16 · 全同粒子"
+ },
+ "nodes": [
+  {
+   "id": "M01",
+   "name": "向量空间与基",
+   "latex": "\\vec v=\\sum_i c_i\\vec e_i, \\ \\dim V=n",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M02",
+   "name": "内积与正交",
+   "latex": "\\langle\\varphi|\\psi\\rangle,\\ \\langle e_i|e_j\\rangle=\\delta_{ij}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M03",
+   "name": "线性算符与矩阵表示",
+   "latex": "\\hat A|e_j\\rangle=\\sum_i A_{ij}|e_i\\rangle,\\ A_{ij}=\\langle e_i|\\hat A|e_j\\rangle",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M04",
+   "name": "本征方程",
+   "latex": "\\hat A|a\\rangle=a|a\\rangle",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M05",
+   "name": "厄米矩阵：实谱+正交完备",
+   "latex": "\\hat A^\\dagger=\\hat A\\ \\Rightarrow\\ a\\in\\mathbb R,\\ \\langle a|a'\\rangle=\\delta_{aa'}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M06",
+   "name": "对易子与相容可观测量",
+   "latex": "[\\hat A,\\hat B]=\\hat A\\hat B-\\hat B\\hat A",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M07",
+   "name": "幺正变换（换基）",
+   "latex": "\\hat U^\\dagger\\hat U=1\\ \\Rightarrow\\ \\langle U\\psi|U\\varphi\\rangle=\\langle\\psi|\\varphi\\rangle",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M08",
+   "name": "矩阵迹",
+   "latex": "\\operatorname{Tr}A=\\sum_i A_{ii},\\ \\operatorname{Tr}(AB)=\\operatorname{Tr}(BA)",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M09",
+   "name": "投影算符与谱分解",
+   "latex": "\\hat A=\\sum_a a\\,|a\\rangle\\langle a|,\\ \\sum_a|a\\rangle\\langle a|=1",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M10",
+   "name": "张量积（多粒子）",
+   "latex": "|\\psi\\rangle=|\\psi_1\\rangle\\otimes|\\psi_2\\rangle,\\ \\dim\\mathcal H=\\dim\\mathcal H_1\\dim\\mathcal H_2",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M11",
+   "name": "行列式与特征多项式",
+   "latex": "\\det(\\hat A-\\lambda I)=0",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M12",
+   "name": "偏导与链式法则",
+   "latex": "\\frac{df}{dt}=\\sum_i\\frac{\\partial f}{\\partial x_i}\\frac{dx_i}{dt}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M13",
+   "name": "分部积分",
+   "latex": "\\int_a^b u\\,dv=uv\\Big|_a^b-\\int_a^b v\\,du",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M14",
+   "name": "换元积分",
+   "latex": "\\int f(g(x))g'(x)\\,dx=\\int f(u)\\,du",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M15",
+   "name": "泰勒展开",
+   "latex": "f(x)=\\sum_n\\frac{f^{(n)}(a)}{n!}(x-a)^n",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M16",
+   "name": "欧拉公式与复数",
+   "latex": "e^{i\\theta}=\\cos\\theta+i\\sin\\theta",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M17",
+   "name": "高斯积分",
+   "latex": "\\int_{-\\infty}^{\\infty}e^{-\\alpha x^2}dx=\\sqrt{\\pi/\\alpha}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M18",
+   "name": "反常积分与平方可积",
+   "latex": "\\int_{-\\infty}^{\\infty}|f(x)|^2dx<\\infty",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M19",
+   "name": "极值与二阶判据",
+   "latex": "f'(x_0)=0,\\ f''(x_0)>0\\Rightarrow\\text{极小}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M20",
+   "name": "散度定理",
+   "latex": "\\int_V\\nabla\\cdot\\vec F\\,dV=\\oint_S\\vec F\\cdot d\\vec S",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M21",
+   "name": "一阶ODE与分离变量",
+   "latex": "\\int\\frac{dy}{h(y)}=\\int g(x)\\,dx",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M22",
+   "name": "二阶常系数ODE",
+   "latex": "y''+k^2y=0\\Rightarrow y=A\\sin kx+B\\cos kx;\\ y''-\\kappa^2y=0\\Rightarrow Ce^{\\kappa x}+De^{-\\kappa x}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M23",
+   "name": "Wronskian与线性独立",
+   "latex": "W[y_1,y_2]=y_1y_2'-y_2y_1',\\ W'=0\\Rightarrow W\\equiv\\text{常数}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M24",
+   "name": "级数解法（Frobenius）",
+   "latex": "y=\\sum_{n=0}^{\\infty}a_nx^n\\ \\text{代入方程逐项定系数}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M25",
+   "name": "Sturm–Liouville 理论",
+   "latex": "-\\frac{d}{dx}\\left[p(x)\\frac{dy}{dx}\\right]+q(x)y=\\lambda\\rho(x)y",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M26",
+   "name": "边界值问题→离散谱",
+   "latex": "\\text{二阶线性方程+两端齐次边界}\\Rightarrow\\text{分立}\\ \\lambda_n",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M27",
+   "name": "分离变量法（PDE）",
+   "latex": "\\psi=X(x)Y(y)Z(z),\\ E=E_x+E_y+E_z",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M28",
+   "name": "三大线性方程类比",
+   "latex": "i\\hbar\\partial_t\\psi=-\\frac{\\hbar^2}{2m}\\partial_x^2\\psi",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M29",
+   "name": "本征函数展开",
+   "latex": "f(x)=\\sum_n c_n\\varphi_n(x),\\ c_n=\\langle\\varphi_n|f\\rangle",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M30",
+   "name": "傅里叶级数",
+   "latex": "f(x)=\\sum_n c_ne^{2\\pi inx/L},\\ c_n=\\frac1L\\int_0^L f e^{-2\\pi inx/L}dx",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M31",
+   "name": "傅里叶变换与逆变换",
+   "latex": "\\tilde f(k)=\\int f(x)e^{-ikx}dx,\\ f(x)=\\frac1{2\\pi}\\int\\tilde f(k)e^{ikx}dk",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M32",
+   "name": "狄拉克δ函数",
+   "latex": "\\int f(x)\\delta(x-x_0)dx=f(x_0)",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M33",
+   "name": "卷积定理",
+   "latex": "\\mathcal F\\{f*g\\}=\\tilde f(k)\\tilde g(k)",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M34",
+   "name": "高斯波包与展宽",
+   "latex": "\\sigma_x\\sigma_k\\ge\\tfrac12,\\ \\sigma_x(t)=\\sigma_x(0)\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_x^2}\\right)^2}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M35",
+   "name": "帕塞瓦尔定理",
+   "latex": "\\int|f(x)|^2dx=\\frac1{2\\pi}\\int|\\tilde f(k)|^2dk",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M36",
+   "name": "复平面与解析函数",
+   "latex": "f'(z)\\ \\text{存在}\\Leftrightarrow\\partial_xu=\\partial_yv,\\ \\partial_yu=-\\partial_xv",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M37",
+   "name": "留数定理",
+   "latex": "\\oint f(z)dz=2\\pi i\\sum\\operatorname{Res}f",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M38",
+   "name": "行波解与相位",
+   "latex": "\\psi=Ae^{i(kx-\\omega t)},\\ p=\\hbar k",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M39",
+   "name": "伽马函数",
+   "latex": "\\Gamma(z)=\\int_0^\\infty t^{z-1}e^{-t}dt,\\ \\Gamma(n+1)=n!,\\ \\Gamma(1/2)=\\sqrt\\pi",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M40",
+   "name": "贝塞尔函数",
+   "latex": "x^2y''+xy'+(x^2-n^2)y=0\\Rightarrow y=J_n(x)",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M41",
+   "name": "勒让德多项式",
+   "latex": "\\int_{-1}^1 P_lP_{l'}dx=\\frac2{2l+1}\\delta_{ll'}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M42",
+   "name": "球谐函数",
+   "latex": "\\int Y_{lm}^*Y_{l'm'}d\\Omega=\\delta_{ll'}\\delta_{mm'}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M43",
+   "name": "埃尔米特多项式",
+   "latex": "H_n''-2\\xi H_n'+2nH_n=0,\\ \\int H_nH_me^{-\\xi^2}d\\xi\\propto\\delta_{nm}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M44",
+   "name": "拉盖尔多项式",
+   "latex": "xL_n''+(1-x)L_n'+nL_n=0",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M45",
+   "name": "正交多项式统一性质",
+   "latex": "\\text{Rodrigues 公式、递推、完备性}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M46",
+   "name": "概率密度与归一化",
+   "latex": "\\rho(x)\\ge0,\\ \\int\\rho(x)dx=1",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M47",
+   "name": "期望/方差/标准差",
+   "latex": "\\langle x\\rangle=\\int x\\rho\\,dx,\\ \\sigma^2=\\langle x^2\\rangle-\\langle x\\rangle^2",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M48",
+   "name": "高斯分布",
+   "latex": "\\rho(x)=\\frac1{\\sqrt{2\\pi\\sigma^2}}e^{-(x-\\mu)^2/2\\sigma^2}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M49",
+   "name": "泊松分布",
+   "latex": "P(n)=\\frac{\\lambda^n}{n!}e^{-\\lambda},\\ \\langle n\\rangle=\\lambda,\\ \\sigma=\\sqrt\\lambda",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M50",
+   "name": "协方差与相关性",
+   "latex": "\\operatorname{Cov}(x,y)=\\langle xy\\rangle-\\langle x\\rangle\\langle y\\rangle",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M51",
+   "name": "中心极限定理",
+   "latex": "\\text{大量独立变量之和}\\to\\text{高斯分布}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M52",
+   "name": "欧拉法/龙格–库塔",
+   "latex": "y_{n+1}=y_n+hf(x_n,y_n)\\ (\\text{欧拉})",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M53",
+   "name": "有限差分",
+   "latex": "\\psi''(x_j)\\approx\\frac{\\psi_{j+1}-2\\psi_j+\\psi_{j-1}}{\\Delta^2}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M54",
+   "name": "矩阵本征值数值解",
+   "latex": "\\text{幂法/QR/Lanczos}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M55",
+   "name": "打靶法",
+   "latex": "\\text{扫参数 }E\\text{ 使边界条件满足；本征值处解翻号}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "M56",
+   "name": "谱方法",
+   "latex": "\\text{完备正交基展开，微分对角化，指数收敛}",
+   "group": "math",
+   "module": "数学前备库",
+   "link": "math.md",
+   "deriv": "",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F101",
+   "name": "普朗克能量子",
+   "latex": "E=h\\nu=\\hbar\\omega",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "黑体辐射解释：能量以 hν 的整数倍交换。"
+  },
+  {
+   "id": "F102",
+   "name": "光电效应方程",
+   "latex": "E_{kin}=h\\nu-W",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "金属表面电子被光子逐出，动能=光子能量-逸出功。"
+  },
+  {
+   "id": "F103",
+   "name": "康普顿散射",
+   "latex": "\\Delta\\lambda=\\frac{h}{mc}(1-\\cos\\theta)",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "光子与电子弹性碰撞，波长红移只依赖散射角。"
+  },
+  {
+   "id": "F104",
+   "name": "玻尔量子化条件",
+   "latex": "L=n\\hbar,\\ n=1,2,3,\\ldots",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "角动量量子化，驻波条件 2πr=nλ 的轨道表述。"
+  },
+  {
+   "id": "F105",
+   "name": "氢原子能级",
+   "latex": "E_n=-\\frac{me^4}{2(4\\pi\\epsilon_0)^2\\hbar^2}\\frac1{n^2}=-\\frac{13.6\\,\\mathrm{eV}}{n^2}",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "库仑势+玻尔条件 ⇒ 氢光谱分立。"
+  },
+  {
+   "id": "F106",
+   "name": "里德伯公式",
+   "latex": "\\frac1\\lambda=R_H\\left(\\frac1{n_f^2}-\\frac1{n_i^2}\\right)",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "光谱线频率=能级差/h，经验公式的理论根源。"
+  },
+  {
+   "id": "F107",
+   "name": "德布罗意波长",
+   "latex": "\\lambda=\\frac hp=\\frac{2\\pi\\hbar}{p}",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "物质波假设：动量↔波长；电子衍射验证。"
+  },
+  {
+   "id": "F108",
+   "name": "精细结构常数",
+   "latex": "\\alpha=\\frac{e^2}{4\\pi\\epsilon_0\\hbar c}\\approx\\frac1{137}",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "无量纲耦合常数，衡量电磁作用强度。"
+  },
+  {
+   "id": "F109",
+   "name": "石墨烯透光率",
+   "latex": "T=\\left(1+\\frac{\\pi\\alpha}{2}\\right)^{-2}\\approx 1-\\pi\\alpha\\approx0.977",
+   "group": "m0",
+   "module": "模块1 · 旧量子论与诞生",
+   "link": "",
+   "deriv": "",
+   "app": true,
+   "note": "【应用】单层石墨烯吸收 πα≈2.3%，与几何无关。"
+  },
+  {
+   "id": "F110",
+   "name": "Born 统计诠释",
+   "latex": "P(x)\\,dx=|\\psi(x)|^2dx",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "波函数模方=概率密度；测量结果的统计分布。"
+  },
+  {
+   "id": "F111",
+   "name": "归一化条件",
+   "latex": "\\int_{-\\infty}^{\\infty}|\\psi(x)|^2dx=1",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "粒子总概率=1；平方可积性。"
+  },
+  {
+   "id": "F112",
+   "name": "力学量期望值",
+   "latex": "\\langle A\\rangle=\\int\\psi^*\\hat A\\psi\\,dx",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "可观测量=厄米算符；期望=内积。"
+  },
+  {
+   "id": "F113",
+   "name": "动量算符",
+   "latex": "\\hat p=-i\\hbar\\nabla",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "动量作为算符；与平面波本征态自洽。"
+  },
+  {
+   "id": "F114",
+   "name": "动量分布",
+   "latex": "\\varphi(p)=\\frac1{(2\\pi\\hbar)^{3/2}}\\int\\psi(r)e^{-ip\\cdot r/\\hbar}d^3r",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "动量空间波函数=位置波函数的傅里叶变换。"
+  },
+  {
+   "id": "F115",
+   "name": "位置-动量不确定度",
+   "latex": "\\sigma_x\\sigma_p\\ge\\frac{\\hbar}{2}",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "两个共轭量不可同时精确确定。"
+  },
+  {
+   "id": "F116",
+   "name": "态叠加原理",
+   "latex": "\\psi=\\sum_n c_n\\psi_n",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "任意态可叠加为基态线性组合；干涉由此而来。"
+  },
+  {
+   "id": "F117",
+   "name": "量子拍",
+   "latex": "|\\psi|^2=|\\psi_1|^2+|\\psi_2|^2+2\\operatorname{Re}(\\psi_1^*\\psi_2e^{-i(E_1-E_2)t/\\hbar})",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "叠加态概率含拍频项 (E₁−E₂)/ℏ，随时间振荡。"
+  },
+  {
+   "id": "F118",
+   "name": "波包群速度",
+   "latex": "v_g=\\frac{d\\omega}{dk}\\Big|_{k_0}",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "波包传播速度=色散关系导数（经典速度的对应）。"
+  },
+  {
+   "id": "F119",
+   "name": "色散展宽",
+   "latex": "\\sigma_x(t)=\\sigma_x(0)\\sqrt{1+\\left(\\frac{\\hbar t}{2m\\sigma_x^2}\\right)^2}",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "自由波包随时间展宽（质量越小、初包越窄展得越快）。"
+  },
+  {
+   "id": "F120",
+   "name": "平面波与δ归一化",
+   "latex": "\\langle p|p'\\rangle=\\delta(p-p'),\\ \\psi_p=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar}",
+   "group": "m1",
+   "module": "模块2 · 波函数与统计诠释",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "连续谱本征函数用δ函数归一；动量本征态=平面波。"
+  },
+  {
+   "id": "F121",
+   "name": "含时薛定谔方程",
+   "latex": "i\\hbar\\frac{\\partial\\psi}{\\partial t}=\\hat H\\psi",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "量子动力学基本公设：$i\\hbar\\partial_t|\\psi\\rangle=\\hat H|\\psi\\rangle$ 规定态如何演化，不是由哈密顿算符“推出”；一阶时间、线性、幺正演化。"
+  },
+  {
+   "id": "F122",
+   "name": "哈密顿算符",
+   "latex": "\\hat H=-\\frac{\\hbar^2}{2m}\\nabla^2+V(\\vec r)",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "经典能量对应量子算符：T→-ℏ²∇²/2m，V→乘函数。"
+  },
+  {
+   "id": "F123",
+   "name": "概率流密度",
+   "latex": "\\vec j=\\frac{\\hbar}{2mi}(\\psi^*\\nabla\\psi-\\psi\\nabla\\psi^*)",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "粒子流动的局域描述；实波函数 j=0。"
+  },
+  {
+   "id": "F124",
+   "name": "连续性方程",
+   "latex": "\\frac{\\partial\\rho}{\\partial t}+\\nabla\\cdot\\vec j=0",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "概率守恒的局域形式；由薛定谔方程直接推出。"
+  },
+  {
+   "id": "F125",
+   "name": "定态分解",
+   "latex": "\\psi(x,t)=\\varphi(x)e^{-iEt/\\hbar}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "分离变量 ansatz：能量守恒时时间因子可分离。"
+  },
+  {
+   "id": "F126",
+   "name": "定态薛定谔方程",
+   "latex": "\\hat H\\varphi=E\\varphi",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "能量本征方程；束缚态得离散谱。"
+  },
+  {
+   "id": "F127",
+   "name": "厄米算符定义",
+   "latex": "\\int\\psi^*\\hat A\\varphi\\,dx=\\int(\\hat A\\psi)^*\\varphi\\,dx",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "可观测量的数学条件；保证实期望。"
+  },
+  {
+   "id": "F128",
+   "name": "厄米→实本征值",
+   "latex": "\\hat A^\\dagger=\\hat A\\Rightarrow a\\in\\mathbb R",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "本征值方程 ⟨a|Â|a⟩=a⟨a|a⟩ 两边取共轭比较。"
+  },
+  {
+   "id": "F129",
+   "name": "本征函数正交完备",
+   "latex": "\\int\\varphi_m^*\\varphi_ndx=\\delta_{mn},\\ \\{\\varphi_n\\}\\text{完备}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "厄米算符不同本征值的本征函数正交；构成完备基。"
+  },
+  {
+   "id": "F130",
+   "name": "初值问题三步解",
+   "latex": "\\psi(x,t)=\\sum_n c_n\\varphi_n(x)e^{-iE_nt/\\hbar}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "①展开初态 ②各分量独立演化 ③重组=任意时刻态。"
+  },
+  {
+   "id": "F131",
+   "name": "展开系数",
+   "latex": "c_n=\\int\\varphi_n^*(x)\\psi(x,0)\\,dx",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "投影到能量本征基；|c_n|²=测到 E_n 的概率。"
+  },
+  {
+   "id": "F132",
+   "name": "箱归一化",
+   "latex": "\\int_{\\text{box}}|\\psi|^2d^3r=1",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "有限大盒子内归一，处理自由/连续谱的权宜。"
+  },
+  {
+   "id": "F133",
+   "name": "自由粒子平面波解",
+   "latex": "\\psi=Ae^{i(kx-\\omega t)},\\ \\omega=\\frac{\\hbar k^2}{2m}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "$V=0$ 时定态薛定谔方程的解：$\\psi_k\\propto e^{ikx}$，色散关系 $\\omega=\\hbar k^2/2m$。"
+  },
+  {
+   "id": "F134",
+   "name": "正则对易关系",
+   "latex": "[\\hat x,\\hat p]=i\\hbar",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "位置与动量的代数关系；量子力学的基石公设。"
+  },
+  {
+   "id": "F135",
+   "name": "定态性质",
+   "latex": "\\langle A\\rangle=\\sum_n|c_n|^2a_n\\ \\text{不随时间变（定态）}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "定态中一切不显含时间的可观测量期望恒定。"
+  },
+  {
+   "id": "F136",
+   "name": "全局概率守恒",
+   "latex": "\\frac{d}{dt}\\int|\\psi|^2d^3r=0",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "全空间概率不随时间变；归一化自洽。"
+  },
+  {
+   "id": "F137",
+   "name": "薛定谔方程线性性",
+   "latex": "\\psi=\\alpha\\psi_1+\\beta\\psi_2\\ \\text{仍是解}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "方程对 ψ 线性⇒叠加原理；干涉实验基础。"
+  },
+  {
+   "id": "F138",
+   "name": "动量本征态",
+   "latex": "\\hat p\\,\\psi_p=p\\,\\psi_p,\\ \\psi_p=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "动量的本征函数=平面波；连续谱。"
+  },
+  {
+   "id": "F139",
+   "name": "能量-时间不确定度",
+   "latex": "\\Delta E\\Delta t\\ge\\frac{\\hbar}{2}",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "能量-时间不确定（半经典）：态以 $\\Delta E/\\hbar$ 的频率振荡（量子拍），振荡时间尺度与能级宽度互偿 $\\Delta E\\,\\Delta t\\gtrsim\\hbar$；注意它不同于位置-动量型严格不等式（时间不是算符）。"
+  },
+  {
+   "id": "F140",
+   "name": "广义不确定关系",
+   "latex": "\\sigma_A\\sigma_B\\ge\\frac12|\\langle[\\hat A,\\hat B]\\rangle|",
+   "group": "m2",
+   "module": "模块3 · 薛定谔方程与概率守恒",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "任意两可观测量由对易子限制同时可测性。"
+  },
+  {
+   "id": "F141",
+   "name": "一维定态方程",
+   "latex": "-\\frac{\\hbar^2}{2m}\\psi''+V(x)\\psi=E\\psi",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "由 F126（定态方程）取一维：\\(\\hat H=\\frac{\\hat p^2}{2m}+V\\)，\\(\\hat p=-i\\hbar\\frac{d}{dx}\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F142",
+   "name": "无限深势阱能级",
+   "latex": "E_n=\\frac{n^2\\pi^2\\hbar^2}{2ma^2},\\ n=1,2,3,\\ldots",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "阱内 F141 化为 \\(\\psi''+k^2\\psi=0\\)（k²=2mE/ℏ²），通解 \\(A\\sin kx+B\\cos kx\\)；边界 \\(\\psi(0)=0\\Rightarrow B=0\\)，\\(\\psi(a)=0\\Rightarrow ka=n\\pi\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F143",
+   "name": "无限深势阱波函数",
+   "latex": "\\psi_n=\\sqrt{\\frac2a}\\sin\\frac{n\\pi x}{a}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "由 F142 的 \\(k=n\\pi/a\\)，归一化 \\(\\int_0^a A^2\\sin^2(n\\pi x/a)dx=A^2 a/2=1\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F144",
+   "name": "本征函数正交归一",
+   "latex": "\\int_0^a\\psi_m\\psi_ndx=\\delta_{mn}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "①厄米性（F128/F129）一般结论；②直接积化和差：\\(\\sin A\\sin B=\\frac12[\\cos(A-B)-\\cos(A+B)]\\) 逐项积分。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F145",
+   "name": "阱中 ⟨x²⟩",
+   "latex": "\\langle x^2\\rangle=a^2\\left(\\frac13-\\frac1{2n^2\\pi^2}\\right)",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "\\(\\langle x^2\\rangle=\\frac2a\\int x^2\\sin^2 dx=\\frac{a^2}3-\\frac1a J\\)；\\(J=\\int_0^a x^2\\cos(2n\\pi x/a)dx\\) 分部积分两次得 \\(a^3/2n^2\\pi^2\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F146",
+   "name": "零点能（不确定度下限）",
+   "latex": "E_{\\min}=\\frac{\\pi^2\\hbar^2}{2ma^2}>0",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "由 F142 取 n=1；也可由 F115：\\(\\Delta p\\sim\\hbar/a\\Rightarrow E\\sim\\Delta p^2/2m>0\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F147",
+   "name": "有限深阱超越方程",
+   "latex": "\\tan z=\\sqrt{\\frac{z_0^2}{z^2}-1},\\quad z=ka,\\ z_0=\\frac{a\\sqrt{2mV_0}}{\\hbar}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "分区解+\\(\\psi,\\psi'\\)连续（连接条件）：偶宇称 \\(\\kappa=k\\tan(ka)\\)，\\(\\kappa=\\sqrt{-2mE}/\\hbar\\)。无量纲化即得。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F148",
+   "name": "一维至少一个束缚态",
+   "latex": "\\text{任何对称有限深阱 }V_0>0\\text{ 至少有一个束缚态}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "\\(\\tan z\\) 首支 \\((0,\\pi/2)\\) 恒与右端曲线相交（F147 图解）。",
+   "app": false,
+   "note": "一般定理：任意一维吸引势（$V(\\pm\\infty)\\to0$ 且 $\\int V\\,dx<0$）至少有一个束缚态；有限深阱是最简示例。"
+  },
+  {
+   "id": "F149",
+   "name": "谐振子能级",
+   "latex": "E_n=\\left(n+\\frac12\\right)\\hbar\\omega",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "无量纲化 \\(\\psi''=(\\xi^2-\\epsilon)\\psi\\)；渐近 \\(\\psi\\sim e^{-\\xi^2/2}\\)，级数截断条件 \\(\\epsilon=2n+1\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F150",
+   "name": "谐振子波函数",
+   "latex": "\\psi_n=N_nH_n(\\xi)e^{-\\xi^2/2},\\quad \\xi=\\sqrt{\\frac{m\\omega}{\\hbar}}x",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "级数解法：令 \\(\\psi=h(\\xi)e^{-\\xi^2/2}\\)，h 满足 Hermite 方程（M43）；截断⇒多项式。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F151",
+   "name": "谐振子零点能",
+   "latex": "E_0=\\frac12\\hbar\\omega",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "由 F149 取 n=0；最小不确定高斯态（F115 取等号）的必然结果。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F152",
+   "name": "谐振子 Virial 定理",
+   "latex": "\\langle T\\rangle=\\langle V\\rangle=\\frac{E_n}{2}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "\\(\\langle T\\rangle=\\frac{\\hbar^2}{2m}\\int|\\psi'|^2dx\\)（分部积分，M13），谐振子势 \\(V\\propto x^2\\) 下两式成比例相等。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F153",
+   "name": "三维势箱能级",
+   "latex": "E=\\frac{\\hbar^2\\pi^2}{2mL^2}(n_x^2+n_y^2+n_z^2)",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "分离变量（M27）：三个一维阱能级相加。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F154",
+   "name": "态密度（3D）",
+   "latex": "g(E)=\\frac{dN}{dE}\\propto V\\sqrt E",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "量子数空间第一卦限球：\\(N\\propto(n_x^2+n_y^2+n_z^2)^{3/2}\\propto E^{3/2}\\)，求导得 \\(\\sqrt E\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F155",
+   "name": "杂质能级（类氢模型）",
+   "latex": "E_d=E_1\\frac{m^*/m}{\\epsilon^2},\\quad a^*=a_0\\frac{\\epsilon}{m^*/m}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "氢原子解（F105，a₀）做替换 \\(m\\to m^*,\\ \\epsilon_0\\to\\epsilon\\epsilon_0\\)。",
+   "app": true,
+   "note": ""
+  },
+  {
+   "id": "F156",
+   "name": "节点定理",
+   "latex": "\\text{第 }n\\text{ 个束缚态恰有 }n-1\\text{ 个节点；基态无节点}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "打靶法扫描 E：每跨一个本征值右端多穿一次轴；基态带节点则取 |ψ| 抹尖角使 E 更小（矛盾）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F157",
+   "name": "一维束缚态非简并",
+   "latex": "E\\text{ 对应唯一（至多相位）束缚态}",
+   "group": "m3",
+   "module": "模块4 · 一维束缚态",
+   "link": "",
+   "deriv": "Wronskian（M23）：\\(W'=0\\)，两端 W=0 ⇒ W≡0 ⇒ 两解成比例。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F158",
+   "name": "势阶反射系数",
+   "latex": "R=\\left(\\frac{k_1-k_2}{k_1+k_2}\\right)^2,\\ T=1-R",
+   "group": "m4",
+   "module": "模块5 · 散射与隧穿",
+   "link": "",
+   "deriv": "分区平面波+\\(\\psi,\\psi'\\)连续，消系数。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F159",
+   "name": "方势垒隧穿概率",
+   "latex": "T\\simeq\\frac{16k^2\\kappa^2}{(k^2+\\kappa^2)^2}e^{-2\\kappa a}\\quad(\\kappa a\\gg1)",
+   "group": "m4",
+   "module": "模块5 · 散射与隧穿",
+   "link": "",
+   "deriv": "三层平面波匹配（或 F160 的精确式极限），指数衰减主导。",
+   "app": true,
+   "note": ""
+  },
+  {
+   "id": "F160",
+   "name": "WKB 隧穿概率",
+   "latex": "T\\approx e^{-2\\int_{x_1}^{x_2}\\kappa(x)dx},\\quad \\kappa=\\frac{\\sqrt{2m(V-E)}}{\\hbar}",
+   "group": "m4",
+   "module": "模块5 · 散射与隧穿",
+   "link": "",
+   "deriv": "禁区内波函数指数衰减，积分衰减系数；由 M55/F159 推广到任意形状势垒。",
+   "app": true,
+   "note": ""
+  },
+  {
+   "id": "F161",
+   "name": "Dirac 符号与内积",
+   "latex": "|\\psi\\rangle,\\ \\langle\\varphi|\\psi\\rangle,\\ \\langle\\varphi|\\psi\\rangle^*=\\langle\\psi|\\varphi\\rangle",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "态=矢量、内积=投影；位置表象 \\(\\langle x|\\psi\\rangle=\\psi(x)\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F162",
+   "name": "基变换（表象变换）",
+   "latex": "|\\psi\\rangle=\\sum_n c_n|e_n\\rangle,\\quad c_n=\\langle e_n|\\psi\\rangle",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "完备基 \\(\\{|e_n\\rangle\\}\\) 展开（M02/M29）；换基=幺正变换（M07）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F163",
+   "name": "算符的矩阵表示",
+   "latex": "A_{ij}=\\langle e_i|\\hat A|e_j\\rangle",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "M03 在物理中的直接落位。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F164",
+   "name": "测量公设与投影概率",
+   "latex": "P(a)=\\langle\\psi|\\hat P_a|\\psi\\rangle=|\\langle a|\\psi\\rangle|^2,\\quad \\hat P_a=|a\\rangle\\langle a|",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "测量某本征值的概率=态在该本征方向的投影模方（M09）。",
+   "app": false,
+   "note": "测量公设（基本公设）：测量 $\\hat A$ 得 $a_n$ 的概率为 $|\\langle a_n|\\psi\\rangle|^2$，测量后态坍缩为 $|a_n\\rangle$。投影算符谱分解只是它的数学语言，而非它的来源。"
+  },
+  {
+   "id": "F165",
+   "name": "密度矩阵",
+   "latex": "\\rho=\\sum_i p_i|\\psi_i\\rangle\\langle\\psi_i|,\\ \\operatorname{Tr}\\rho=1,\\ \\langle A\\rangle=\\operatorname{Tr}(\\rho A)",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "混合态的统计描述；纯态 \\(\\rho^2=\\rho\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F166",
+   "name": "能量表象",
+   "latex": "c_n(t)=c_n(0)e^{-iE_nt/\\hbar},\\quad \\langle H\\rangle=\\sum_n|c_n|^2E_n",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "取能量本征基，演化对角化（F130）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F167",
+   "name": "位置↔动量表象",
+   "latex": "\\langle x|p\\rangle=\\frac1{\\sqrt{2\\pi\\hbar}}e^{ipx/\\hbar},\\quad \\varphi(p)=\\langle p|\\psi\\rangle",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "动量基=平面波（F138），两表象由傅里叶变换联系（M31）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F168",
+   "name": "矩阵力学≡波动力学",
+   "latex": "\\text{海森堡矩阵 ↔ 薛定谔微分方程 同一理论}",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "同一厄米算符的不同表象（F162），可观测值不变。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F169",
+   "name": "自旋 1/2 态空间",
+   "latex": "|\\uparrow\\rangle,|\\downarrow\\rangle,\\quad \\mathcal H=\\mathbb C^2",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "两维态空间；任意态 \\(\\alpha|\\uparrow\\rangle+\\beta|\\downarrow\\rangle\\)（Bloch 球）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F170",
+   "name": "厄米算符谱分解",
+   "latex": "\\hat A=\\sum_a a\\,\\hat P_a,\\quad \\hat P_a=|a\\rangle\\langle a|",
+   "group": "m6",
+   "module": "模块8 · 态矢量与表象",
+   "link": "",
+   "deriv": "M09 物理版：可观测量=实谱厄米算符的谱分解。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F171",
+   "name": "三维正则对易",
+   "latex": "[\\hat x_i,\\hat p_j]=i\\hbar\\delta_{ij},\\quad [\\hat x_i,\\hat x_j]=[\\hat p_i,\\hat p_j]=0",
+   "group": "m8",
+   "module": "模块10 · 对易与相容观测量",
+   "link": "",
+   "deriv": "F134 的多分量推广。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F172",
+   "name": "相容观测量与 CSCO",
+   "latex": "[\\hat A,\\hat B]=0\\ \\Rightarrow\\ \\text{有共同本征态},\\quad \\text{CSCO=可完全标记态的一组对易算符}",
+   "group": "m8",
+   "module": "模块10 · 对易与相容观测量",
+   "link": "",
+   "deriv": "M06 物理应用；本征值组唯一标记量子态。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F173",
+   "name": "广义不确定关系",
+   "latex": "\\sigma_A\\sigma_B\\ge\\frac12|\\langle[\\hat A,\\hat B]\\rangle|",
+   "group": "m8",
+   "module": "模块10 · 对易与相容观测量",
+   "link": "",
+   "deriv": "罗伯逊不等式：由态|s⟩=|(Â−⟨A⟩)B̂ψ⟩ 的柯西-施瓦茨导出。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F174",
+   "name": "Ehrenfest 定理",
+   "latex": "\\frac{d\\langle A\\rangle}{dt}=\\frac{i}{\\hbar}\\langle[\\hat H,\\hat A]\\rangle+\\left\\langle\\frac{\\partial\\hat A}{\\partial t}\\right\\rangle",
+   "group": "m9",
+   "module": "模块11 · 时间演化与守恒量",
+   "link": "",
+   "deriv": "\\(\\frac{d}{dt}\\langle\\psi|\\hat A|\\psi\\rangle\\) 展开，用 F121 及其共轭；经典极限得牛顿方程。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F175",
+   "name": "时间演化算符",
+   "latex": "\\hat U(t,t_0)=e^{-i\\hat H(t-t_0)/\\hbar},\\quad |\\psi(t)\\rangle=\\hat U|\\psi(t_0)\\rangle",
+   "group": "m9",
+   "module": "模块11 · 时间演化与守恒量",
+   "link": "",
+   "deriv": "\\(\\hat H\\) 不显含 t 时 F121 的积分形式；幺正（M07）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F176",
+   "name": "守恒量判据",
+   "latex": "[\\hat H,\\hat A]=0\\ \\Rightarrow\\ \\langle A\\rangle\\text{ 恒定}",
+   "group": "m9",
+   "module": "模块11 · 时间演化与守恒量",
+   "link": "",
+   "deriv": "F174 中 \\(\\partial\\hat A/\\partial t=0\\) 时 \\(d\\langle A\\rangle/dt=0\\)。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F177",
+   "name": "对称性与守恒律",
+   "latex": "\\text{空间平移→动量守恒；时间平移→能量守恒；旋转→角动量守恒}",
+   "group": "m9",
+   "module": "模块11 · 时间演化与守恒量",
+   "link": "",
+   "deriv": "Noether 对应：连续对称生成元与 H 对易（F176）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F178",
+   "name": "薛定谔绘景 vs 海森堡绘景",
+   "latex": "\\text{态演化 ↔ 算符演化 } \\frac{d\\hat A_H}{dt}=\\frac{i}{\\hbar}[\\hat H,\\hat A_H]",
+   "group": "m9",
+   "module": "模块11 · 时间演化与守恒量",
+   "link": "",
+   "deriv": "由 F175 的幺正变换 F162 得到算符运动方程。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F179",
+   "name": "宇称算符",
+   "latex": "\\hat P\\psi(x)=\\psi(-x),\\ \\hat P^2=1,\\ \\hat P|p\\rangle=|-p\\rangle",
+   "group": "m10",
+   "module": "模块12 · 对称守恒律",
+   "link": "",
+   "deriv": "定义：空间反演（x→-x）。对偶对称势 \\(V(-x)=V(x)\\) 有 \\([\\hat P,\\hat H]=0\\)，束缚态可取确定宇称（非简并时 \\(\\psi(-x)=\\pm\\psi(x)\\)）。本征值 \\(p=\\pm1\\)（p²=1）。",
+   "app": false,
+   "note": "对称算符示例：偶对称势中宇称是守恒量（可好量子数）。"
+  },
+  {
+   "id": "F180",
+   "name": "平移与动量（对称生成元）",
+   "latex": "\\hat T(a)=e^{-ia\\hat p/\\hbar},\\quad \\hat T(a)\\psi(x)=\\psi(x-a)",
+   "group": "m10",
+   "module": "模块12 · 对称守恒律",
+   "link": "",
+   "deriv": "无穷小平移 \\(I-i a\\hat p/\\hbar\\) 的指数化；平移不变（V 周期性/均匀）⇒ \\([\\hat H,\\hat p]=0\\) ⇒ 动量守恒。",
+   "app": false,
+   "note": "对称性→守恒律的标准例子：空间平移不变⇔动量守恒。"
+  },
+  {
+   "id": "F181",
+   "name": "升降算符",
+   "latex": "\\hat a=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x+\\frac{i}{m\\omega}\\hat p\\right),\\quad \\hat a^\\dagger=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x-\\frac{i}{m\\omega}\\hat p\\right)",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "定义（线性组合消去交叉项）；\\([\\hat a,\\hat a^\\dagger]=1\\)（由 F134）。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F182",
+   "name": "谐振子哈密顿（占据数形式）",
+   "latex": "\\hat H=\\hbar\\omega\\left(\\hat N+\\frac12\\right),\\quad \\hat N=\\hat a^\\dagger\\hat a",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "由 F181 反解 x,p 代入 \\(p^2/2m+m\\omega^2x^2/2\\) 化简。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F183",
+   "name": "谐振子能谱（代数推导）",
+   "latex": "E_n=\\left(n+\\frac12\\right)\\hbar\\omega",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "\\(\\hat N|n\\rangle=n|n\\rangle\\)；\\(\\hat a\\) 降 n、\\(\\hat a^\\dagger\\) 升 n，谱下界 \\(\\hat a|0\\rangle=0\\) ⇒ 整数谱。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F184",
+   "name": "谐振子矩阵元",
+   "latex": "\\langle n|\\hat a|n'\\rangle=\\sqrt n\\,\\delta_{n,n'-1},\\quad \\langle n|\\hat a^\\dagger|n'\\rangle=\\sqrt{n+1}\\,\\delta_{n,n'+1}",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "由升降作用直接读出；跃迁选择定则来源。",
+   "app": true,
+   "note": ""
+  },
+  {
+   "id": "F185",
+   "name": "相干态定义",
+   "latex": "\\hat a|\\alpha\\rangle=\\alpha|\\alpha\\rangle,\\quad |\\alpha\\rangle=e^{-|\\alpha|^2/2}\\sum_n\\frac{\\alpha^n}{\\sqrt{n!}}|n\\rangle",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "升降算符本征态；位移算符 \\(D(\\alpha)=e^{\\alpha\\hat a^\\dagger-\\alpha^*\\hat a}\\) 作用基态。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F186",
+   "name": "相干态性质",
+   "latex": "\\langle x\\rangle(t)=\\sqrt{\\frac{2\\hbar}{m\\omega}}\\operatorname{Re}(\\alpha e^{-i\\omega t}),\\quad \\sigma_x\\sigma_p=\\frac{\\hbar}{2}",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "高斯波包（M48），最小不确定（F115 取等）；等间距能级⇒不扩散。",
+   "app": true,
+   "note": ""
+  },
+  {
+   "id": "F187",
+   "name": "占据数表象",
+   "latex": "|n\\rangle=\\frac{(\\hat a^\\dagger)^n}{\\sqrt{n!}}|0\\rangle,\\quad \\hat N|n\\rangle=n|n\\rangle",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "Fock 态构造；光子/声子数态。",
+   "app": false,
+   "note": ""
+  },
+  {
+   "id": "F188",
+   "name": "角动量算符与对易",
+   "latex": "[\\hat L_i,\\hat L_j]=i\\hbar\\epsilon_{ijk}\\hat L_k",
+   "group": "m11",
+   "module": "模块13 · 角动量代数",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块13 内容未学。"
+  },
+  {
+   "id": "F189",
+   "name": "角动量量子化",
+   "latex": "\\hat L^2|l,m\\rangle=\\hbar^2l(l+1)|l,m\\rangle,\\quad \\hat L_z|l,m\\rangle=\\hbar m|l,m\\rangle",
+   "group": "m11",
+   "module": "模块13 · 角动量代数",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块13 内容未学。"
+  },
+  {
+   "id": "F190",
+   "name": "自旋算符与 Pauli 矩阵",
+   "latex": "\\hat S=\\frac{\\hbar}{2}\\vec\\sigma,\\quad \\sigma_x=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\sigma_y=\\begin{pmatrix}0&-i\\\\i&0\\end{pmatrix},\\sigma_z=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}",
+   "group": "m12",
+   "module": "模块14 · 自旋与Zeeman",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块14 内容未学。"
+  },
+  {
+   "id": "F191",
+   "name": "Zeeman 效应",
+   "latex": "\\Delta E=\\mu_B g B m_j,\\quad \\mu_B=\\frac{e\\hbar}{2m_e}",
+   "group": "m12",
+   "module": "模块14 · 自旋与Zeeman",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块14 内容未学。"
+  },
+  {
+   "id": "F192",
+   "name": "全同粒子与交换对称",
+   "latex": "\\psi(\\ldots,i,\\ldots,j,\\ldots)=\\pm\\psi(\\ldots,j,\\ldots,i,\\ldots)",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F193",
+   "name": "Slater 行列式",
+   "latex": "\\Psi=\\frac1{\\sqrt{N!}}\\det|\\varphi_i(r_j)|",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F194",
+   "name": "Bose–Einstein 分布",
+   "latex": "\\bar n_i=\\frac1{e^{(\\epsilon_i-\\mu)/kT}-1}",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F195",
+   "name": "Fermi–Dirac 分布",
+   "latex": "\\bar n_i=\\frac1{e^{(\\epsilon_i-\\mu)/kT}+1}",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F196",
+   "name": "费米能",
+   "latex": "\\epsilon_F=\\frac{\\hbar^2}{2m}(3\\pi^2 n)^{2/3}",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F197",
+   "name": "泡利不相容",
+   "latex": "\\text{两个全同费米子不能处于同一单粒子态}",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F198",
+   "name": "热平衡密度矩阵",
+   "latex": "\\rho=\\frac{e^{-\\beta\\hat H}}{\\operatorname{Tr}e^{-\\beta\\hat H}},\\quad \\beta=1/kT",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  },
+  {
+   "id": "F199",
+   "name": "谐振子相干态在材料中的应用",
+   "latex": "\\text{光场/声子相干态、压缩态}",
+   "group": "m13",
+   "module": "模块15 · 谐振子代数解法与相干态",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块15 延伸。"
+  },
+  {
+   "id": "F200",
+   "name": "占位：统计与热力学衔接",
+   "latex": "\\text{密度算符→配分函数 }Z=\\operatorname{Tr}e^{-\\beta\\hat H}",
+   "group": "m14",
+   "module": "模块16 · 全同粒子",
+   "link": "",
+   "deriv": "",
+   "app": false,
+   "note": "【待建】模块16 内容未学。"
+  }
+ ],
+ "edges": [
+  {
+   "from": "M16",
+   "to": "M38"
+  },
+  {
+   "from": "M31",
+   "to": "M32"
+  },
+  {
+   "from": "M31",
+   "to": "M35"
+  },
+  {
+   "from": "M22",
+   "to": "M23"
+  },
+  {
+   "from": "M24",
+   "to": "M25"
+  },
+  {
+   "from": "M25",
+   "to": "M26"
+  },
+  {
+   "from": "M26",
+   "to": "M29"
+  },
+  {
+   "from": "M17",
+   "to": "M34"
+  },
+  {
+   "from": "M47",
+   "to": "M34"
+  },
+  {
+   "from": "F101",
+   "to": "F102"
+  },
+  {
+   "from": "F101",
+   "to": "F103"
+  },
+  {
+   "from": "M38",
+   "to": "F107"
+  },
+  {
+   "from": "F107",
+   "to": "F104"
+  },
+  {
+   "from": "F104",
+   "to": "F105"
+  },
+  {
+   "from": "F105",
+   "to": "F106"
+  },
+  {
+   "from": "F108",
+   "to": "F109"
+  },
+  {
+   "from": "F110",
+   "to": "F111"
+  },
+  {
+   "from": "F110",
+   "to": "F112"
+  },
+  {
+   "from": "M31",
+   "to": "F114"
+  },
+  {
+   "from": "F113",
+   "to": "F114"
+  },
+  {
+   "from": "M47",
+   "to": "F115"
+  },
+  {
+   "from": "M06",
+   "to": "F115"
+  },
+  {
+   "from": "F134",
+   "to": "F140"
+  },
+  {
+   "from": "F116",
+   "to": "F117"
+  },
+  {
+   "from": "F133",
+   "to": "F118"
+  },
+  {
+   "from": "M34",
+   "to": "F119"
+  },
+  {
+   "from": "M32",
+   "to": "F120"
+  },
+  {
+   "from": "F138",
+   "to": "F120"
+  },
+  {
+   "from": "F121",
+   "to": "F124"
+  },
+  {
+   "from": "F123",
+   "to": "F124"
+  },
+  {
+   "from": "F121",
+   "to": "F125"
+  },
+  {
+   "from": "F125",
+   "to": "F126"
+  },
+  {
+   "from": "F127",
+   "to": "F128"
+  },
+  {
+   "from": "F127",
+   "to": "F129"
+  },
+  {
+   "from": "M05",
+   "to": "F129"
+  },
+  {
+   "from": "F129",
+   "to": "F130"
+  },
+  {
+   "from": "F130",
+   "to": "F131"
+  },
+  {
+   "from": "M29",
+   "to": "F130"
+  },
+  {
+   "from": "F121",
+   "to": "F136"
+  },
+  {
+   "from": "F121",
+   "to": "F137"
+  },
+  {
+   "from": "F113",
+   "to": "F138"
+  },
+  {
+   "from": "F141",
+   "to": "F142"
+  },
+  {
+   "from": "F142",
+   "to": "F143"
+  },
+  {
+   "from": "F143",
+   "to": "F144"
+  },
+  {
+   "from": "F143",
+   "to": "F145"
+  },
+  {
+   "from": "F142",
+   "to": "F146"
+  },
+  {
+   "from": "F147",
+   "to": "F148"
+  },
+  {
+   "from": "M24",
+   "to": "F149"
+  },
+  {
+   "from": "F149",
+   "to": "F150"
+  },
+  {
+   "from": "F149",
+   "to": "F151"
+  },
+  {
+   "from": "M13",
+   "to": "F152"
+  },
+  {
+   "from": "M27",
+   "to": "F153"
+  },
+  {
+   "from": "F153",
+   "to": "F154"
+  },
+  {
+   "from": "F105",
+   "to": "F155"
+  },
+  {
+   "from": "M23",
+   "to": "F157"
+  },
+  {
+   "from": "F158",
+   "to": "F159"
+  },
+  {
+   "from": "M02",
+   "to": "F161"
+  },
+  {
+   "from": "F161",
+   "to": "F162"
+  },
+  {
+   "from": "M03",
+   "to": "F163"
+  },
+  {
+   "from": "M08",
+   "to": "F165"
+  },
+  {
+   "from": "F130",
+   "to": "F166"
+  },
+  {
+   "from": "M31",
+   "to": "F167"
+  },
+  {
+   "from": "F162",
+   "to": "F168"
+  },
+  {
+   "from": "M10",
+   "to": "F169"
+  },
+  {
+   "from": "M09",
+   "to": "F170"
+  },
+  {
+   "from": "F134",
+   "to": "F171"
+  },
+  {
+   "from": "M06",
+   "to": "F172"
+  },
+  {
+   "from": "F134",
+   "to": "F173"
+  },
+  {
+   "from": "F171",
+   "to": "F173"
+  },
+  {
+   "from": "F121",
+   "to": "F174"
+  },
+  {
+   "from": "F121",
+   "to": "F175"
+  },
+  {
+   "from": "F176",
+   "to": "F177"
+  },
+  {
+   "from": "F175",
+   "to": "F178"
+  },
+  {
+   "from": "F134",
+   "to": "F181"
+  },
+  {
+   "from": "F181",
+   "to": "F182"
+  },
+  {
+   "from": "F182",
+   "to": "F183"
+  },
+  {
+   "from": "F183",
+   "to": "F184"
+  },
+  {
+   "from": "F183",
+   "to": "F185"
+  },
+  {
+   "from": "F185",
+   "to": "F186"
+  },
+  {
+   "from": "F182",
+   "to": "F187"
+  },
+  {
+   "from": "F181",
+   "to": "F187"
+  },
+  {
+   "from": "F175",
+   "to": "F180"
+  },
+  {
+   "from": "F177",
+   "to": "F179"
+  },
+  {
+   "from": "F140",
+   "to": "F115"
+  },
+  {
+   "from": "F117",
+   "to": "F139"
+  },
+  {
+   "from": "M25",
+   "to": "F156"
+  },
+  {
+   "from": "F141",
+   "to": "F158"
+  },
+  {
+   "from": "F141",
+   "to": "F160"
+  },
+  {
+   "from": "F178",
+   "to": "F176"
+  },
+  {
+   "from": "F177",
+   "to": "F180"
+  },
+  {
+   "from": "F126",
+   "to": "F133"
+  },
+  {
+   "from": "F126",
+   "to": "F141"
+  },
+  {
+   "from": "F141",
+   "to": "F147"
+  }
+ ]
+}
