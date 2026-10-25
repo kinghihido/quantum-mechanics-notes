@@ -113,6 +113,8 @@ a:hover{text-decoration:underline}
 .ver-list .vd{font-size:14.5px;color:var(--ink2)}
 .foot{margin:40px 0 30px;text-align:center;color:var(--ink3);font-size:13px}
 .err{background:#fdecea;border:1px solid #f5b7b1;color:#9c3328;border-radius:10px;padding:16px 20px;margin:20px 0;font-size:15px}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--accent2);color:#fff;padding:10px 18px;border-radius:8px;font-size:14px;z-index:99;opacity:0;pointer-events:none;transition:opacity .25s;max-width:86vw;box-shadow:0 4px 16px rgba(28,32,48,.25)}
+#toast.show{opacity:.96}
 @media(max-width:700px){
   .pillars{grid-template-columns:1fr}
   .content{padding:20px 16px}
@@ -217,14 +219,14 @@ a:hover{text-decoration:underline}
   <div class="wrap">
     <div class="pagehead"><span class="tag">关于</span><h1>关于本学习站</h1></div>
     <div class="card content">
-      <p>本站在 <b>v2.1.0</b> 起支持：数学库条目「补充」块（难懂公式点开即见通俗披露）、公式图谱推导打卡（已亲自推导的边变绿加粗、点击回看推导记录）。自 <b>v2.0.0</b> 起改为"数理逻辑优先"的体系：数学工具（支柱一）→ 全局叙事（支柱二）→ 公式推导网（支柱三）→ 例题精解（支柱四）。</p>
+      <p>本站在 <b>v2.1.0</b> 起支持：数学库条目「补充」块（难懂公式点开即见通俗披露）、公式图谱推导打卡（已亲自推导的边变绿加粗、点击回看推导记录）。<b>v2.1.1</b> 修复边点击：未打卡边有点击提示，已打卡边加箭头、更好点。自 <b>v2.0.0</b> 起改为"数理逻辑优先"的体系：数学工具（支柱一）→ 全局叙事（支柱二）→ 公式推导网（支柱三）→ 例题精解（支柱四）。</p>
       <p>内容由作者自学《材料中的量子与统计》课程整理而成，供公开学习使用。公式若发现错误，欢迎指正。</p>
       <p>技术：单文件 HTML + marked + KaTeX + ECharts，内容存放于 <code>content/</code>，静态部署于 GitHub Pages。</p>
     </div>
   </div>
 </div>
 
-<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.1.0</span> · 以数理逻辑为骨架，静待花开</div></footer>
+<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.1.1</span> · 以数理逻辑为骨架，静待花开</div></footer>
 
 <script src="https://fastly.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -233,8 +235,9 @@ a:hover{text-decoration:underline}
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script>
 /* ================= 配置与版本 ================= */
-var VERSION = "2.1.0";
+var VERSION = "2.1.1";
 var CHANGELOG = [
+  ["2.1.1","修复公式图谱边点击：未打卡边点击现在有明确提示；已打卡边加粗并带方向箭头，点击可靠打开推导记录。"],
   ["2.1.0","数学库条目新增「补充」块：难懂公式旁点开即有通俗详细披露；公式图谱新增推导打卡：已亲自推导的边变绿加粗，点击边可回看推导记录。"],
   ["2.0.0","全站重构为数理逻辑四支柱体系：数学前备库 M01–M56、量子力学概论（叙事长文）、公式图谱（蛛网交互，F101–F200）、例题精解新格式。旧单篇知识点全部归档，不再展示。"],
   ["1.1.7","4.1 打靶法补充通俗解释块。"],
@@ -388,8 +391,9 @@ function buildGraph(nodes, proofs){
   });
   var links=GF.edges.map(function(e){
     var proved=!!e.proved;
-    return {id:e.from+"->"+e.to,source:e.from,target:e.to,
-      lineStyle:proved?{curveness:0.06,width:3.5,opacity:0.95,color:"#1e8e5a"}:{curveness:0.06,width:1,opacity:0.35}};
+    return {id:e.from+"->"+e.to,source:e.from,target:e.to,name:e.from+"→"+e.to,
+      lineStyle:proved?{curveness:0.05,width:4,opacity:0.95,color:"#1e8e5a"}:{curveness:0.05,width:2.6,opacity:0.5,color:"#a9aebf"},
+      edgeSymbol:proved?["none","arrow"]:["none","circle"],edgeSymbolSize:proved?[0,11]:[0,9]};
   });
   GF.chart=echarts.init(document.getElementById("gchart"),null,{renderer:"canvas"});
   setTimeout(function(){GF.chart.resize();},0);
@@ -407,11 +411,15 @@ function buildGraph(nodes, proofs){
     }]
   });
   GF.chart.on("click",function(p){
-    if(p.dataType==="node")showCard(p.data.id);
+    if(p.dataType==="node"){showCard(p.data.id);return;}
     if(p.dataType==="edge"){
-      var key=p.data.id||(p.data.source+"->"+p.data.target);
+      var d=p.data||{};
+      var key=d.id||(d.source+"->"+d.target);
       var edge=GF.edgeById[key];
-      if(edge&&edge.proof)showEdgeCard(edge);
+      if(!edge&&p.dataIndex!=null&&GF.edges[p.dataIndex])edge=GF.edges[p.dataIndex];
+      if(!edge)return;
+      if(edge.proof)showEdgeCard(edge);
+      else toast("「"+edge.from+" → "+edge.to+"」尚未打卡——在豆包报推导，我来整理成记录、变绿");
     }
   });
   GF.chart.on("mousewheel",function(){if(GF.cardTimer)clearTimeout(GF.cardTimer);});
@@ -502,6 +510,14 @@ function gotoNode(id){
 }
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 function mdline(t){return t.replace(/\n/g,"<br>");}
+var toastTimer=null;
+function toast(msg){
+  var el=document.getElementById("toast");
+  if(!el){el=document.createElement("div");el.id="toast";document.body.appendChild(el);}
+  el.textContent=msg;el.classList.add("show");
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){el.classList.remove("show");},2800);
+}
 document.getElementById("gFit").addEventListener("click",function(){GF.chart&&GF.chart.dispatchAction({type:"restore"});});
 document.getElementById("gClear").addEventListener("click",function(){document.getElementById("gSearch").value="";GF.groupFilter=null;applyFilter();closeCard();});
 document.getElementById("gSearch").addEventListener("input",applyFilter);
