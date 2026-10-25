@@ -1,49 +1,76 @@
-# 手动更新指南（v2.0.0 · 四支柱）
+# 手动更新指南（v2.1.0）
 
-网站内容全部是 Markdown / JSON，更新不用懂代码。四支柱各自独立维护：
+网站是单页静态站：`index.html`（外壳 + 交互）+ `content/`（四支柱内容，全部 Markdown/JSON）。更新不用懂代码，按下面分类操作。
 
-## 支柱① 数学前备库（content/math.md）
+## 目录结构
 
-- 单文件，条目编号 M01–M56，按大类（A 线性代数 / B 微积分 / C 常微分 / D 偏微分 / E 傅里叶 / F 复变 / G 特殊函数 / H 概率统计 / I 数值方法）排列。
-- 新条目在对应大类末尾追加，编号顺延；改动公式用 LaTeX（行内 `$…$`、独立行 `$$…$$`）。
+| 支柱 | 文件 | 改什么 |
+|---|---|---|
+| 一 · 数学前备库 | `content/math.md` | M01–M56 条目；难懂公式可加「补充」块 |
+| 二 · 概论 | `content/overview.md` | 叙事长文；公式只给编号 `[Fxxx](#graph?f=Fxxx)` |
+| 三 · 公式图谱 | `content/formulas.json` + `content/formulas-proofs.json` | 节点（公式）/ 边（推导关系）/ 推导打卡 |
+| 四 · 例题精解 | `content/manifest.json` + `content/problems/*.md` | 模块清单 + 每题解答 |
 
-## 支柱② 量子力学概论（content/overview.md）
+## 支柱一：数学库加「补充」
 
-- 十章叙事长文，公式一律不推导，只用编号链接 `[F121](#graph?f=F121)` 指到图谱；编号必须对应 formulas.json 中真实存在的节点。
-- 改文字不影响其他支柱；新增公式时先在图谱登记编号，再回来引用。
+每条目 = 编号标题 + 要点 + 公式 + 用途。若某条难懂，在条目末尾（`用：…` 的下一行）加：
 
-## 支柱③ 公式图谱（content/formulas.json）
+```markdown
+<details class="sup"><summary>补充</summary>
 
-- 结构：`nodes`（id=编号、name、formula、module、note、app、pre）与 `edges`（source→target）。
-- 新增公式：在 nodes 追加一条（编号 F 段内顺延），在 edges 补上前置依赖边，再在 overview.md 里引用。
-- `app: true` 表示应用公式（图谱里标「应用」、不再给推导）；`note` 可写用途说明。
-- 校验：节点/边格式必须自洽（无悬空引用、无自环），改完建议本地开 `python -m http.server` 实测蛛网。
-
-## 支柱④ 例题精解（content/problems/ + content/manifest.json）
-
-- 每个模块一个文件，如 `content/problems/模块4-一维束缚态.md`。
-- 例题格式固定：题号 + **应用公式**（`[F145](#graph?f=F145)` 链接清单）→ 已知/求 → 严谨分步解（含 ⚠️ 易错标注、全程带单位）。
-- 新模块：写例题文件后，在 `content/manifest.json` 里把对应模块的 `problem` 字段填上文件路径。
-
-## 提交与发布
-
-```bash
-git add -A
-git commit -m "更新：…"
-git push
+**通俗解释**：……
+$$公式$$
+</details>
 ```
 
-GitHub Pages 每次推送自动发布，约 1 分钟生效。
+- 补充块内部是完整 Markdown，公式照常写 LaTeX（`$…$` 行内、`$$…$$` 独立行）；
+- 页面渲染为条目旁的「补充」小徽标，点击展开/收起；
+- 已有 9 条示例：M03、M06、M09、M13、M17、M23、M25、M32、M55。
 
-## 本地预览
+## 支柱三：图谱推导打卡
+
+- 图谱的一条边 = 一条推导关系，基础数据在 `content/formulas.json` 的 `edges` 数组，形如 `{"from":"F101","to":"F102"}`。
+- 推导状态与推导记录独立存放在 `content/formulas-proofs.json`（key 为 `"Fxxx->Fyyy"`，与边的 from/to 一致）：
+
+```json
+{
+  "F101->F102": {
+    "proved": true,
+    "proof": "**已知**：…\n\n**推导**：\n1. …\n$$公式$$"
+  }
+}
+```
+
+- `proved: true` → 图上该边变绿加粗（灰细线 = 还没推过）；`proof` 是该推导的完整记录（Markdown + LaTeX，建议按「已知 / 要求推出 / 推导 / 物理结论」写，点击绿色边可回看）。
+- 想新增一条推导关系：往 `formulas.json` 的 `edges` 加 `{"from":"Fxxx","to":"Fyyy"}`（两个节点必须已存在于 `nodes`），推导记录再照上面格式写进 `formulas-proofs.json`。
+
+## 支柱四：新增例题
+
+1. 新建 `content/problems/模块N-名称.md`，格式照现有 `模块4-一维束缚态.md`：先列「应用公式」链接清单（`[Fxxx](#graph?f=Fxxx)`），再按严谨答题规范分步求解；
+2. 在 `content/manifest.json` 的 `modules` 数组里给该模块补 `"problem": "problems/模块N-名称.md"`。
+
+## 升版本号（每次发布新功能时）
+
+打开 `index.html`，四处一起改：
+
+1. `var VERSION = "x.y.z";`
+2. 页脚 `v<span id="footVer">x.y.z</span>`；
+3. `CHANGELOG` 数组头部加 `["x.y.z","本次更新说明"]`；
+4. 关于页文案（`v-about` 视图）。
+
+## 本地预览与发布
 
 ```bash
 python -m http.server 8000
 # 浏览器打开 http://localhost:8000
 ```
 
-## 常见问题
+`file://` 双击打不开（浏览器禁止本地读取数据文件），必须走本地服务器。
 
-- **公式乱码**：检查 LaTeX 里是否含 `<`、`>`、`*` 等字符——渲染管线已对公式做 HTML 转义保护，但写法上尽量用 `\langle`/`\rangle`、`\ast` 等转义符更稳。
-- **蛛网空白**：多为 CDN 加载失败；确认能访问 jsDelivr（fastly.jsdelivr.net），刷新重试。
-- **链接跳转后不在顶部**：网址带 `#/graph?f=Fxxx` 直达弹卡属正常设计；普通章节跳转会回到页面顶部。
+确认无误后提交推送：
+
+```bash
+git add -A && git commit -m "v2.1.0 更新说明" && git push
+```
+
+GitHub Pages 自动发布，约 1 分钟内生效。线上地址：https://kinghihido.github.io/quantum-mechanics-notes/
