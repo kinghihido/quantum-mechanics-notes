@@ -62,6 +62,14 @@ a:hover{text-decoration:underline}
 .content th,.content td{border:1px solid var(--line);padding:8px 12px;text-align:left;font-size:14.5px}
 .content th{background:#f3efe6;font-weight:600}
 .content blockquote{border-left:4px solid var(--accent);background:#f6f1e6;padding:10px 16px;margin:12px 0;color:var(--ink2)}
+.content details.sup{margin:10px 0 4px}
+.content details.sup summary{cursor:pointer;display:inline-block;background:#eef1fa;color:var(--math);border:1px solid #d5ddf0;border-radius:99px;padding:2px 14px;font-size:13px;font-weight:600;user-select:none;list-style:none;transition:background .15s,color .15s}
+.content details.sup summary:hover{background:#dde3f7}
+.content details.sup summary::-webkit-details-marker{display:none}
+.content details.sup[open] summary{background:var(--math);color:#fff;border-color:var(--math)}
+.content details.sup .sup-body{margin-top:8px;padding:14px 16px;background:#f8f9fd;border:1px dashed #d5ddf0;border-radius:8px;font-size:15px;line-height:1.8}
+.content details.sup .sup-body p{margin:8px 0}
+.content details.sup .sup-body b{color:var(--accent2)}
 .content code{background:#f0ede4;border-radius:4px;padding:1px 6px;font-size:14px;font-family:ui-monospace,Consolas,monospace}
 .content .fref{color:var(--math);font-weight:600;background:#eef1fa;border-radius:4px;padding:1px 6px;cursor:pointer;white-space:nowrap}
 .content .fref:hover{background:#dde3f7}
@@ -135,9 +143,9 @@ a:hover{text-decoration:underline}
     </div>
     <div class="wrap" style="max-width:860px">
       <div class="pillars">
-        <a class="pillar" href="#/math"><span class="no">支柱一</span><h3>数学前备库 · M01–M56</h3><p>线性代数、微积分、微分方程、傅里叶、特殊函数、概率统计、数值方法——56 条工具，保证任何推导看得懂。</p></a>
+        <a class="pillar" href="#/math"><span class="no">支柱一</span><h3>数学前备库 · M01–M56</h3><p>线性代数、微积分、微分方程、傅里叶、特殊函数、概率统计、数值方法——56 条工具，保证任何推导看得懂；难懂条目点「补充」即见通俗披露。</p></a>
         <a class="pillar" href="#/overview"><span class="no">支柱二</span><h3>量子力学概论</h3><p>一支笔串起全部模块的流畅叙事：波粒二象、波函数、方程、束缚态、算符代数、对称与演化、谐振子与相干态。公式只给编号，不打断阅读。</p></a>
-        <a class="pillar" href="#/graph"><span class="no">支柱三</span><h3>公式图谱 · 001–200</h3><p>可交互的推导蛛网：点开任意公式，看它由哪些公式推出、又能推出什么；应用公式到此为止。推导全部可展开。</p></a>
+        <a class="pillar" href="#/graph"><span class="no">支柱三</span><h3>公式图谱 · 001–200</h3><p>可交互的推导蛛网：点开任意公式，看它由哪些公式推出、又能推出什么；应用公式到此为止。已亲自推导的边变绿加粗，点击可回看推导记录。</p></a>
         <a class="pillar" href="#/quiz"><span class="no">支柱四</span><h3>例题精解</h3><p>每个模块一组可抄到答题纸的例题：先完整列出应用公式（带跳转），再按严谨答题规范分步求解。</p></a>
       </div>
       <div class="card path">
@@ -179,7 +187,7 @@ a:hover{text-decoration:underline}
       <button class="chip" id="gClear">清除选中</button>
     </div>
     <div id="graphBox">
-      <div id="graphHint">共 <span id="gCntN">0</span> 个公式 · <span id="gCntE">0</span> 条推导关系</div>
+      <div id="graphHint">共 <span id="gCntN">0</span> 个公式 · <span id="gCntE">0</span> 条推导关系 · 已亲自推导 <span id="gCntP">0</span> 条</div>
       <div id="graphLegend"></div>
       <div id="gchart"></div>
       <div id="fcard"></div>
@@ -209,14 +217,14 @@ a:hover{text-decoration:underline}
   <div class="wrap">
     <div class="pagehead"><span class="tag">关于</span><h1>关于本学习站</h1></div>
     <div class="card content">
-      <p>本站在 <b>v2.0.0</b> 起改为"数理逻辑优先"的体系：数学工具（支柱一）→ 全局叙事（支柱二）→ 公式推导网（支柱三）→ 例题精解（支柱四）。</p>
+      <p>本站在 <b>v2.1.0</b> 起支持：数学库条目「补充」块（难懂公式点开即见通俗披露）、公式图谱推导打卡（已亲自推导的边变绿加粗、点击回看推导记录）。自 <b>v2.0.0</b> 起改为"数理逻辑优先"的体系：数学工具（支柱一）→ 全局叙事（支柱二）→ 公式推导网（支柱三）→ 例题精解（支柱四）。</p>
       <p>内容由作者自学《材料中的量子与统计》课程整理而成，供公开学习使用。公式若发现错误，欢迎指正。</p>
       <p>技术：单文件 HTML + marked + KaTeX + ECharts，内容存放于 <code>content/</code>，静态部署于 GitHub Pages。</p>
     </div>
   </div>
 </div>
 
-<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.0.0</span> · 以数理逻辑为骨架，静待花开</div></footer>
+<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.1.0</span> · 以数理逻辑为骨架，静待花开</div></footer>
 
 <script src="https://fastly.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -225,8 +233,9 @@ a:hover{text-decoration:underline}
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script>
 /* ================= 配置与版本 ================= */
-var VERSION = "2.0.0";
+var VERSION = "2.1.0";
 var CHANGELOG = [
+  ["2.1.0","数学库条目新增「补充」块：难懂公式旁点开即有通俗详细披露；公式图谱新增推导打卡：已亲自推导的边变绿加粗，点击边可回看推导记录。"],
   ["2.0.0","全站重构为数理逻辑四支柱体系：数学前备库 M01–M56、量子力学概论（叙事长文）、公式图谱（蛛网交互，F101–F200）、例题精解新格式。旧单篇知识点全部归档，不再展示。"],
   ["1.1.7","4.1 打靶法补充通俗解释块。"],
   ["1.1.6","4.2 补充 Wronskian 四项展开/衰减通俗/宇称预备/c=±1/节点动能由来；3.3 补 ∇·(f∇g)。"],
@@ -254,11 +263,29 @@ function restoreMath(html){
     return s;
   });
 }
-function renderMarkdown(md){
+function mdToHtml(md){
   var html = protectMath(md);
   html = marked.parse(html);
   html = html.replace(/&lt;([^&]+?)&gt;/g,"<$1>");
   html = restoreMath(html);
+  return html;
+}
+function renderMarkdown(md){
+  /* 提取"补充"块 <details class="sup">…</details>：内部单独走完整 markdown 管线（支持 LaTeX） */
+  var sups = [];
+  md = md.replace(/<details class="sup">([\s\S]*?)<\/details>/g, function(m, inner){
+    var idx = sups.length;
+    var sum = (inner.match(/<summary>([\s\S]*?)<\/summary>/) || [,"补充"])[1];
+    var body = inner.replace(/<summary>[\s\S]*?<\/summary>/,"");
+    sups.push({sum:sum, body:body});
+    return "%%SUP"+idx+"%%";
+  });
+  var html = mdToHtml(md);
+  html = html.replace(/%%SUP(\d+)%%/g, function(m,i){
+    var s = sups[+i];
+    var bodyHtml = mdToHtml(s.body);
+    return '<details class="sup"><summary>'+s.sum+'</summary><div class="sup-body">'+bodyHtml+'</div></details>';
+  });
   var box = document.createElement("div");
   box.innerHTML = html;
   box.querySelectorAll('a[href*="graph?f="]').forEach(function(a){
@@ -324,18 +351,28 @@ function renderVersion(){
 }
 
 /* ================= 公式图谱（蛛网） ================= */
-var GF={nodes:[],edges:[],byId:{},chart:null,dataLoaded:false,selected:null,groupFilter:null};
+var GF={nodes:[],edges:[],byId:{},edgeById:{},chart:null,dataLoaded:false,selected:null,groupFilter:null};
 function graphInit(){
   if(GF.dataLoaded)return;
   GF.dataLoaded=true;
-  fetch("content/formulas.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
-    .then(function(d){GF.edges=d.edges;buildGraph(d.nodes);})
-    .catch(function(){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败，请通过 GitHub Pages 访问。</div>';});
+  Promise.all([
+    fetch("content/formulas.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}),
+    fetch("content/formulas-proofs.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).catch(function(){return {};})
+  ]).then(function(arr){
+    GF.edges=arr[0].edges;
+    buildGraph(arr[0].nodes,arr[1]||{});
+  }).catch(function(){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败，请通过 GitHub Pages 访问。</div>';});
 }
-function buildGraph(nodes){
+function buildGraph(nodes, proofs){
   GF.nodes=nodes;
   GF.byId={};
   nodes.forEach(function(n){GF.byId[n.id]=n;});
+  GF.edgeById={};
+  GF.edges.forEach(function(e){GF.edgeById[e.from+"->"+e.to]=e;});
+  if(proofs)Object.keys(proofs).forEach(function(k){
+    var e=GF.edgeById[k],p=proofs[k];
+    if(e&&p){e.proved=!!p.proved;if(p.proof)e.proof=p.proof;}
+  });
   var deg={};nodes.forEach(function(n){deg[n.id]=0;});
   GF.edges.forEach(function(e){deg[e.from]++;deg[e.to]++;});
   var groups={};nodes.forEach(function(n){groups[n.group]=GF.groups[n.group]||n.group;});
@@ -349,7 +386,11 @@ function buildGraph(nodes){
       itemStyle:{opacity:pendingSet[n.id]?0.28:1},
       value:deg[n.id]||0};
   });
-  var links=GF.edges.map(function(e){return {source:e.from,target:e.to,lineStyle:{curveness:0.06,width:1,opacity:0.35}};});
+  var links=GF.edges.map(function(e){
+    var proved=!!e.proved;
+    return {id:e.from+"->"+e.to,source:e.from,target:e.to,
+      lineStyle:proved?{curveness:0.06,width:3.5,opacity:0.95,color:"#1e8e5a"}:{curveness:0.06,width:1,opacity:0.35}};
+  });
   GF.chart=echarts.init(document.getElementById("gchart"),null,{renderer:"canvas"});
   setTimeout(function(){GF.chart.resize();},0);
   GF.chart.setOption({
@@ -365,10 +406,18 @@ function buildGraph(nodes){
       itemStyle:{borderColor:"#fff",borderWidth:1}
     }]
   });
-  GF.chart.on("click",function(p){if(p.dataType==="node")showCard(p.data.id);});
+  GF.chart.on("click",function(p){
+    if(p.dataType==="node")showCard(p.data.id);
+    if(p.dataType==="edge"){
+      var key=p.data.id||(p.data.source+"->"+p.data.target);
+      var edge=GF.edgeById[key];
+      if(edge&&edge.proof)showEdgeCard(edge);
+    }
+  });
   GF.chart.on("mousewheel",function(){if(GF.cardTimer)clearTimeout(GF.cardTimer);});
   document.getElementById("gCntN").textContent=nodes.length;
   document.getElementById("gCntE").textContent=GF.edges.length;
+  document.getElementById("gCntP").textContent=GF.edges.filter(function(e){return e.proved;}).length;
   buildLegend(groups);
   var q=location.hash.match(/[?&]f=([FMT]\d+)/);
   if(q&&GF.byId[q[1]])showCard(q[1]);
@@ -389,6 +438,12 @@ function buildLegend(groups){
     });
     box.appendChild(d);
   });
+  var pr=document.createElement("div");pr.className="lg";pr.style.cursor="default";
+  var bar=document.createElement("span");bar.style.cssText="width:20px;height:0;border-top:3px solid #1e8e5a;display:inline-block;margin:2px 6px 2px 0;flex:none";
+  pr.appendChild(bar);
+  var pt=document.createElement("span");pt.textContent="已亲自推导（点击边查看）";
+  pr.appendChild(pt);
+  box.appendChild(pr);
 }
 function applyFilter(){
   var kw=(document.getElementById("gSearch").value||"").trim();
@@ -421,6 +476,23 @@ function showCard(id){
   var box=card;
   renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
 }
+function showEdgeCard(e){
+  var card=document.getElementById("fcard");
+  var a=GF.byId[e.from],b=GF.byId[e.to];
+  if(!a||!b)return;
+  GF.selected=e.from;
+  var h='<button class="fc-close" onclick="closeCard()">&times;</button>';
+  h+='<div class="fc-id">推导打卡 · '+e.from+' → '+e.to+'</div>';
+  h+='<h3>'+esc(a.name)+' → '+esc(b.name)+'</h3>';
+  h+='<div class="fc-latex">由 $$'+a.latex+'$$<br>推出 &nbsp;$$'+b.latex+'$$</div>';
+  h+='<div class="fc-sec">推导记录 <span class="arrow">（已亲自推导）</span></div>';
+  h+='<div class="fc-deriv" id="fcProof"></div>';
+  card.innerHTML=h;
+  card.classList.add("open");
+  var proofBox=renderMarkdown(e.proof);
+  document.getElementById("fcProof").appendChild(proofBox);
+  renderMathInElement(card,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+}
 function closeCard(){document.getElementById("fcard").classList.remove("open");}
 function gotoNode(id){
   GF.chart.dispatchAction({type:"downplay",seriesIndex:0,name:GF.selected});
@@ -441,7 +513,7 @@ var QUIZ={list:[],loaded:{}};
 function quizLoad(){
   var nav=document.getElementById("quizNav");
   if(!QUIZ.list.length){
-    fetch("content/manifest.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();})
+    fetch("content/manifest.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
       .then(function(m){
         QUIZ.list=(m.modules||[]).filter(function(x){return x.problem;});
         nav.innerHTML="";
