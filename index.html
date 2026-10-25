@@ -3,1307 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>量子力学学习笔记 · 从实验反常到全同粒子</title>
-<meta name="description" content="一套面向自学者的量子力学与量子统计学习笔记：按主线组织的知识点、课堂笔记与答疑记录，公式全程 LaTeX 渲染，适合入门者按章节逐点学习。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1526'/%3E%3Ctext x='16' y='24' font-size='22' font-family='Georgia,serif' fill='%23E8B27A' text-anchor='middle'%3E%CF%88%3C/text%3E%3C/svg%3E">
+<title>量子力学学习笔记 · 数理逻辑版</title>
 <style>
 :root{
-  --paper:#F6F1E7; --paper-2:#EFE8D9; --paper-3:#E7DFCC;
-  --ink:#1F232E; --ink-2:#555B6B; --ink-3:#8A8F9E;
-  --line:#E0D8C4; --line-2:#C9C0A9;
-  --night:#0E1526; --night-2:#141D33; --night-line:#26324E;
-  --accent:#C2412C; --accent-ink:#9A3220;
-  --ok:#2E7D5B; --ok-bg:#E4F0E7;
-  --amber:#A86F1D; --amber-bg:#F5EAD3;
-  --todo:#7E8494; --todo-bg:#ECEBE6;
-  --radius:12px; --shadow:0 1px 2px rgba(20,24,40,.05);
-  --serif:Georgia,'Times New Roman','Songti SC','SimSun',serif;
-  --sans:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei UI','Noto Sans CJK SC','Segoe UI',sans-serif;
-  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --ink:#1e2733; --ink2:#4a5568; --ink3:#718096;
+  --paper:#f7f5f0; --card:#ffffff; --line:#e2ddd2;
+  --accent:#c07a2d; --accent2:#16324f;
+  --math:#3b5bdb;
+  --shadow:0 1px 3px rgba(28,32,48,.08),0 8px 24px rgba(28,32,48,.06);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
-img{max-width:100%}
-a{color:var(--accent-ink);text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{color:var(--accent)}
-::selection{background:#F0D9C8}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.serif{font-family:var(--serif)}
-
-/* ===== 顶栏 ===== */
-.site-head{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.head-inner{display:flex;align-items:center;gap:14px;height:60px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:17px;font-weight:700}
-.brand svg{width:30px;height:30px;flex:none}
-.brand small{display:block;font-family:var(--sans);font-size:11px;font-weight:400;color:var(--ink-2);letter-spacing:.04em}
-.head-nav{display:flex;align-items:center;gap:2px;margin-left:auto}
-.head-nav a{padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-size:14.5px;white-space:nowrap}
-.head-nav a:hover{color:var(--ink);background:var(--paper-2)}
-.head-nav a.on{color:var(--accent-ink);font-weight:600}
-.head-search{position:relative;margin-left:8px}
-.search-box{width:170px;height:38px;border:1px solid var(--line-2);border-radius:19px;background:#fff;padding:0 14px;font-size:16px;font-family:var(--sans);color:var(--ink);outline:none;transition:width .2s}
-.search-box:focus{width:240px;border-color:var(--accent)}
-.search-results{position:absolute;top:44px;right:0;width:320px;max-height:60vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 30px rgba(20,24,40,.14);padding:6px;display:none}
-.search-results.open{display:block}
-.sr-group{font-size:11px;color:var(--ink-3);padding:8px 10px 4px;letter-spacing:.06em}
-.sr-item{display:block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:14px}
-.sr-item:hover{background:var(--paper)}
-.sr-item .sr-sub{display:block;font-size:12px;color:var(--ink-3)}
-.menu-btn{display:none;width:40px;height:40px;border:1px solid var(--line-2);border-radius:10px;background:#fff;color:var(--ink);font-size:16px;cursor:pointer}
-@media (max-width:860px){
-  .head-search{display:none}
-  .head-nav{position:fixed;top:60px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px 14px 14px;display:none;box-shadow:0 12px 24px rgba(20,24,40,.12)}
-  .head-nav.open{display:flex}
-  .head-nav a{padding:11px 10px}
-  .menu-btn{display:block;margin-left:auto}
-}
-
-/* ===== 页脚 ===== */
-.site-foot{background:var(--night);color:#C7CDDC;margin-top:72px}
-.foot-inner{padding:44px 20px 36px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
-.foot-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);color:#EDEFF5;font-size:17px;font-weight:700}
-.foot-brand svg{width:26px;height:26px}
-.foot-license{max-width:520px;font-size:13px;color:#98A0B4;line-height:1.8}
-.foot-links{display:flex;gap:14px;font-size:14px}
-.foot-links a{color:#C7CDDC;text-decoration:none}
-.foot-links a:hover{color:#fff}
-.foot-ver{flex-basis:100%;font-size:12px;color:#7C8498;letter-spacing:.4px}
-
-/* ===== Hero ===== */
-.hero{background:var(--night);color:#E7E9F1;position:relative;overflow:hidden}
-.hero .wrap{padding-top:64px;padding-bottom:56px;position:relative;z-index:2}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(1px 1px at 18% 22%,rgba(255,255,255,.55) 50%,transparent 50%),
-  radial-gradient(1px 1px at 74% 12%,rgba(255,255,255,.4) 50%,transparent 50%),
-  radial-gradient(1.4px 1.4px at 40% 70%,rgba(232,178,122,.5) 50%,transparent 50%),
-  radial-gradient(1px 1px at 88% 60%,rgba(255,255,255,.35) 50%,transparent 50%),
-  radial-gradient(1.2px 1.2px at 8% 80%,rgba(255,255,255,.3) 50%,transparent 50%),
-  radial-gradient(1px 1px at 60% 30%,rgba(255,255,255,.25) 50%,transparent 50%);
-background-size:240px 220px}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,var(--paper));pointer-events:none}
-.hero-kicker{font-size:13px;letter-spacing:.14em;color:#E8B27A;margin:0 0 14px;font-weight:600}
-.hero h1{margin:0 0 18px;font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.22;max-width:15em}
-.hero h1 em{font-style:normal;color:#E8B27A}
-.hero-sub{margin:0 0 30px;max-width:34em;font-size:16.5px;color:#B9C0CF}
-.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:30px}
-@media (min-width:900px){.hero-stats{display:flex;flex-wrap:wrap;gap:12px}}
-.hstat{background:rgba(255,255,255,.05);border:1px solid var(--night-line);border-radius:12px;padding:12px 18px;min-width:120px}
-.hstat b{display:block;font-family:var(--serif);font-size:24px;color:#fff}
-.hstat span{font-size:12.5px;color:#98A0B4}
-.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600;font-size:15.5px}
-.hero-cta:hover{background:#A93A26;color:#fff}
-.hero-wave{margin:34px 0 0;color:#9FB0CE;opacity:.9}
-
-/* ===== 通用区块 ===== */
-.section{padding:52px 0 0}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
-.sec-head h2{margin:0;font-family:var(--serif);font-size:24px;line-height:1.3}
-.sec-head .sec-no{font-family:var(--mono);font-size:13px;color:var(--ink-3);letter-spacing:.06em}
-.sec-head .sec-more{margin-left:auto;font-size:13.5px}
-
-/* ===== 主线轨迹 ===== */
-.thread{display:flex;flex-direction:column;gap:0;position:relative;padding-left:26px}
-.thread::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line-2)}
-.tnode{position:relative;padding:0 0 22px}
-.tnode::before{content:"";position:absolute;left:-26px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--ink-3);border:3px solid var(--paper)}
-.tnode.done::before{background:var(--ok)}
-.tnode.partial::before{background:var(--amber)}
-.tnode.todo::before{background:var(--ink-3)}
-.tnode h3{margin:0;font-size:16px;font-family:var(--serif)}
-.tnode p{margin:2px 0 0;font-size:13.5px;color:var(--ink-2)}
-.tnode .tarrow{color:var(--ink-3);font-size:13px}
-@media (min-width:900px){
-  .thread{flex-direction:row;gap:10px;padding-left:0;align-items:stretch}
-  .thread::before{display:none}
-  .tnode{flex:1;padding:0;text-align:center}
-  .tnode::before{left:50%;top:0;transform:translateX(-50%)}
-  .tnode h3{margin-top:26px;font-size:14.5px;line-height:1.4}
-  .tnode p{margin-top:4px;font-size:12.5px;line-height:1.5}
-  .tnode + .tnode::after{content:"→";position:absolute;left:-18px;top:2px;color:var(--line-2);font-size:14px}
-  .tnode + .tnode.done::after{color:var(--ok)}
-}
-
-/* ===== 模块地图 ===== */
-.mod-grid{display:grid;grid-template-columns:1fr;gap:14px}
-@media (min-width:768px){.mod-grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1120px){.mod-grid{grid-template-columns:repeat(4,1fr)}}
-.mod-card{position:relative;display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .12s ease,border-color .12s ease}
-.mod-card:hover{transform:translateY(-2px);border-color:var(--line-2)}
-.mod-card.todo{background:var(--paper-2);box-shadow:none}
-.mod-card.todo .mc-name{color:var(--ink-3)}
-.mc-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.mc-name{font-family:var(--serif);font-size:15.5px;font-weight:700;line-height:1.4;margin:0 0 2px}
-.mc-ch{font-size:12px;color:var(--ink-3);margin:0 0 10px}
-.mc-count{font-size:12.5px;color:var(--ink-2);margin:0}
-.mc-count b{font-family:var(--mono);font-weight:600;color:var(--ink)}
-.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;line-height:1;padding:5px 8px;border-radius:20px;font-weight:600;white-space:nowrap;margin-left:auto}
-.chip.ok{background:var(--ok-bg);color:var(--ok)}
-.chip.partial{background:var(--amber-bg);color:var(--amber)}
-.chip.todo{background:var(--todo-bg);color:var(--todo)}
-
-/* ===== 章节概览 ===== */
-.ch-grid{display:grid;grid-template-columns:1fr;gap:14px}
-@media (min-width:768px){.ch-grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1120px){.ch-grid{grid-template-columns:repeat(5,1fr)}}
-.ch-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-.ch-card .ch-no{font-family:var(--mono);font-size:12px;color:var(--accent-ink);letter-spacing:.08em}
-.ch-card h3{margin:6px 0 6px;font-family:var(--serif);font-size:15.5px;line-height:1.4}
-.ch-card p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.6}
-.ch-card .ch-hour{margin-top:10px;font-size:12px;color:var(--ink-3)}
-
-/* ===== 视图容器与文章排版 ===== */
-#view{min-height:60vh;padding-bottom:24px}
-.page-head{padding:40px 0 6px}
-.page-head h1{margin:0;font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.3}
-.crumb{font-size:13px;color:var(--ink-3);margin:0 0 10px}
-.crumb a{color:var(--ink-3);text-decoration:none}
-.crumb a:hover{color:var(--accent-ink)}
-.page-head .sub{margin:10px 0 0;color:var(--ink-2);font-size:15px;max-width:44em}
-
-.article{max-width:46em;margin:0 auto 0 0}
-.article h1,.article h2,.article h3,.article h4{font-family:var(--serif);line-height:1.35;scroll-margin-top:80px}
-.article h1{font-size:26px;margin:36px 0 14px}
-.article h2{font-size:21px;margin:38px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.article h3{font-size:17.5px;margin:28px 0 10px;color:var(--ink)}
-.article h4{font-size:16px;margin:22px 0 8px}
-.article p{margin:12px 0}
-.article ul,.article ol{margin:12px 0;padding-left:1.4em}
-.article li{margin:5px 0}
-.article blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid var(--line-2);background:var(--paper-2);color:var(--ink-2);border-radius:0 8px 8px 0}
-.article blockquote p{margin:4px 0}
-.article code{font-family:var(--mono);font-size:.9em;background:var(--paper-3);padding:1px 6px;border-radius:5px}
-.article pre{background:#161B2A;color:#E4E8F2;padding:16px 18px;border-radius:10px;overflow-x:auto;line-height:1.6}
-.article pre code{background:none;padding:0;color:inherit;font-size:.86em}
-.article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
-.article th,.article td{border:1px solid var(--line-2);padding:8px 12px;text-align:left;vertical-align:top}
-.article th{background:var(--paper-2);font-weight:700}
-.article tr:nth-child(even) td{background:rgba(255,255,255,.5)}
-.article hr{border:none;border-top:1px solid var(--line);margin:28px 0}
-.article .katex-display{margin:16px 0;overflow-x:auto;overflow-y:hidden;padding:2px 0}
-.article .katex{font-size:1.04em}
-.unlinked{color:var(--ink-3);text-decoration:none dotted var(--ink-3)}
-.unlinked::after{content:"（原文未收录）";font-size:12px;color:var(--ink-3)}
-.tbl-wrap{overflow-x:auto}
-.alert{border:1px solid var(--line-2);border-left:4px solid var(--accent);background:var(--paper-2);border-radius:8px;padding:12px 16px;font-size:14px;color:var(--ink-2);margin:14px 0}
-
-/* ===== 知识点页面布局 ===== */
-.point-layout{display:flex;gap:36px;align-items:flex-start}
-.point-toc{display:none;position:sticky;top:84px;width:200px;flex:none;font-size:13px;max-height:calc(100vh - 120px);overflow:auto}
-@media (min-width:1100px){.point-toc{display:block}}
-.point-toc h4{margin:0 0 8px;font-size:12px;color:var(--ink-3);letter-spacing:.08em}
-.point-toc a{display:block;padding:4px 8px;color:var(--ink-2);text-decoration:none;border-left:2px solid var(--line);margin-bottom:2px;line-height:1.45}
-.point-toc a:hover,.point-toc a.on{color:var(--accent-ink);border-left-color:var(--accent)}
-.point-toc a.l2{padding-left:18px;font-size:12.5px}
-.pn-nav{display:flex;justify-content:space-between;gap:12px;margin-top:48px;padding-top:18px;border-top:1px solid var(--line)}
-.pn-nav a{display:block;flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink)}
-.pn-nav a:hover{border-color:var(--accent)}
-.pn-nav .dir{font-size:12px;color:var(--ink-3)}
-.pn-nav .ttl{font-size:14.5px;font-weight:600;margin-top:2px}
-.pn-nav a.next{text-align:right}
-
-/* ===== 列表（笔记/答疑/模块内） ===== */
-.list{display:grid;grid-template-columns:1fr;gap:12px}
-@media (min-width:768px){.list.cols2{grid-template-columns:repeat(2,1fr)}}
-.item-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow)}
-.item-card:hover{border-color:var(--line-2)}
-.item-card h3{margin:0;font-family:var(--serif);font-size:17px;line-height:1.45}
-.item-card .meta{margin-top:6px;font-size:12.5px;color:var(--ink-3)}
-.item-card .ex{margin-top:8px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
-.item-card .ex b{font-weight:700}
-.ver-line{display:flex;align-items:center;gap:10px}
-.ver-badge{display:inline-block;background:var(--accent);color:#fff;font-size:12.5px;font-weight:700;font-family:var(--mono);padding:2px 9px;border-radius:99px;letter-spacing:.3px}
-.mod-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0 22px}
-.mod-head h1{margin:0;font-size:clamp(22px,3vw,30px)}
-.mod-head .chip{margin-left:0}
-.mod-desc{font-size:14px;color:var(--ink-2);max-width:46em;margin:0 0 22px}
-
-/* ===== 底部工具 ===== */
-.back-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--night);color:#fff;border:none;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
-.back-top.show{opacity:.9;pointer-events:auto}
-.back-top:hover{opacity:1}
-.offline-banner{background:#3A2636;color:#F2D9C9;font-size:13.5px;padding:10px 0}
-.offline-banner .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.offline-banner code{font-family:var(--mono);background:rgba(255,255,255,.12);padding:1px 7px;border-radius:5px}
-.loading{color:var(--ink-3);padding:30px 0;font-size:14px}
-.err-box{border:1px solid var(--line-2);border-left:4px solid var(--accent);background:#fff;border-radius:10px;padding:20px 22px;margin:30px 0}
-.err-box h2{margin:0 0 8px;font-family:var(--serif);font-size:20px}
-.err-box code{font-family:var(--mono);background:var(--paper-3);padding:1px 6px;border-radius:5px}
-
-/* ===== 批注模式（框选段落 → 写意见 → 复制发给我） ===== */
-.ann-mode{cursor:crosshair}
-.ann-mode ::selection{background:rgba(194,65,44,.22)}
-.ann-box{position:fixed;z-index:2000;pointer-events:none;background:rgba(194,65,44,.14);border:2px dashed var(--accent);border-radius:4px;display:none}
-.ann-fab{position:fixed;right:18px;bottom:76px;width:44px;height:44px;border-radius:50%;background:var(--night);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1600;box-shadow:0 4px 14px rgba(20,24,40,.25)}
-.ann-fab-list{right:72px;bottom:76px}
-.ann-fab:hover{opacity:.92}
-.ann-fab.on{background:var(--accent)}
-.ann-count{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:11px;line-height:18px;text-align:center;padding:0 5px;font-weight:700}
-.ann-panel{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:92vw;background:var(--paper);border-left:1px solid var(--line-2);box-shadow:-12px 0 36px rgba(20,24,40,.16);z-index:1500;transform:translateX(105%);transition:transform .22s ease;display:flex;flex-direction:column}
-.ann-panel.open{transform:translateX(0)}
-.ann-panel-head{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}
-.ann-panel-head h3{margin:0;font-family:var(--serif);font-size:19px}
-.ann-x{width:32px;height:32px;border:none;background:none;color:var(--ink-3);font-size:15px;cursor:pointer;margin-left:auto;border-radius:8px}
-.ann-x:hover{background:var(--paper-2);color:var(--ink)}
-.ann-tools{display:flex;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line)}
-.ann-tool{flex:1;padding:9px 6px;border:1px solid var(--line-2);border-radius:8px;background:#fff;font-size:13px;cursor:pointer;color:var(--ink)}
-.ann-tool:hover{border-color:var(--accent);color:var(--accent-ink)}
-.ann-tool-danger:hover{border-color:var(--accent);color:var(--accent)}
-.ann-tip{font-size:12.5px;color:var(--ink-2);background:var(--amber-bg);border:1px solid var(--line-2);border-radius:8px;margin:12px 18px 4px;padding:10px 12px;line-height:1.6}
-.ann-list{flex:1;overflow:auto;padding:12px 18px 24px}
-.ann-empty{color:var(--ink-3);font-size:13px;line-height:1.7}
-.ann-item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
-.ann-item-top{display:flex;align-items:center}
-.ann-time{font-size:11.5px;color:var(--ink-3)}
-.ann-del{width:26px;height:26px;border:none;background:none;color:var(--ink-3);cursor:pointer;margin-left:auto;border-radius:6px;font-size:12px}
-.ann-del:hover{background:var(--paper-3);color:var(--accent)}
-.ann-page{font-size:13px;font-weight:600;color:var(--accent-ink);margin:6px 0 2px}
-.ann-comment{font-size:14px;color:var(--ink);margin:4px 0;line-height:1.6}
-.ann-quote{font-size:13px;color:var(--ink-2);background:var(--paper-2);border-radius:6px;padding:8px 10px;margin:6px 0 2px;line-height:1.6;border-left:3px solid var(--line-2)}
-.ann-item-ops{margin-top:6px;text-align:right}
-.ann-jump{font-size:12.5px;color:var(--accent-ink);text-decoration:none}
-.ann-jump:hover{text-decoration:underline}
-.ann-composer{position:fixed;z-index:1700;width:min(560px,92vw);background:#fff;border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 60px rgba(20,24,40,.25);padding:16px 18px}
-.ann-composer-q-label{font-size:12px;color:var(--ink-3);margin-bottom:4px;letter-spacing:.05em}
-.ann-composer-quote{font-size:13.5px;color:var(--ink-2);background:var(--paper-2);border-left:3px solid var(--accent);border-radius:6px;padding:8px 10px;max-height:96px;overflow:auto;line-height:1.6;margin-bottom:10px}
-.ann-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
-.ann-chip{border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);font-size:13px;padding:10px 14px;border-radius:99px;cursor:pointer;min-height:42px;line-height:1.4;font-family:var(--sans)}
-.ann-chip:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--paper-2)}
-#annComment{width:100%;border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;font-size:15px;font-family:var(--sans);color:var(--ink);resize:vertical;min-height:64px;outline:none;line-height:1.6}
-#annComment:focus{border-color:var(--accent)}
-.ann-composer-ops{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
-.ann-composer-ops button{padding:9px 18px;border:1px solid var(--line-2);border-radius:9px;background:#fff;font-size:14px;cursor:pointer}
-.ann-composer-ops .primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
-.ann-toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--night);color:#fff;font-size:13.5px;padding:11px 20px;border-radius:99px;z-index:1800;opacity:0;pointer-events:none;transition:all .25s ease;box-shadow:0 8px 24px rgba(20,24,40,.3);max-width:88vw;text-align:center}
-.ann-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.ann-flash{animation:annFlash 2.4s ease}
-@keyframes annFlash{0%,100%{background:transparent}12%{background:rgba(232,178,122,.5)}55%{background:rgba(232,178,122,.5)}}
-@media (max-width:860px){
-  .ann-fab{bottom:70px}
-  .ann-fab-list{right:66px;bottom:70px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink);background:var(--paper);line-height:1.75;font-size:16px}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* ===== 顶部导航 ===== */
+.topnav{position:sticky;top:0;z-index:50;background:var(--accent2);color:#eaf0f6}
+.topnav .wrap{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.topnav .brand{font-weight:700;font-size:15px;color:#fff;margin-right:14px;letter-spacing:.5px}
+.topnav a{color:#c9d7e6;padding:6px 12px;border-radius:6px;font-size:14px;display:inline-block}
+.topnav a:hover{background:rgba(255,255,255,.12);color:#fff;text-decoration:none}
+.topnav a.on{background:rgba(255,255,255,.18);color:#fff;font-weight:600}
+/* ===== 通用视图 ===== */
+.view{display:none;padding:34px 0 80px}
+.view.on{display:block}
+.pagehead{margin-bottom:26px}
+.pagehead h1{font-size:30px;font-weight:700;letter-spacing:-.3px;line-height:1.3}
+.pagehead .sub{color:var(--ink2);font-size:15px;margin-top:6px}
+.pagehead .tag{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:2px 10px;border-radius:99px;margin-bottom:10px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:22px 26px;margin-bottom:18px}
+/* ===== 首页 ===== */
+.hero{padding:70px 0 44px;text-align:center}
+.hero .eyebrow{color:var(--accent);font-weight:700;letter-spacing:2px;font-size:13px}
+.hero h1{font-size:42px;font-weight:800;letter-spacing:-1px;margin:14px 0 10px;color:var(--accent2)}
+.hero p{color:var(--ink2);font-size:17px;max-width:640px;margin:0 auto}
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);
+  display:block;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.pillar:hover{transform:translateY(-3px);box-shadow:0 4px 6px rgba(28,32,48,.08),0 16px 36px rgba(28,32,48,.1);text-decoration:none}
+.pillar .no{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.pillar h3{font-size:19px;margin:8px 0 6px;color:var(--accent2)}
+.pillar p{font-size:14px;color:var(--ink2);line-height:1.6}
+.path{margin-top:44px;text-align:left}
+.path h2{font-size:20px;color:var(--accent2);margin-bottom:14px}
+.path ol{margin-left:22px}
+.path li{margin:8px 0;color:var(--ink2)}
+.path li b{color:var(--ink)}
+/* ===== 内容渲染（数学库/概论/例题）===== */
+.content{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:30px 34px;overflow-x:auto}
+.content h1{font-size:26px;margin:10px 0 14px;color:var(--accent2);border-bottom:1px solid var(--line);padding-bottom:10px}
+.content h2{font-size:21px;margin:28px 0 10px;color:var(--accent2)}
+.content h3{font-size:17px;margin:20px 0 8px;color:var(--ink)}
+.content p{margin:10px 0}
+.content li{margin:6px 0 6px 22px}
+.content table{border-collapse:collapse;margin:14px 0;width:100%}
+.content th,.content td{border:1px solid var(--line);padding:8px 12px;text-align:left;font-size:14.5px}
+.content th{background:#f3efe6;font-weight:600}
+.content blockquote{border-left:4px solid var(--accent);background:#f6f1e6;padding:10px 16px;margin:12px 0;color:var(--ink2)}
+.content code{background:#f0ede4;border-radius:4px;padding:1px 6px;font-size:14px;font-family:ui-monospace,Consolas,monospace}
+.content .fref{color:var(--math);font-weight:600;background:#eef1fa;border-radius:4px;padding:1px 6px;cursor:pointer;white-space:nowrap}
+.content .fref:hover{background:#dde3f7}
+.katex-display{margin:14px 0;overflow-x:auto;overflow-y:hidden}
+/* ===== 公式图谱视图 ===== */
+.graphbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.graphbar input{flex:1;min-width:200px;padding:9px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;background:#fff}
+.graphbar .chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font-size:13.5px;color:var(--ink2);cursor:pointer}
+.graphbar .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#graphBox{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);height:640px;overflow:hidden}
+#gchart{position:relative;width:100%;height:100%}
+#graphHint{position:absolute;top:10px;left:12px;z-index:5;font-size:12.5px;color:var(--ink3);background:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;pointer-events:none}
+#graphLegend{position:absolute;top:10px;right:12px;z-index:5;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--ink2);max-height:300px;overflow:auto}
+#graphLegend b{display:block;margin-bottom:4px;color:var(--ink)}
+#graphLegend .lg{display:flex;align-items:center;gap:6px;margin:3px 0;cursor:pointer}
+#graphLegend .dot{width:10px;height:10px;border-radius:50%;flex:none}
+#fcard{position:absolute;top:0;right:0;bottom:0;width:380px;max-width:92%;background:#fff;border-left:1px solid var(--line);
+  box-shadow:-8px 0 24px rgba(28,32,48,.12);z-index:10;overflow-y:auto;padding:22px 22px 30px;display:none}
+#fcard.open{display:block}
+#fcard .fc-close{position:absolute;top:10px;right:12px;font-size:22px;color:var(--ink3);cursor:pointer;background:none;border:none;line-height:1}
+#fcard .fc-id{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+#fcard h3{font-size:19px;margin:4px 0 10px;color:var(--accent2)}
+#fcard .fc-latex{background:#f6f8fd;border-radius:8px;padding:12px 14px;margin:8px 0 12px;overflow-x:auto}
+#fcard .fc-note{font-size:13.5px;color:var(--ink2);margin-bottom:10px}
+#fcard .fc-sec{font-size:13px;font-weight:700;color:var(--ink);margin:16px 0 6px;display:flex;align-items:center;gap:8px}
+#fcard .fc-sec .arrow{color:var(--ink3);font-weight:400}
+#fcard .fc-link{display:inline-block;margin:3px 4px 3px 0;background:#f0ede4;border:1px solid var(--line);border-radius:6px;padding:2px 9px;font-size:13px;color:var(--accent2);cursor:pointer}
+#fcard .fc-link:hover{background:#e6e0d0;text-decoration:none}
+#fcard .fc-app{display:inline-block;background:#e6f4ea;color:#1e7d43;border:1px solid #b7e3c6;border-radius:99px;font-size:12px;padding:1px 10px;font-weight:600;margin-left:8px}
+#fcard details{margin:10px 0 0}
+#fcard summary{cursor:pointer;color:var(--accent2);font-size:14px;font-weight:600}
+#fcard .fc-deriv{margin-top:8px;font-size:14.5px;color:var(--ink)}
+/* ===== 例题视图 ===== */
+.quiz-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.quiz-nav a{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:13.5px;color:var(--ink2)}
+.quiz-nav a.on{background:var(--accent2);border-color:var(--accent2);color:#fff}
+/* ===== 版本/关于 ===== */
+.ver-list{margin-top:10px}
+.ver-list .v{display:flex;gap:14px;border-bottom:1px solid var(--line);padding:12px 0}
+.ver-list .vn{font-weight:700;color:var(--accent);flex:none;width:74px}
+.ver-list .vd{font-size:14.5px;color:var(--ink2)}
+.foot{margin:40px 0 30px;text-align:center;color:var(--ink3);font-size:13px}
+.err{background:#fdecea;border:1px solid #f5b7b1;color:#9c3328;border-radius:10px;padding:16px 20px;margin:20px 0;font-size:15px}
+@media(max-width:700px){
+  .pillars{grid-template-columns:1fr}
+  .content{padding:20px 16px}
+  .hero h1{font-size:32px}
+  #fcard{width:100%;max-width:100%}
 }
 </style>
 </head>
 <body>
+<nav class="topnav"><div class="wrap">
+  <span class="brand">量子与统计 · 学习站</span>
+  <a href="#/" data-nav="home">首页</a>
+  <a href="#/math" data-nav="math">数学库</a>
+  <a href="#/overview" data-nav="overview">概论</a>
+  <a href="#/graph" data-nav="graph">公式图谱</a>
+  <a href="#/quiz" data-nav="quiz">例题精解</a>
+  <a href="#/changelog" data-nav="changelog">版本</a>
+  <a href="#/about" data-nav="about">关于</a>
+</div></nav>
 
-<div class="offline-banner" id="offlineBanner" hidden>
+<!-- ================= 视图：首页 ================= -->
+<div class="view" id="v-home">
   <div class="wrap">
-    <span>当前无法读取内容目录（浏览器直接打开本地文件时不允许读取同目录数据）。请通过 GitHub Pages 访问，或在本目录运行本地服务器预览：</span>
-    <code>python -m http.server 8000</code>
-    <span>然后访问 <code>http://localhost:8000</code>。</span>
-  </div>
-</div>
-
-<header class="site-head">
-  <div class="wrap head-inner">
-    <a class="brand" href="#/" aria-label="回到首页">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0E1526"/><text x="16" y="24" font-size="21" font-family="Georgia,serif" fill="#E8B27A" text-anchor="middle">ψ</text></svg>
-      <span>量子力学学习笔记<small>材料中的量子与统计 · 个人整理公开版</small></span>
-    </a>
-    <nav class="head-nav" id="headNav" aria-label="主导航">
-      <a href="#/" data-nav="home">首页</a>
-      <a href="#/framework" data-nav="framework">体系总览</a>
-      <a href="#/progress" data-nav="progress">学习进度</a>
-      <a href="#/notes" data-nav="notes">课堂笔记</a>
-      <a href="#/qa" data-nav="qa">答疑记录</a>
-      <a href="#/changelog" data-nav="changelog">版本记录</a>
-      <a href="#/about" data-nav="about">关于</a>
-    </nav>
-    <div class="head-search" id="headSearch">
-      <input class="search-box" id="searchInput" type="search" placeholder="搜索知识点 / 笔记…" autocomplete="off" aria-label="站内搜索">
-      <div class="search-results" id="searchResults"></div>
+    <div class="hero">
+      <div class="eyebrow">MATERIAL · QUANTUM · STATISTICS</div>
+      <h1>把量子力学学得数理分明</h1>
+      <p>一门以数理逻辑为骨架的学习站：数学工具先行，公式推导成网，物理图景成文，例题可抄可对。四根支柱，互相链接。</p>
     </div>
-    <button class="menu-btn" id="menuBtn" aria-label="打开菜单" aria-expanded="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-  </div>
-</header>
-
-<main id="view" aria-live="polite"></main>
-
-<footer class="site-foot">
-  <div class="wrap foot-inner">
-    <div>
-      <div class="foot-brand">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#E8B27A"/><text x="16" y="24" font-size="21" font-family="Georgia,serif" fill="#0E1526" text-anchor="middle">ψ</text></svg>
-        量子力学学习笔记
+    <div class="wrap" style="max-width:860px">
+      <div class="pillars">
+        <a class="pillar" href="#/math"><span class="no">支柱一</span><h3>数学前备库 · M01–M56</h3><p>线性代数、微积分、微分方程、傅里叶、特殊函数、概率统计、数值方法——56 条工具，保证任何推导看得懂。</p></a>
+        <a class="pillar" href="#/overview"><span class="no">支柱二</span><h3>量子力学概论</h3><p>一支笔串起全部模块的流畅叙事：波粒二象、波函数、方程、束缚态、算符代数、对称与演化、谐振子与相干态。公式只给编号，不打断阅读。</p></a>
+        <a class="pillar" href="#/graph"><span class="no">支柱三</span><h3>公式图谱 · 001–200</h3><p>可交互的推导蛛网：点开任意公式，看它由哪些公式推出、又能推出什么；应用公式到此为止。推导全部可展开。</p></a>
+        <a class="pillar" href="#/quiz"><span class="no">支柱四</span><h3>例题精解</h3><p>每个模块一组可抄到答题纸的例题：先完整列出应用公式（带跳转），再按严谨答题规范分步求解。</p></a>
       </div>
-      <p class="foot-license">本站内容为个人学习整理，覆盖《材料中的量子与统计》课程的量子力学部分（18 学时五章节）。知识点、课堂笔记与答疑记录均以 Markdown 存放于 <code>content/</code>，可自由 fork 与增补。除特别注明外，笔记文本采用 <a href="#/about" style="color:#E8B27A">CC BY-NC-SA 4.0</a> 许可；涉及课程讲义与教材的引用，版权归原权利人所有，仅作学习交流。</p>
+      <div class="card path">
+        <h2>推荐学习路径</h2>
+        <ol>
+          <li><b>扫一遍数学库</b>（M01–M56），标记生疏的工具，用时回头查；</li>
+          <li><b>通读概论</b>，不看公式细节，先把整个学科的因果链装进脑子；</li>
+          <li><b>进入任一模块的例题</b>，动手算；卡在哪一步，就点公式跳进<b>图谱</b>看推导链；</li>
+          <li><b>回到概论</b>，此时每一处链接都成了你踩过的路。</li>
+        </ol>
+      </div>
     </div>
-    <nav class="foot-links" aria-label="页脚导航">
-      <a href="#/framework">体系总览</a>
-      <a href="#/progress">学习进度</a>
-      <a href="#/changelog">版本记录</a>
-      <a href="#/about">关于 / 更新方法</a>
-    </nav>
-    <div class="foot-ver" id="footVer">v1.2.0</div>
-  </div>
-</footer>
-
-<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
-
-<!-- ===== 批注工具（框选段落 → 写意见 → 复制发给我） ===== -->
-<button class="ann-ui ann-fab" id="annModeBtn" title="批注模式（Alt+A）" aria-label="开启批注模式">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l3.6-1 11-11-2.6-2.6-11 11L3 21z"/><path d="M13.5 7.5l2.6 2.6"/></svg>
-</button>
-<button class="ann-ui ann-fab ann-fab-list" id="annTogglePanel" title="查看批注" aria-label="查看批注列表">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-  <span id="annCount" class="ann-count" hidden>0</span>
-</button>
-
-<aside class="ann-ui ann-panel" id="annPanel" aria-label="批注列表">
-  <div class="ann-panel-head">
-    <h3>批注</h3>
-    <span id="annCountHd"></span>
-    <button id="annClosePanel" class="ann-x" aria-label="关闭">✕</button>
-  </div>
-  <div class="ann-tools">
-    <button id="annCopyBtn" class="ann-tool">复制批注报告</button>
-    <button id="annExportBtn" class="ann-tool">导出 JSON</button>
-    <button id="annClearBtn" class="ann-tool ann-tool-danger">清空</button>
-  </div>
-  <div class="ann-tip">用法：按 <b>Alt+A</b> 进入批注模式 → 拖动框选不满意的段落 → 写下意见保存 → 点「复制批注报告」，粘贴到豆包对话发给我。</div>
-  <div id="annList" class="ann-list"></div>
-</aside>
-
-<div class="ann-ui ann-composer" id="annComposer" style="display:none">
-  <div class="ann-composer-q-label">原文引用</div>
-  <div class="ann-composer-quote" id="annQuoteBox"></div>
-  <div class="ann-chips" id="annChips" role="group" aria-label="常用批注选项">
-    <button type="button" class="ann-chip" data-comment="【公式乱码】此处公式显示乱码或缺失，请修复公式渲染并补全正确公式。">公式乱码</button>
-    <button type="button" class="ann-chip" data-comment="【数学知识】这里涉及的数学知识建议补充说明（相关定理、符号含义），让我能跟上推导。">数学知识</button>
-    <button type="button" class="ann-chip" data-comment="【扩充描述】这段话太晦涩，请扩充描述，把原来的意思用更通俗的话重新讲一遍。">扩充描述</button>
-    <button type="button" class="ann-chip" data-comment="【完整由来】请补充完整由来：不要直接撂公式，把每一步是怎么推理出来的写清楚。">完整由来</button>
-    <button type="button" class="ann-chip" data-comment="【精简略写】内容过于冗长，请精简改写，保留核心结论即可。">精简略写</button>
-  </div>
-  <textarea id="annComment" rows="3" placeholder="哪里让你不满意？讲不通、跳步、公式写错、太啰嗦……写下来发给我"></textarea>
-  <div class="ann-composer-ops">
-    <button id="annCancelBtn">取消</button>
-    <button id="annSaveBtn" class="primary">保存批注</button>
   </div>
 </div>
-<div class="ann-ui ann-toast" id="annToast" role="status"></div>
+
+<!-- ================= 视图：数学库 ================= -->
+<div class="view" id="v-math">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">支柱一</span><h1>数学前备库</h1><div class="sub">56 条工具，按类编号 M01–M56。每条 = 定义要点 + 核心公式 + 用在哪。</div></div>
+    <div class="content" id="mathBody">加载中…</div>
+  </div>
+</div>
+
+<!-- ================= 视图：概论 ================= -->
+<div class="view" id="v-overview">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">支柱二</span><h1>量子力学概论</h1><div class="sub">流畅叙事 · 公式只给编号 · 点击编号跳转图谱查看推导</div></div>
+    <div class="content" id="ovBody">加载中…</div>
+  </div>
+</div>
+
+<!-- ================= 视图：公式图谱（蛛网） ================= -->
+<div class="view" id="v-graph">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">支柱三</span><h1>公式图谱</h1><div class="sub">拖拽平移 · 滚轮缩放 · 点击节点弹卡 · 输入编号/名称搜索</div></div>
+    <div class="graphbar">
+      <input id="gSearch" type="text" placeholder="搜索：编号（如 F147 / M31）或名称（如 谐振子）">
+      <button class="chip" id="gFit">重排布局</button>
+      <button class="chip" id="gClear">清除选中</button>
+    </div>
+    <div id="graphBox">
+      <div id="graphHint">共 <span id="gCntN">0</span> 个公式 · <span id="gCntE">0</span> 条推导关系</div>
+      <div id="graphLegend"></div>
+      <div id="gchart"></div>
+      <div id="fcard"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 视图：例题精解 ================= -->
+<div class="view" id="v-quiz">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">支柱四</span><h1>例题精解</h1><div class="sub">先列应用公式（可跳转图谱），再严谨分步求解</div></div>
+    <div class="quiz-nav" id="quizNav"></div>
+    <div class="content" id="quizBody">加载中…</div>
+  </div>
+</div>
+
+<!-- ================= 视图：版本 ================= -->
+<div class="view" id="v-changelog">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">记录</span><h1>版本记录</h1><div class="sub">每次迭代留下脚印，方便回退与核对</div></div>
+    <div class="card"><div class="ver-list" id="verList"></div></div>
+  </div>
+</div>
+
+<!-- ================= 视图：关于 ================= -->
+<div class="view" id="v-about">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">关于</span><h1>关于本学习站</h1></div>
+    <div class="card content">
+      <p>本站在 <b>v2.0.0</b> 起改为"数理逻辑优先"的体系：数学工具（支柱一）→ 全局叙事（支柱二）→ 公式推导网（支柱三）→ 例题精解（支柱四）。</p>
+      <p>内容由作者自学《材料中的量子与统计》课程整理而成，供公开学习使用。公式若发现错误，欢迎指正。</p>
+      <p>技术：单文件 HTML + marked + KaTeX + ECharts，内容存放于 <code>content/</code>，静态部署于 GitHub Pages。</p>
+    </div>
+  </div>
+</div>
+
+<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.0.0</span> · 以数理逻辑为骨架，静待花开</div></footer>
 
 <script src="https://fastly.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script>
-(function(){
-"use strict";
-var MANIFEST_URL = "content/manifest.json";
-var VERSION = "1.2.0";
+/* ================= 配置与版本 ================= */
+var VERSION = "2.0.0";
 var CHANGELOG = [
-  {ver:"1.0.0", date:"2026-10-23", title:"站点上线", items:[
-    "发布 GitHub Pages 静态站，覆盖五章节 16 模块、50 个知识点、12 篇课堂笔记、9 篇答疑记录。",
-    "深色星空首页 + 奶油纸正文；hash 路由六视图；KaTeX 公式渲染。"
-  ]},
-  {ver:"1.0.1", date:"2026-10-23", title:"修复与版本模块", items:[
-    "修复：知识点 / 笔记页通过「上一节 / 下一节」跳转后停留页面中部，现统一回到顶部。",
-    "修复：公式缺失或乱码——① 修正 manifest 中两个失效内容路径（自旋态空间、迈克尔逊-莫雷实验笔记），恢复页面加载；② 数学公式渲染前先保护 $..$ 段，避免星号、下划线被 Markdown 当作强调标记破坏 LaTeX。",
-    "新增：本页版本记录模块，footer 显示当前版本号。"
-  ]},
-  {ver:"1.1.0", date:"2026-10-23", title:"批注模式（框选反馈）", items:[
-    "新增：批注模式（Alt+A）——拖动框选不满意的段落，写下意见保存，批注随浏览器持久化。",
-    "新增：批注面板——按页面查看 / 定位 / 删除批注，点「定位」自动跳到对应段落并高亮。",
-    "新增：一键「复制批注报告」——生成结构化 Markdown（页面 / 地址 / 意见 / 原文引用），直接粘贴到豆包对话即可让 AI 精准修改。",
-    "新增：「导出 JSON」备份批注；移动端点击段落即可快速批注。"
-  ]},
-  {ver:"1.1.1", date:"2026-10-23", title:"批注体验优化", items:[
-    "修复：进入批注模式不再自动弹出右侧面板，避免遮挡正文；按钮点击后变色表示已激活。",
-    "优化：批注细节改由点左下角「查看批注」按钮查看，面板不再自动抢占视线。",
-    "修复：查看面板开启后，右下角两个按钮浮于面板之上，可再次点击关闭面板或退出批注模式。"
-  ]},
-  {ver:"1.1.2", date:"2026-10-23", title:"批注常用快捷选项", items:[
-    "新增：批注编辑框内置 5 个一键标签——公式乱码 / 数学知识 / 扩充描述 / 完整由来 / 精简略写，点一下意见自动填好，无需打字。",
-    "约定：「完整由来」不直接撂公式，要求写清每一步推理；「扩充描述」把晦涩原话补讲一遍。"
-  ]},
-  {ver:"1.1.3", date:"2026-10-24", title:"修复公式残留乱码", items:[
-    "修复：同一行内多个行内公式相邻时，公式里的 < > 符号被浏览器当作 HTML 标签误解析，导致公式残缺、页面残留字面 $ 乱码（如「$，连续、不可归一）」。现公式还原前先做 HTML 转义，含 < 的公式全部正常渲染。",
-    "补充：4.1 杂质能级「13.6 eV → 26 meV、a₀ → 2.4 nm」的类氢模型完整推导已并入知识点正文。"
-  ]},
-  {ver:"1.1.4", date:"2026-10-24", title:"4.2 补充完整由来", items:[
-    "补充：4.2 一维束缚态普遍定理新增「完整由来」节——四条定理（非简并 / 可取实函数 / 确定宇称 / 节点定理）的逐步推理：Wronskian 论证证明非简并，实系数方程＋非简并推出实函数，反演不变＋非简并推出确定宇称，半经典＋打靶法＋能量论证推出节点定理，并与 4.3 无限深势阱核对。",
-    "主笔记库与网站仓库已同步更新。"
-  ]},
-  {ver:"1.1.5", date:"2026-10-24", title:"4.3 补充完整由来", items:[
-    "补充：4.3 无限深势阱新增「完整由来」节——ψₙ/Eₙ 解方程三步（k²=2mE/ℏ²→通解→边界条件量子化→归一化）、正交归一 δₘₙ 的厄米算符论证与积化和差直接算、⟨x²⟩ 的倍角公式＋两次分部积分、展开系数 cₙ=(2√15/a³)Iₙ 的投影定义与系数合并、Iₙ=4a³/(nπ)³ 的偶对称判零＋分部积分，全部逐步推理。",
-    "批注汇报批注 2–6 全部按【完整由来】处理；主笔记库与网站仓库已同步更新。"
-  ]},
-  {ver:"1.1.6", date:"2026-10-24", title:"4.2 数学补全 + 3.3 恒等式讲解", items:[
-    "补充：4.2「完整由来」节新增数学预备与通俗讲解——Wronskian 求导逐项展开（四项两两抵消剩两项，回答「不是应该有 4 项」）、衰减论证的通俗版（恒温计类比）、宇称算符预备（P̂ 定义 / P̂²=1 / 本征值 ±1 / 偶奇分解）、c=±1 的两次反演逐句解释、节点定理动能的完整由来（⟨T⟩=ℏ²/2m∫|ψ′|²dx 分部积分 → 取绝对值 → 尖角抹圆 ⇒ 基态无节点）。",
-    "补充：3.3 新增「数学小知识」块，逐符号讲解 ∇、梯度、散度、拉普拉斯，并逐分量验证乘积法则恒等式 ∇·(f∇g)=∇f·∇g+f∇²g，说明「交叉项恰好抵消」是恒等式的直接后果。",
-    "主笔记库与网站仓库已同步更新。"
-  ]},
-  {ver:"1.1.7", date:"2026-10-24", title:"4.1 打靶法通俗讲解", items:[
-    "补充：4.1 打靶法新增「这段话说得通俗点」块——用试射法类比（先猜能量把波函数从左端射出去，看右端飞上天还是钻地底，再调能量）：E 偏低弯曲不足右端 +∞、E 偏高多穿一次轴后 −∞、E 恰为本征值右端衰减落靶；并说明「调 E 使解满足边界条件」= 找到能让右端落靶的能量值，与 4.2 节点定理呼应。",
-    "主笔记库与网站仓库已同步更新。"
-  ]},
-  {ver:"1.2.0", date:"2026-10-24", title:"知识点五段式结构样板", items:[
-    "重构：知识点正文启用五段流水线结构「①数学预备 → ②物理图景 → ③公式与完整推导 → ④例题精解 → ⑤材料之桥」，数学在物理前面、物理在应用前面，每节固定骨架；「数学知识 / 扩充描述 / 完整由来 / 习题」四类批注需求内建进结构，不再逐篇重复补丁。",
-    "样板：4.1 一维定态一般性质按新结构重写——新增数学预备（二阶常微分方程两种面孔 / 曲率判据的移项推导 / 平方可积 / 数值积分思想 / 锚点数字）、物理图景（地形图与水位 / 束缚态=驻波 / 打靶=试射）、公式与完整推导（曲率判据 / 打靶法通俗版 / 束缚态 vs 散射态 / 量子化论证 / 类氢模型完整推导）、例题精解（施主电离能 / 量子阱基态能数量级 / 束缚态判别，含 ⚠️ 易错标注）、材料之桥（量子点 / 导带电子 / 原子光谱）。",
-    "主笔记库与网站仓库已同步更新；后续知识点将按同一骨架批量重排。"
-  ]}
+  ["2.0.0","全站重构为数理逻辑四支柱体系：数学前备库 M01–M56、量子力学概论（叙事长文）、公式图谱（蛛网交互，F101–F200）、例题精解新格式。旧单篇知识点全部归档，不再展示。"],
+  ["1.1.7","4.1 打靶法补充通俗解释块。"],
+  ["1.1.6","4.2 补充 Wronskian 四项展开/衰减通俗/宇称预备/c=±1/节点动能由来；3.3 补 ∇·(f∇g)。"],
+  ["1.1.4","批注加入五个一键选项：公式乱码/数学知识/扩充描述/完整由来/精简略写。"],
+  ["1.1.0","批注模式上线：Alt+A 框选段落，写意见导出汇报给 AI。"],
+  ["1.0.1","修复跨章节跳转不回顶；修复公式乱码（含 < 被当 HTML 标签的问题）。新增版本记录模块。"],
+  ["1.0.0","网站上线：hash 路由 SPA，marked + KaTeX 渲染，内容于 content/ 下。"]
 ];
-var M = null;
-var POINTS = [], NOTES = [], QAS = [], MODULES = [];
-var PATHMAP = {}, ALIASES = {};
-var view = document.getElementById("view");
-var offlineEl = document.getElementById("offlineBanner");
 
-/* ---------- 数据加载 ---------- */
-function loadManifest(){
-  return fetch(MANIFEST_URL, {cache:"no-store"})
-    .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(function(data){
-      M = data;
-      MODULES = data.modules || [];
-      MODULES.forEach(function(m, i){ m.idx = i; (m.points||[]).forEach(function(p){ p.mod = m; POINTS.push(p); }); });
-      NOTES = data.notes || [];
-      QAS = data.qa || [];
-      Object.keys(data.aliases || {}).forEach(function(k){ ALIASES[k] = data.aliases[k]; });
-      // 路径映射
-      POINTS.forEach(function(p){ PATHMAP[p.path] = {type:"p", key:p.key}; });
-      NOTES.forEach(function(n){ PATHMAP[n.path] = {type:"n", key:n.key}; });
-      QAS.forEach(function(q){ PATHMAP[q.path] = {type:"q", key:q.key}; });
-      return M;
-    });
-}
-
-/* ---------- 路由 ---------- */
-function parseRoute(hash){
-  hash = hash || location.hash || "";
-  var h = hash.replace(/^#\/?/, "");
-  var seg = h.split("/");
-  if(!h || h === "" ) return {name:"home"};
-  if(h === "framework") return {name:"framework"};
-  if(h === "progress") return {name:"progress"};
-  if(h === "notes") return {name:"notes"};
-  if(h === "qa") return {name:"qa"};
-  if(h === "about") return {name:"about"};
-  if(h === "changelog") return {name:"changelog"};
-  if(seg[0] === "module") return {name:"module", id:seg[1]};
-  if(seg[0] === "p") return {name:"point", key:seg[1]};
-  if(seg[0] === "n") return {name:"note", key:seg[1]};
-  if(seg[0] === "q") return {name:"qaItem", key:seg[1]};
-  return {name:"home"};
-}
-
-/* ---------- Markdown 渲染管线 ---------- */
-function normPath(p){
-  var out = [];
-  (p.split("/")).forEach(function(part){
-    if(!part || part === ".") return;
-    if(part === "..") out.pop();
-    else out.push(part);
+/* ================= 通用渲染（防乱码保护） ================= */
+var PROTECTED = [];
+function protectMath(html){
+  PROTECTED = [];
+  return html.replace(/\$\$([\s\S]+?)\$\$|\$([^$\n]+?)\$/g,function(m,a,b){
+    var tag = "%%QM"+PROTECTED.length+"%%";
+    PROTECTED.push(a?("$$"+a+"$$"):("$"+b+"$"));
+    return tag;
   });
-  return out.join("/");
 }
-/* 公式保护：先占位替换 $..$ / $$..$$ 段，再让 marked 解析，最后还原，避免 * _ 等符号被当强调标记破坏 LaTeX */
-function protectMath(text){
-  var ph = [];
-  text = text.replace(/\$\$[\s\S]+?\$\$/g, function(m){ ph.push(m); return "\u0000KX" + (ph.length-1) + "\u0000"; });
-  text = text.replace(/\$[^$\n]+?\$/g, function(m){ ph.push(m); return "\u0000KX" + (ph.length-1) + "\u0000"; });
-  return {text:text, ph:ph};
-}
-function restoreMath(html, ph){
-  /* 还原前先转义 < > &：公式含 <（如 $E<V(\pm\infty)$）时，裸 < 会被浏览器当作 HTML 标签开始符，吞掉整段公式并残留字面 $ 乱码 */
-  return html.replace(/\u0000KX(\d+)\u0000/g, function(m, i){ return escapeHtml(ph[+i] || ""); });
-}
-function renderMD(text, baseDir, container, opts){
-  opts = opts || {};
-  text = String(text).replace(/<!--\s*nav-start\s*-->[\s\S]*$/, "");
-  var pm = protectMath(text);
-  container.innerHTML = restoreMath(marked.parse(pm.text, {gfm:true, breaks:false}), pm.ph);
-  // 表格外包滚动容器
-  container.querySelectorAll("table").forEach(function(t){
-    var w = document.createElement("div");
-    w.className = "tbl-wrap";
-    t.parentNode.insertBefore(w, t);
-    w.appendChild(t);
+function restoreMath(html){
+  var re = /%%QM(\d+)%%/g;
+  return html.replace(re,function(m,i){
+    var s = PROTECTED[+i];
+    s = s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    return s;
   });
-  // 重写 .md 内部链接
-  container.querySelectorAll("a[href]").forEach(function(a){
-    var href = a.getAttribute("href");
-    if(!href) return;
-    if(/^(https?:|mailto:|tel:)/i.test(href)) return;
-    var anchor = "";
-    var base = href.split("#")[0];
-    if(href.indexOf("#") >= 0) anchor = href.slice(href.indexOf("#"));
-    if(!/\.md$/i.test(base)) return;
-    var decoded = base;
-    try { decoded = decodeURIComponent(base); } catch(e){}
-    var resolved = normPath(baseDir + "/" + decoded.replace(/\\/g, "/"));
-    var route = null;
-    if(ALIASES[resolved]) route = ALIASES[resolved];
-    else if(PATHMAP[resolved]) {
-      var t = PATHMAP[resolved];
-      route = t.type === "p" ? "#/p/" + t.key : t.type === "n" ? "#/n/" + t.key : "#/q/" + t.key;
-    }
-    if(route){
-      a.setAttribute("href", route + anchor);
-      a.addEventListener("click", function(){ scrollTo(0,0); });
-    } else {
-      var span = document.createElement("span");
-      span.className = "unlinked";
-      span.textContent = a.textContent;
-      a.replaceWith(span);
-    }
+}
+function renderMarkdown(md){
+  var html = protectMath(md);
+  html = marked.parse(html);
+  html = html.replace(/&lt;([^&]+?)&gt;/g,"<$1>");
+  html = restoreMath(html);
+  var box = document.createElement("div");
+  box.innerHTML = html;
+  box.querySelectorAll('a[href*="graph?f="]').forEach(function(a){
+    a.classList.add("fref");
+    var m = a.getAttribute("href").match(/f=([FMT]\d+)/);
+    if(m)a.setAttribute("data-f",m[1]);
+    a.addEventListener("click",function(){window.location.hash="#/graph?f="+m[1];});
   });
-  // 数学公式
-  if(window.renderMathInElement){
-    try{
-      renderMathInElement(container, {
-        delimiters:[
-          {left:"$$", right:"$$", display:true},
-          {left:"$", right:"$", display:false},
-          {left:"\\[", right:"\\]", display:true},
-          {left:"\\(", right:"\\)", display:false}
-        ],
-        throwOnError:false, strict:false
-      });
-    }catch(e){}
-  }
-  if(opts.toc) buildTOC(container);
+  renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  return box;
 }
-function buildTOC(container){
-  var heads = container.querySelectorAll("h2, h3");
-  if(!heads.length) return;
-  var wrap = document.getElementById("tocBox");
-  if(!wrap) return;
-  var html = "<h4>本页目录</h4>";
-  heads.forEach(function(h, i){
-    if(!h.id) h.id = "sec-" + i;
-    var cls = h.tagName === "H3" ? "l2" : "";
-    html += '<a class="'+cls+'" href="#'+h.id+'">' + escapeHtml(h.textContent) + "</a>";
-  });
-  wrap.innerHTML = html;
-  // 滚动高亮
-  var links = wrap.querySelectorAll("a");
-  function onScroll(){
-    var cur = 0, pos = scrollY + 120;
-    heads.forEach(function(h, i){ if(h.offsetTop <= pos) cur = i; });
-    links.forEach(function(l, i){ l.classList.toggle("on", i === cur); });
-  }
-  onScroll();
-  window.addEventListener("scroll", onScroll, {passive:true});
-}
-function escapeHtml(s){
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-}
-
-/* ---------- 文档页（总览/进度） ---------- */
-function renderDocPage(title, sub, path, crumb){
-  view.innerHTML =
-    '<div class="wrap">' +
-    '<div class="page-head">' + (crumb || "") + '<h1>' + title + '</h1>' +
-    (sub ? '<p class="sub">' + sub + '</p>' : "") + '</div>' +
-    '<div class="point-layout"><aside class="point-toc" id="tocBox"></aside>' +
-    '<div class="article" id="articleBody"><div class="loading">正在加载…</div></div></div></div>';
-  fetch(path, {cache:"no-store"}).then(function(r){ return r.text(); }).then(function(t){
-    renderMD(t, ".", document.getElementById("articleBody"), {toc:true});
-    document.title = title + " · 量子力学学习笔记";
+function loadMD(path,el){
+  fetch(path).then(function(r){
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    return r.text();
+  }).then(function(t){
+    var box = renderMarkdown(t);
+    el.innerHTML="";
+    el.appendChild(box);
   }).catch(function(e){
-    document.getElementById("articleBody").innerHTML =
-      '<div class="err-box"><h2>内容加载失败</h2><p>无法读取 <code>' + escapeHtml(path) + '</code>。若你是直接双击打开的本地文件，请改用 GitHub Pages 或本地服务器访问。</p></div>';
+    el.innerHTML='<div class="err">内容加载失败（'+path+'）。请通过 GitHub Pages 或本地 HTTP 服务访问本站，<code>file://</code> 下无法读取内容文件。</div>';
   });
 }
 
-/* ---------- 首页 ---------- */
-function renderHome(){
-  var counts = M.counts || {points:0,notes:0,qa:0,modules:0};
-  var thread = [
-    {label:"实验反常", sub:"黑体 / 光电 / 光谱", status:"done", route:"#/module/0"},
-    {label:"波函数 + Born 诠释", sub:"概率幅与统计", status:"done", route:"#/module/1"},
-    {label:"薛定谔方程", sub:"定态 = 能量本征方程", status:"done", route:"#/module/2"},
-    {label:"一维练手", sub:"束缚 / 散射 / 隧穿 / 周期势", status:"partial", route:"#/module/3"},
-    {label:"态矢量与表象", sub:"代数表示与 Dirac 符号", status:"done", route:"#/module/7"},
-    {label:"对易 · 演化 · 对称", sub:"守恒量与不确定关系", status:"partial", route:"#/module/9"},
-    {label:"角动量 · 自旋", sub:"J 代数与 Zeeman", status:"partial", route:"#/module/12"},
-    {label:"全同粒子", sub:"Bose / Fermi / Pauli", status:"todo", route:"#/module/15"}
-  ];
-  var thtml = thread.map(function(n, i){
-    return '<a class="tnode ' + n.status + '" href="' + n.route + '"><h3>' + n.label + '</h3><p>' + n.sub + '</p></a>';
-  }).join("");
-  var cards = MODULES.map(function(m){
-    var n = (m.points||[]).length;
-    var chip = m.status === "done" ? '<span class="chip ok">已整理</span>'
-             : m.status === "partial" ? '<span class="chip partial">部分覆盖</span>'
-             : '<span class="chip todo">待补</span>';
-    return '<a class="mod-card' + (m.status === "todo" ? " todo" : "") + '" href="#/module/' + m.idx + '">' +
-      '<div class="mc-top"><span class="mc-name">' + m.name + '</span>' + chip + '</div>' +
-      '<p class="mc-ch">第' + m.chapter + '章节</p>' +
-      '<p class="mc-count">' + (n ? '<b>' + n + '</b> 个知识点' : "尚未成文，待补") + '</p></a>';
-  }).join("");
-  var chs = [
-    {no:"第一章", name:"量子论诞生 · 波函数与薛定谔方程", desc:"实验反常如何逼出波函数与 Born 概率诠释，再到定态方程。", hour:"4 学时 · L1–L2", mods:"模块 1–3"},
-    {no:"第二章", name:"一维定态", desc:"束缚态、散射、隧穿、周期势——在一维中建立全部直觉。", hour:"3 学时 · L3–L4 前半", mods:"模块 4/5/7"},
-    {no:"第三章", name:"代数表示与基组", desc:"把波函数抽象成态矢量，进入 Dirac 符号与矩阵力学。", hour:"5 学时 · L4 后半起", mods:"模块 8/9"},
-    {no:"第四章", name:"对易 · 演化 · 对称 · 角动量 · 自旋", desc:"守恒量、广义不确定关系、谐振子代数与相干态。", hour:"4 学时 · 后续讲次", mods:"模块 10–15"},
-    {no:"第五章", name:"全同粒子", desc:"交换对称性、Fermi/Bose、Pauli 原理与费米气体。", hour:"2 学时 · 后续讲次", mods:"模块 16"}
-  ];
-  var chhtml = chs.map(function(c){
-    return '<div class="ch-card"><div class="ch-no">' + c.no + '</div><h3>' + c.name + '</h3><p>' + c.desc + '</p>' +
-      '<div class="ch-hour">' + c.hour + ' · ' + c.mods + '</div></div>';
-  }).join("");
-  view.innerHTML =
-    '<section class="hero"><div class="wrap">' +
-      '<p class="hero-kicker">量子力学与量子统计 · 自学笔记公开版</p>' +
-      '<h1>从一束光的反常，<br>走进<em>量子力学</em>的完整主线</h1>' +
-      '<p class="hero-sub">按"实验反常 → 波函数 → 方程 → 一维 → 代数 → 对称 → 角动量 → 全同粒子"的主线组织：每个知识点有速览、公式精要、完整推导例题与易错点，课堂笔记与答疑记录同步归档。</p>' +
-      '<div class="hero-stats">' +
-        '<div class="hstat"><b>' + counts.points + '</b><span>成文知识点</span></div>' +
-        '<div class="hstat"><b>' + MODULES.length + '</b><span>课程模块</span></div>' +
-        '<div class="hstat"><b>' + counts.notes + '</b><span>课堂笔记</span></div>' +
-        '<div class="hstat"><b>' + counts.qa + '</b><span>答疑记录</span></div>' +
-      '</div>' +
-      '<div style="display:flex;flex-wrap:wrap;gap:12px">' +
-        '<a class="hero-cta" href="#/module/0">从模块 1 开始学习</a>' +
-        '<a class="hero-cta" style="background:transparent;border:1px solid #3A4764;color:#E8B27A" href="#/framework">先看体系总览</a>' +
-      '</div>' +
-      '<div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1080 90" width="100%" height="90" preserveAspectRatio="none"><path d="M0,45 Q135,0 270,45 T540,45 T810,45 T1080,45" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M0,62 Q135,20 270,62 T540,62 T810,62 T1080,62" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".28"/></svg></div>' +
-    '</div></section>' +
-    '<section class="section"><div class="wrap">' +
-      '<div class="sec-head"><span class="sec-no">01</span><h2>学习主线</h2><span class="sec-more serif">八站通关，从旧量子论到全同粒子</span></div>' +
-      '<div class="thread">' + thtml + '</div>' +
-    '</div></section>' +
-    '<section class="section"><div class="wrap">' +
-      '<div class="sec-head"><span class="sec-no">02</span><h2>模块地图</h2><span class="sec-more serif">按笔记库实际文件夹组织</span></div>' +
-      '<div class="mod-grid">' + cards + '</div>' +
-    '</div></section>' +
-    '<section class="section"><div class="wrap">' +
-      '<div class="sec-head"><span class="sec-no">03</span><h2>课程章节</h2><span class="sec-more serif">18 学时 · 五章节</span></div>' +
-      '<div class="ch-grid">' + chhtml + '</div>' +
-    '</div></section>' +
-    '<section class="section"><div class="wrap">' +
-      '<div class="sec-head"><span class="sec-no">04</span><h2>下一步怎么走</h2></div>' +
-      '<div class="article" style="margin:0;max-width:56em">' +
-      '<p>如果你是第一次来：<a href="#/module/0">模块 1（旧量子论与诞生）</a> → <a href="#/module/1">模块 2（波函数与统计诠释）</a> → <a href="#/module/2">模块 3（薛定谔方程）</a>，这是第一章节的主线。学完方程之后，模块 4 的一维势阱是所有后续的直觉来源。</p>' +
-      '<p>每个知识点页包含：<b>速览</b>（30 秒复习）、<b>精要</b>（公式逐符号讲解）、<b>例题</b>（完整推导 + 第一遍易错处）、<b>易错点</b>与<b>问答记录</b>。相关知识点之间已互相链接，可以顺着主线跳。</p>' +
-      '<p>课堂笔记（<a href="#/notes">12 篇</a>）与答疑记录（<a href="#/qa">' + counts.qa + ' 篇</a>）按学习时间归档，是知识点的原始来源。</p>' +
-      '</div>' +
-    '</div></section>';
-  document.title = "量子力学学习笔记 · 从实验反常到全同粒子";
+/* ================= 路由 ================= */
+var VIEWS = ["home","math","overview","graph","quiz","changelog","about"];
+function route(){
+  var h = location.hash.replace(/^#\/?/,"") || "home";
+  var name = h.split("?")[0].split("/")[0];
+  if(VIEWS.indexOf(name)<0) name="home";
+  VIEWS.forEach(function(v){
+    document.getElementById("v-"+v).classList.toggle("on",v===name);
+  });
+  document.querySelectorAll(".topnav a[data-nav]").forEach(function(a){
+    a.classList.toggle("on",a.getAttribute("data-nav")===name);
+  });
+  if(name==="math"&&!document.getElementById("mathBody").getAttribute("data-loaded")){
+    document.getElementById("mathBody").setAttribute("data-loaded","1");
+    loadMD("content/math.md",document.getElementById("mathBody"));
+  }
+  if(name==="overview"&&!document.getElementById("ovBody").getAttribute("data-loaded")){
+    document.getElementById("ovBody").setAttribute("data-loaded","1");
+    loadMD("content/overview.md",document.getElementById("ovBody"));
+  }
+  if(name==="quiz"){quizLoad();}
+  if(name==="graph"){graphInit();}
+  document.querySelectorAll(".view.on .content").forEach(function(c){c.scrollTop=0;});
   window.scrollTo(0,0);
 }
+window.addEventListener("hashchange",route);
 
-/* ---------- 模块页 ---------- */
-var CH_NAMES = {1:"量子论诞生 · 波函数与方程", 2:"一维定态", 3:"代数表示与基组", 4:"对易 · 演化 · 对称 · 角动量 · 自旋", 5:"全同粒子"};
-var MOD_DESC = {
-  "模块1-旧量子论与诞生":"黑体辐射、光电效应、康普顿散射、玻尔模型、德布罗意物质波——量子概念如何在「两朵乌云」下被迫诞生。",
-  "模块2-波函数与统计诠释":"Born 规则、归一化、算符与平均值、态叠加与量子拍、波包与傅里叶展开——波函数到底在描述什么。",
-  "模块3-薛定谔方程与概率守恒":"方程的引入三条件、哈密顿算符、概率流守恒、定态与初值问题三步解法。",
-  "模块4-一维束缚态":"曲率判据、无限深势阱、有限深方势阱、谐振子级数解法、量子阱与量子点——一维是所有直觉的来源。",
-  "模块5-散射与隧穿":"势阶、方势垒隧穿、WKB、δ 势与周期势 Bloch 定理（对应课程总览中的模块 6/7）。",
-  "模块7-周期势与能带":"尚未整理成文。Kronig–Penney 与允带/禁带内容在课件 L4，相关推导见 5.5 周期势与 Bloch 定理。",
-  "模块8-态矢量与表象":"Dirac 符号、位置/动量/能量表象、算符的矩阵表示、测量公设与投影、自旋 1/2 态空间（含序列 SG）。",
-  "模块9-厄米算符与本征值问题":"厄米性、实谱与正交完备、谱分解与算符函数、基组截断误差。",
-  "模块10-对易与相容观测量":"对易子代数、相容观测量与 CSCO、广义不确定关系（Robertson 一般式的完整证明）。",
-  "模块11-时间演化与守恒量":"Ehrenfest 定理与量子牛顿方程、时间演化算符与绘景、守恒量与对称变换生成元。",
-  "模块12-对称性与守恒律":"尚未系统成文。空间平移→动量、转动→角动量、时间平移→能量的统一框架已并入 11.2。",
-  "模块13-角动量代数":"尚未整理成文。J²、Jz 共同本征态、升降算符、球谐函数与 CG 系数待补。",
-  "模块14-自旋与Zeeman":"部分覆盖：自旋态空间与 Pauli 矩阵已在 8.6 讲解；内禀磁矩、碱金属双线与反常 Zeeman 待补。",
-  "模块15-谐振子代数解法与相干态":"升降算符、能谱与矩阵元、相干态的代数定义与占据数表象。",
-  "模块16-全同粒子":"尚未整理成文。交换对称性、Fermi/Bose、Pauli 原理、费米气体与 BEC 待补。"
-};
-function renderModulePage(idx){
-  var m = MODULES[idx];
-  if(!m) return render404();
-  var n = (m.points||[]).length;
-  var chip = m.status === "done" ? '<span class="chip ok">已整理</span>'
-           : m.status === "partial" ? '<span class="chip partial">部分覆盖</span>'
-           : '<span class="chip todo">待补</span>';
-  var desc = MOD_DESC[m.folder] || "";
-  var crumb = '<p class="crumb"><a href="#/">首页</a> › <a href="#/">模块地图</a> › ' + m.name + '</p>';
-  view.innerHTML =
-    '<div class="wrap">' +
-    '<div class="page-head">' + crumb + '<div class="mod-head"><h1>' + m.name + '</h1>' + chip + '</div>' +
-    (desc ? '<p class="mod-desc">' + desc + '</p>' : "") +
-    '<p class="mod-desc" style="margin-top:-8px">第 ' + m.chapter + ' 章节 · ' + (CH_NAMES[m.chapter]||"") + '</p></div>' +
-    '<div id="moduleList">' + (n ? "" : '<div class="err-box"><h2>本模块尚未整理</h2><p>笔记库中该模块仍是空位（按约定"没认真研究过的点只留待补空位"）。相关进展见<a href="#/progress">学习进度</a>与<a href="#/framework">体系总览</a>。</p></div>') + '</div>' +
-    '</div>';
-  if(!n) { document.title = m.name + "（待补） · 量子力学学习笔记"; window.scrollTo(0,0); return; }
-  var listEl = document.getElementById("moduleList");
-  listEl.innerHTML = '<div class="list cols2"></div>';
-  var grid = listEl.querySelector(".list");
-  m.points.forEach(function(p){
-    var card = document.createElement("a");
-    card.className = "item-card";
-    card.href = "#/p/" + p.key;
-    card.innerHTML = '<h3>' + escapeHtml(p.title) + '</h3><div class="meta">' + p.file + '</div><div class="ex loading">…</div>';
-    grid.appendChild(card);
-    fetch("content/" + p.path, {cache:"no-store"}).then(function(r){ return r.text(); }).then(function(t){
-      var ex = previewOf(t);
-      var el = card.querySelector(".ex");
-      if(el) el.textContent = ex || "（暂无速览）";
-      if(el) el.className = "ex";
-    }).catch(function(){});
-  });
-  document.title = m.name + " · 量子力学学习笔记";
-  window.scrollTo(0,0);
-}
-function previewOf(md){
-  var m = String(md).match(/##\s*速览\s*\n([\s\S]*?)(?=\n##\s|$)/);
-  if(!m || !m[1]) return "";
-  var t = m[1].replace(/!\[[^\]]*\]\([^)]*\)/g,"").replace(/\[([^\]]*)\]\([^)]*\)/g,"$1")
-          .replace(/\${1,2}[\s\S]*?\${1,2}/g, "").replace(/[*_#>`~]/g, "").replace(/\s+/g, " ").trim();
-  if(t.length > 150) t = t.slice(0,148) + "…";
-  return t;
-}
-
-/* ---------- 知识点页 ---------- */
-function renderPointPage(key){
-  var p = POINTS.find(function(x){ return x.key === key; });
-  if(!p) return render404();
-  var m = p.mod;
-  var crumb = '<p class="crumb"><a href="#/">首页</a> › <a href="#/module/' + m.idx + '">' + m.name + '</a> › ' + p.title + '</p>';
-  view.innerHTML =
-    '<div class="wrap">' +
-    '<div class="page-head">' + crumb + '<h1>' + p.title + '</h1>' +
-    '<p class="sub">' + m.name + ' · 第 ' + m.chapter + ' 章节</p></div>' +
-    '<div class="point-layout"><aside class="point-toc" id="tocBox"></aside>' +
-    '<div class="article" id="articleBody"><div class="loading">正在加载知识点…</div></div></div>' +
-    '<div class="wrap pn-nav" id="pnNav"></div>' +
-    '</div>';
-  fetch("content/" + p.path, {cache:"no-store"}).then(function(r){ return r.text(); }).then(function(t){
-    renderMD(t, dirOf(p.path), document.getElementById("articleBody"), {toc:true});
-    var pts = m.points, i = pts.indexOf(p);
-    var html = "";
-    if(i > 0) html += '<a class="prev" href="#/p/' + pts[i-1].key + '"><div class="dir">← 上一节</div><div class="ttl">' + escapeHtml(pts[i-1].title) + '</div></a>';
-    else html += '<a class="prev" href="#/module/' + m.idx + '"><div class="dir">← 返回</div><div class="ttl">' + m.name + '</div></a>';
-    if(i < pts.length - 1) html += '<a class="next" href="#/p/' + pts[i+1].key + '"><div class="dir">下一节 →</div><div class="ttl">' + escapeHtml(pts[i+1].title) + '</div></a>';
-    else html += '<a class="next" href="#/module/' + m.idx + '"><div class="dir">本节结束 →</div><div class="ttl">返回模块页</div></a>';
-    document.getElementById("pnNav").innerHTML = html;
-    document.title = p.title + " · 量子力学学习笔记";
-    window.scrollTo(0,0);
-  }).catch(function(e){
-    document.getElementById("articleBody").innerHTML =
-      '<div class="err-box"><h2>知识点加载失败</h2><p>无法读取 <code>' + escapeHtml(p.path) + '</code>。若你是直接双击打开本地文件，请改用 GitHub Pages 或本地服务器访问。</p></div>';
-    window.scrollTo(0,0);
-  });
-}
-function dirOf(path){
-  var i = path.lastIndexOf("/");
-  return i < 0 ? "." : path.slice(0, i);
-}
-
-/* ---------- 笔记 / 答疑列表与详情 ---------- */
-function renderNotesPage(){
-  var cards = NOTES.map(function(n){
-    return '<a class="item-card" href="#/n/' + n.key + '"><h3>' + escapeHtml(n.title) + '</h3><div class="meta">' + n.file + '</div></a>';
-  }).join("");
-  view.innerHTML =
-    '<div class="wrap"><div class="page-head"><h1>课堂笔记</h1><p class="sub">按"序号-标题"归档的课堂整理，是知识点的原始来源；共 ' + NOTES.length + ' 篇。</p></div>' +
-    '<div class="list cols2">' + cards + '</div></div>';
-  document.title = "课堂笔记 · 量子力学学习笔记";
-  window.scrollTo(0,0);
-}
-function renderQaPage(){
-  var cards = QAS.map(function(q){
-    return '<a class="item-card" href="#/q/' + q.key + '"><h3>' + escapeHtml(q.title) + '</h3><div class="meta">' + q.date + '</div></a>';
-  }).join("");
-  view.innerHTML =
-    '<div class="wrap"><div class="page-head"><h1>答疑记录</h1><p class="sub">课后问答归档，常见理解卡点与纠正都在这里；共 ' + QAS.length + ' 篇。</p></div>' +
-    '<div class="list cols2">' + cards + '</div></div>';
-  document.title = "答疑记录 · 量子力学学习笔记";
-  window.scrollTo(0,0);
-}
-function renderNotePage(key){
-  var n = NOTES.find(function(x){ return x.key === key; });
-  if(!n) return render404();
-  renderItemPage("#/notes", "课堂笔记", n.title, n.path);
-}
-function renderQaItemPage(key){
-  var q = QAS.find(function(x){ return x.key === key; });
-  if(!q) return render404();
-  renderItemPage("#/qa", "答疑记录", q.title + "（" + q.date + "）", q.path);
-}
-function renderItemPage(backRoute, backName, title, path){
-  var crumb = '<p class="crumb"><a href="#/">首页</a> › <a href="' + backRoute + '">' + backName + '</a> › ' + title + '</p>';
-  view.innerHTML =
-    '<div class="wrap"><div class="page-head">' + crumb + '<h1>' + title + '</h1></div>' +
-    '<div class="point-layout"><aside class="point-toc" id="tocBox"></aside>' +
-    '<div class="article" id="articleBody"><div class="loading">正在加载…</div></div></div></div>';
-  fetch("content/" + path, {cache:"no-store"}).then(function(r){ return r.text(); }).then(function(t){
-    renderMD(t, dirOf(path), document.getElementById("articleBody"), {toc:true});
-    document.title = title + " · 量子力学学习笔记";
-    window.scrollTo(0,0);
-  }).catch(function(){
-    document.getElementById("articleBody").innerHTML =
-      '<div class="err-box"><h2>加载失败</h2><p>无法读取 <code>' + escapeHtml(path) + '</code>。</p></div>';
-    window.scrollTo(0,0);
+/* ================= 版本 ================= */
+function renderVersion(){
+  document.getElementById("footVer").textContent=VERSION;
+  var box=document.getElementById("verList");
+  box.innerHTML="";
+  CHANGELOG.forEach(function(v){
+    var d=document.createElement("div");d.className="v";
+    var n=document.createElement("div");n.className="vn";n.textContent=v[0];
+    var t=document.createElement("div");t.className="vd";t.textContent=v[1];
+    d.appendChild(n);d.appendChild(t);box.appendChild(d);
   });
 }
 
-/* ---------- 关于页 ---------- */
-function renderAbout(){
-  view.innerHTML =
-    '<div class="wrap"><div class="page-head"><h1>关于本站</h1></div>' +
-    '<div class="article" style="max-width:52em">' +
-    '<h2>这是什么</h2>' +
-    '<p>一套把《材料中的量子与统计》课程（量子力学部分，18 学时五章节）学透的公开学习笔记。按主线组织成 16 个模块，每个知识点独立成文，包含速览、公式精要、完整推导例题、易错点与问答记录。站点完全静态，任何 Markdown 编辑器都能维护。</p>' +
-    '<h2>内容来源与结构</h2>' +
-    '<p>笔记文本存放于 <code>content/</code>：<code>modules/</code> 按模块存放知识点，<code>notes/</code> 为课堂笔记，<code>qa/</code> 为答疑记录，另有 <code>framework.md</code>（体系总览）与 <code>progress.md</code>（学习进度）。模块编号沿用笔记库文件夹的命名方式；与《体系总览》中教科书式编号（如总览模块 5 为一维谐振子）略有出入处，以笔记库实际文件夹为准。</p>' +
-    '<h2>许可</h2>' +
-    '<p>除特别注明外，本站笔记文本采用 <b>CC BY-NC-SA 4.0</b>（署名–非商业–相同方式共享）。涉及课程讲义（课件、作业题）与教材的引用，版权归原权利人所有，本站在此仅作个人学习交流用途，不构成商业传播。</p>' +
-    '<h2>如何手动更新（三步）</h2>' +
-    '<ol><li>把新的 Markdown 放对位置：知识点放进 <code>content/modules/模块N-主题/</code>，课堂笔记放 <code>content/notes/</code>，答疑放 <code>content/qa/</code>；</li>' +
-    '<li>运行 <code>python tools/build_manifest.py</code> 重新生成 <code>content/manifest.json</code>（或按现有格式手动补一条记录）；</li>' +
-    '<li>提交推送，GitHub Pages 自动发布。详见仓库根目录的 <code>UPDATE.md</code>。</li></ol>' +
-    '<h2>致谢与免责</h2>' +
-    '<p>笔记基于课堂讲授与教材（曾谨言《量子力学·卷Ⅰ》为主，Griffiths 辅）整理，公式与结论已尽力核对，但仍可能有错漏——发现错误欢迎提 Issue 或在站内留言指正。本站不提供任何形式的课程官方资料替代。</p>' +
-    '<h2>更新记录</h2>' +
-    '<p>2026-10-23：站点上线（v1.0.0）。2026-10-23：v1.0.1 修复跳转回顶与公式渲染问题，新增版本记录模块。2026-10-23：v1.1.0 新增批注模式（框选段落反馈给 AI）。2026-10-23：v1.1.1 批注体验优化（进入批注模式不再自动弹出面板遮挡正文，按钮变色表示已激活）。2026-10-23：v1.1.2 批注新增常用快捷选项（公式乱码 / 数学知识 / 扩充描述 / 完整由来 / 精简略写），一键填入意见。2026-10-24：v1.1.3 修复行内公式相邻时 < 号被当 HTML 标签导致的乱码，并补充 4.1 杂质能级的类氢模型推导。2026-10-24：v1.1.4 为 4.2 一维束缚态普遍定理补充四条定理的完整由来（非简并 / 实函数 / 确定宇称 / 节点定理的逐步推理）。2026-10-24：v1.1.5 为 4.3 无限深势阱补充完整由来（解方程出 ψₙ/Eₙ、正交归一、⟨x²⟩ 分部积分、展开系数与 Iₙ 的偶对称判零）。2026-10-24：v1.1.6 为 4.2 补充 Wronskian 求导逐项展开、衰减论证通俗讲解、宇称算符预备、c=±1 解释与节点定理动能完整由来；为 3.3 补充 ∇·(f∇g) 恒等式的逐符号讲解。2026-10-24：v1.1.7 为 4.1 打靶法补充通俗讲解（试射法类比：E 偏低弯曲不足右端飞上天、E 偏高多穿轴钻地底、E 恰为本征值右端落靶衰减到零，与 4.2 节点定理呼应）。2026-10-24：v1.2.0 知识点正文启用五段流水线结构（数学预备 → 物理图景 → 公式与完整推导 → 例题精解 → 材料之桥），4.1 作为样板重写并上线，后续知识点按同一骨架批量重排。当前已整理 ' + POINTS.length + ' 个知识点、' + NOTES.length + ' 篇课堂笔记、' + QAS.length + ' 篇答疑记录。完整迭代历史见 <a href="#/changelog">版本记录</a>。</p>' +
-    '</div></div>';
-  document.title = "关于 · 量子力学学习笔记";
-  window.scrollTo(0,0);
+/* ================= 公式图谱（蛛网） ================= */
+var GF={nodes:[],edges:[],byId:{},chart:null,dataLoaded:false,selected:null,groupFilter:null};
+function graphInit(){
+  if(GF.dataLoaded)return;
+  GF.dataLoaded=true;
+  fetch("content/formulas.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
+    .then(function(d){GF.edges=d.edges;buildGraph(d.nodes);})
+    .catch(function(){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败，请通过 GitHub Pages 访问。</div>';});
 }
-
-/* ---------- 版本记录页 ---------- */
-function renderChangelog(){
-  var cards = CHANGELOG.map(function(c){
-    return '<div class="item-card"><div class="ver-line"><span class="ver-badge">v' + c.ver + '</span><span class="meta">' + c.date + '</span></div>' +
-      '<h3 style="margin:10px 0 6px">' + escapeHtml(c.title) + '</h3>' +
-      '<div class="ex">' + c.items.map(function(it){ return '<p style="margin:4px 0">' + escapeHtml(it) + '</p>'; }).join("") + '</div></div>';
-  }).join("");
-  view.innerHTML =
-    '<div class="wrap"><div class="page-head"><h1>版本记录</h1><p class="sub">当前版本 <b>v' + VERSION + '</b> · 每次迭代在此留档。</p></div>' +
-    '<div class="list cols2">' + cards + '</div></div>';
-  document.title = "版本记录 · 量子力学学习笔记";
-  window.scrollTo(0,0);
+function buildGraph(nodes){
+  GF.nodes=nodes;
+  GF.byId={};
+  nodes.forEach(function(n){GF.byId[n.id]=n;});
+  var deg={};nodes.forEach(function(n){deg[n.id]=0;});
+  GF.edges.forEach(function(e){deg[e.from]++;deg[e.to]++;});
+  var groups={};nodes.forEach(function(n){groups[n.group]=GF.groups[n.group]||n.group;});
+  var catIdx={};Object.keys(groups).forEach(function(k,i){catIdx[k]=i;});
+  var pending = nodes.filter(function(n){return n.note&&n.note.indexOf("【待建】")===0;});
+  var pendingSet={};pending.forEach(function(n){pendingSet[n.id]=1;});
+  var data=nodes.map(function(n){
+    return {id:n.id,name:n.name,category:catIdx[n.group],
+      symbolSize: Math.max(12,Math.min(26,8+Math.sqrt(deg[n.id]||1)*5)),
+      symbol: n.app?"diamond":(pendingSet[n.id]?"circle":"circle"),
+      itemStyle:{opacity:pendingSet[n.id]?0.28:1},
+      value:deg[n.id]||0};
+  });
+  var links=GF.edges.map(function(e){return {source:e.from,target:e.to,lineStyle:{curveness:0.06,width:1,opacity:0.35}};});
+  GF.chart=echarts.init(document.getElementById("gchart"),null,{renderer:"canvas"});
+  setTimeout(function(){GF.chart.resize();},0);
+  GF.chart.setOption({
+    tooltip:{show:false},
+    legend:{show:false},
+    animationDuration:900,animationEasingUpdate:"quinticInOut",
+    series:[{type:"graph",layout:"force",data:data,links:links,categories:Object.keys(groups).map(function(k){return {name:groups[k]};}),
+      roam:true,draggable:true,
+      force:{repulsion:150,edgeLength:[60,130],gravity:0.12},
+      label:{show:false,position:"right",fontSize:11,color:"#4a5568"},
+      emphasis:{focus:"adjacency",lineStyle:{width:2,opacity:.8},label:{show:true}},
+      lineStyle:{color:"#b7bfc9"},
+      itemStyle:{borderColor:"#fff",borderWidth:1}
+    }]
+  });
+  GF.chart.on("click",function(p){if(p.dataType==="node")showCard(p.data.id);});
+  GF.chart.on("mousewheel",function(){if(GF.cardTimer)clearTimeout(GF.cardTimer);});
+  document.getElementById("gCntN").textContent=nodes.length;
+  document.getElementById("gCntE").textContent=GF.edges.length;
+  buildLegend(groups);
+  var q=location.hash.match(/[?&]f=([FMT]\d+)/);
+  if(q&&GF.byId[q[1]])showCard(q[1]);
 }
-
-/* ---------- 404 ---------- */
-function render404(){
-  view.innerHTML =
-    '<div class="wrap"><div class="err-box"><h2>页面不存在</h2><p>这个地址没有对应内容。<a href="#/">回到首页</a>。</p></div></div>';
-}
-
-/* ---------- 搜索 ---------- */
-function buildSearchIndex(){
-  var idx = [];
-  MODULES.forEach(function(m){
-    idx.push({t:"模块", title:m.name, sub:"第 " + m.chapter + " 章节", route:"#/module/" + m.idx, w:m.name + " " + m.folder});
-  });
-  POINTS.forEach(function(p){
-    idx.push({t:"知识点", title:p.title, sub:p.mod.name, route:"#/p/" + p.key, w:p.title + " " + p.file + " " + p.mod.name});
-  });
-  NOTES.forEach(function(n){
-    idx.push({t:"课堂笔记", title:n.title, sub:n.file, route:"#/n/" + n.key, w:n.title + " " + n.file});
-  });
-  QAS.forEach(function(q){
-    idx.push({t:"答疑", title:q.title, sub:q.date, route:"#/q/" + q.key, w:q.title + " " + q.date});
-  });
-  return idx;
-}
-var SEARCH_IDX = [];
-var searchBox = document.getElementById("searchInput");
-var searchRes = document.getElementById("searchResults");
-function doSearch(q){
-  q = q.trim().toLowerCase();
-  if(!q){ searchRes.classList.remove("open"); return; }
-  var hits = SEARCH_IDX.filter(function(x){
-    return x.title.toLowerCase().indexOf(q) >= 0 || x.w.toLowerCase().indexOf(q) >= 0;
-  });
-  var groups = {};
-  hits.slice(0, 16).forEach(function(x){
-    (groups[x.t] = groups[x.t] || []).push(x);
-  });
-  var html = "";
-  Object.keys(groups).forEach(function(g){
-    html += '<div class="sr-group">' + g + '</div>';
-    groups[g].forEach(function(x){
-      html += '<a class="sr-item" href="' + x.route + '">' + escapeHtml(x.title) + '<span class="sr-sub">' + escapeHtml(x.sub) + "</span></a>";
+function buildLegend(groups){
+  var box=document.getElementById("graphLegend");
+  box.innerHTML="<b>按模块着色</b>";
+  var palette=GF.palette;
+  Object.keys(groups).forEach(function(k){
+    var d=document.createElement("div");d.className="lg";
+    var dot=document.createElement("span");dot.className="dot";dot.style.background=palette[k]||"#999";
+    var t=document.createElement("span");t.textContent=groups[k];
+    d.appendChild(dot);d.appendChild(t);
+    d.addEventListener("click",function(){
+      GF.groupFilter=(GF.groupFilter===k)?null:k;
+      applyFilter();
+      document.querySelectorAll("#graphLegend .lg").forEach(function(x){x.style.opacity=GF.groupFilter&&x.firstElementChild.style.background!==palette[k]?"0.35":"1";});
     });
+    box.appendChild(d);
   });
-  if(!hits.length) html = '<div class="sr-group">无匹配结果</div>';
-  searchRes.innerHTML = html;
-  searchRes.classList.add("open");
 }
-
-/* ---------- 导航状态 / 顶部按钮 / 菜单 ---------- */
-function setNav(route){
-  document.querySelectorAll(".head-nav a").forEach(function(a){
-    a.classList.toggle("on", a.getAttribute("data-nav") === route.name);
+function applyFilter(){
+  var kw=(document.getElementById("gSearch").value||"").trim();
+  GF.nodes.forEach(function(n){
+    var on=(!GF.groupFilter||n.group===GF.groupFilter)&&(!kw||n.id.toLowerCase().indexOf(kw.toLowerCase())>=0||n.name.indexOf(kw)>=0);
+    GF.chart.dispatchAction({type:"downplay",seriesIndex:0,name:n.id});
+    if(on){GF.chart.dispatchAction({type:"highlight",seriesIndex:0,name:n.id});}
   });
-  document.getElementById("headNav").classList.remove("open");
-  document.getElementById("menuBtn").setAttribute("aria-expanded","false");
 }
-var backTop = document.getElementById("backTop");
-window.addEventListener("scroll", function(){
-  backTop.classList.toggle("show", scrollY > 600);
-}, {passive:true});
-backTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
-document.getElementById("menuBtn").addEventListener("click", function(){
-  var nav = document.getElementById("headNav");
-  var open = nav.classList.toggle("open");
-  this.setAttribute("aria-expanded", open ? "true" : "false");
-});
-searchBox.addEventListener("input", function(){ doSearch(this.value); });
-searchBox.addEventListener("keydown", function(e){
-  if(e.key === "Escape"){ searchRes.classList.remove("open"); this.blur(); }
-  if(e.key === "Enter"){ var a = searchRes.querySelector(".sr-item"); if(a) location.hash = a.getAttribute("href"); }
-});
-document.addEventListener("click", function(e){
-  if(!searchRes.contains(e.target) && e.target !== searchBox) searchRes.classList.remove("open");
-});
+function showCard(id){
+  var n=GF.byId[id];if(!n)return;
+  GF.selected=id;
+  var card=document.getElementById("fcard");
+  var pre=GF.edges.filter(function(e){return e.to===id;}).map(function(e){return e.from;});
+  var post=GF.edges.filter(function(e){return e.from===id;}).map(function(e){return e.to;});
+  var h='<button class="fc-close" onclick="closeCard()">&times;</button>';
+  h+='<div class="fc-id">'+n.id+(n.group==="math"?" · 数学工具":" · "+n.group+"")+'</div>';
+  h+='<h3>'+n.name+(n.app?'<span class="fc-app">应用公式</span>':"")+'</h3>';
+  h+='<div class="fc-latex">$$'+n.latex+'$$</div>';
+  if(n.note)h+='<div class="fc-note">'+n.note+'</div>';
+  h+='<div class="fc-sec">可由以下推出 <span class="arrow">←</span></div><div>';
+  h+=(pre.length?pre.map(fid=>'<span class="fc-link" onclick="gotoNode(\''+fid+'\')">'+fid+' · '+esc(GF.byId[fid].name)+'</span>').join(""):'<span style="color:#999">（基本公设或直接定义）</span>');
+  h+='</div>';
+  h+='<div class="fc-sec">可推出以下 <span class="arrow">→</span></div><div>';
+  h+=(post.length?post.map(fid=>'<span class="fc-link" onclick="gotoNode(\''+fid+'\')">'+fid+' · '+esc(GF.byId[fid].name)+'</span>').join(""):'<span style="color:#999">（终点：应用公式，不再推导）</span>');
+  h+='</div>';
+  if(n.deriv)h+='<details><summary>查看完整推导</summary><div class="fc-deriv">'+mdline(n.deriv)+'</div></details>';
+  card.innerHTML=h;
+  card.classList.add("open");
+  var box=card;
+  renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+}
+function closeCard(){document.getElementById("fcard").classList.remove("open");}
+function gotoNode(id){
+  GF.chart.dispatchAction({type:"downplay",seriesIndex:0,name:GF.selected});
+  GF.chart.dispatchAction({type:"highlight",seriesIndex:0,name:id});
+  showCard(id);
+  var p=GF.chart.convertToPixel({seriesIndex:0},GF.chart.getOption().series[0].data.filter(function(d){return d.id===id;})[0].dataIndex);
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function mdline(t){return t.replace(/\n/g,"<br>");}
+document.getElementById("gFit").addEventListener("click",function(){GF.chart&&GF.chart.dispatchAction({type:"restore"});});
+document.getElementById("gClear").addEventListener("click",function(){document.getElementById("gSearch").value="";GF.groupFilter=null;applyFilter();closeCard();});
+document.getElementById("gSearch").addEventListener("input",applyFilter);
+GF.groups={"math":"数学前备库","m0":"模块1 · 旧量子论与诞生","m1":"模块2 · 波函数与统计诠释","m2":"模块3 · 薛定谔方程与概率守恒","m3":"模块4 · 一维束缚态","m4":"模块5 · 散射与隧穿","m5":"模块7 · 周期势与能带","m6":"模块8 · 态矢量与表象","m7":"模块9 · 厄米算符与本征值问题","m8":"模块10 · 对易与相容观测量","m9":"模块11 · 时间演化与守恒量","m10":"模块12 · 对称守恒律","m11":"模块13 · 角动量代数","m12":"模块14 · 自旋与Zeeman","m13":"模块15 · 谐振子代数解法与相干态","m14":"模块16 · 全同粒子"};
+GF.palette={"math":"#9aa3ad","m0":"#c07a2d","m1":"#d9822b","m2":"#2f7e8c","m3":"#3b5bdb","m4":"#6a4fc4","m5":"#8a5a44","m6":"#1e8e5a","m7":"#2e8b57","m8":"#b03a48","m9":"#a3532a","m10":"#7c6bc4","m11":"#4a90d9","m12":"#c74e6b","m13":"#0e7c7b","m14":"#5a7a8c"};
 
-/* ---------- 路由主循环 ---------- */
-var lastRoute = null;
-function dispatch(){
-  var route = parseRoute();
-  if(!M){
-    view.innerHTML = '<div class="wrap"><div class="loading">正在初始化…</div></div>';
+/* ================= 例题 ================= */
+var QUIZ={list:[],loaded:{}};
+function quizLoad(){
+  var nav=document.getElementById("quizNav");
+  if(!QUIZ.list.length){
+    fetch("content/manifest.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();})
+      .then(function(m){
+        QUIZ.list=(m.modules||[]).filter(function(x){return x.problem;});
+        nav.innerHTML="";
+        QUIZ.list.forEach(function(md){
+          var a=document.createElement("a");a.textContent=md.name.replace(/^模块\d+ · /,"");a.href="#/quiz/"+md.id;
+          nav.appendChild(a);
+        });
+        var def=QUIZ.list[0];
+        var cur=location.hash.split("/")[2];
+        var m=QUIZ.list.filter(function(x){return x.id===cur;})[0]||def;
+        loadQuiz(m);
+      }).catch(function(){document.getElementById("quizBody").innerHTML='<div class="err">清单加载失败。</div>';});
     return;
   }
-  if(JSON.stringify(route) === JSON.stringify(lastRoute) && view.innerHTML.indexOf("loading") < 0) return;
-  lastRoute = route;
-  setNav(route);
-  switch(route.name){
-    case "home": renderHome(); break;
-    case "framework": renderDocPage("量子力学体系总览", "五章节框架、状态与待补空位；本页为笔记库的纲领文件。", "content/framework.md", ""); break;
-    case "progress": renderDocPage("学习进度", "逐知识点通关记录（未开始 / 进行中 / 已通关）。", "content/progress.md", ""); break;
-    case "notes": renderNotesPage(); break;
-    case "qa": renderQaPage(); break;
-    case "about": renderAbout(); break;
-    case "changelog": renderChangelog(); break;
-    case "module": renderModulePage(parseInt(route.id, 10) || 0); break;
-    case "point": renderPointPage(route.key); break;
-    case "note": renderNotePage(route.key); break;
-    case "qaItem": renderQaItemPage(route.key); break;
-    default: render404();
-  }
+  var cur=location.hash.split("/")[2];
+  var m=QUIZ.list.filter(function(x){return x.id===cur;})[0]||QUIZ.list[0];
+  loadQuiz(m);
 }
-window.addEventListener("hashchange", dispatch);
-
-/* ---------- 启动 ---------- */
-function boot(){
-  if(location.protocol === "file:") offlineEl.hidden = false;
-  loadManifest().then(function(){
-    SEARCH_IDX = buildSearchIndex();
-    dispatch();
-  }).catch(function(e){
-    offlineEl.hidden = false;
-    view.innerHTML =
-      '<div class="wrap"><div class="err-box"><h2>无法加载内容目录</h2>' +
-      '<p>读取 <code>content/manifest.json</code> 失败（' + escapeHtml(e && e.message || e) + '）。' +
-      '若你是直接双击打开的本地文件，浏览器会禁止读取同目录数据——请通过 GitHub Pages 访问，或在本目录运行 <code>python -m http.server 8000</code> 后打开 <code>http://localhost:8000</code>。</p>' +
-      '<p><button style="padding:8px 16px;border-radius:8px;border:1px solid var(--line-2);background:var(--paper);cursor:pointer" onclick="location.reload()">重试</button></p></div></div>';
-  });
-}
-/* ========== 批注模式（框选段落 → 写意见 → 复制发给我） ========== */
-var ANN_KEY = "qm_annotations_v1";
-var ANN = [];
-var annActive = false;
-var annBoxEl = null, annDrag = null;
-var annPendingQuote = null;
-var annToastTimer = null;
-var annCoarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-
-function loadAnns(){ try { ANN = JSON.parse(localStorage.getItem(ANN_KEY) || "[]") || []; } catch(e){ ANN = []; } }
-function saveAnns(){ try { localStorage.setItem(ANN_KEY, JSON.stringify(ANN)); } catch(e){} }
-function annToast(msg){
-  var t = document.getElementById("annToast");
-  t.textContent = msg; t.classList.add("show");
-  clearTimeout(annToastTimer);
-  annToastTimer = setTimeout(function(){ t.classList.remove("show"); }, 3200);
-}
-function annCountAll(){
-  var c = document.getElementById("annCount");
-  var hd = document.getElementById("annCountHd");
-  if(c){ c.hidden = ANN.length === 0; c.textContent = ANN.length; }
-  if(hd){ hd.textContent = ANN.length ? "共 " + ANN.length + " 条" : ""; }
-}
-function curPageLabel(){
-  var r = parseRoute();
-  if(r.name === "point"){ var p = POINTS.find(function(x){ return x.key === r.key; }); return p ? (p.mod.name + " / " + p.title) : r.key; }
-  if(r.name === "note"){ var n = NOTES.find(function(x){ return x.key === r.key; }); return n ? ("课堂笔记 / " + n.title) : r.key; }
-  if(r.name === "qaItem"){ var q = QAS.find(function(x){ return x.key === r.key; }); return q ? ("答疑 / " + q.title) : r.key; }
-  if(r.name === "module"){ var m = MODULES[parseInt(r.id, 10) || 0]; return m ? ("模块 / " + m.name) : r.id; }
-  return "其他页面";
-}
-function annQuoteFromSelection(){
-  var sel = window.getSelection();
-  var s = sel && sel.toString ? sel.toString() : "";
-  s = String(s).trim().replace(/\s+/g, " ");
-  return s ? (s.length > 400 ? s.slice(0, 400) + "…" : s) : "";
-}
-function annHitText(cx, cy){
-  var el = document.elementFromPoint(cx, cy);
-  for(var i = 0; el && i < 10; i++){
-    if(el.nodeType === 1){
-      var tag = el.tagName;
-      if(/^(P|H1|H2|H3|H4|H5|LI|TD|TH|BLOCKQUOTE|PRE|A)$/.test(tag) && el.textContent && el.textContent.trim().length > 3){
-        var t = el.textContent.trim().replace(/\s+/g, " ");
-        return t.length > 400 ? t.slice(0, 400) + "…" : t;
-      }
-    }
-    el = el.parentElement;
-  }
-  return "";
-}
-function annOpenComposer(quote, rect){
-  var pos = document.getElementById("annComposer");
-  document.getElementById("annQuoteBox").textContent = quote || "（未捕获到文本，可手动粘贴）";
-  pos.setAttribute("data-quote", quote || "");
-  document.getElementById("annComment").value = "";
-  var top = 20 + Math.round(innerHeight * 0.12);
-  if(rect){
-    if(rect.y + rect.h + 16 + 240 < innerHeight) top = rect.y + rect.h + 16;
-    else if(rect.y - 260 > 8) top = rect.y - 260;
-  }
-  pos.style.top = Math.max(8, top) + "px";
-  pos.style.left = "50%";
-  pos.style.transform = "translateX(-50%)";
-  pos.style.display = "block";
-  document.getElementById("annComment").focus();
-}
-function annCloseComposer(){
-  var c = document.getElementById("annComposer");
-  if(c) c.style.display = "none";
-}
-function annAdd(comment, quote){
-  var item = {
-    id: "a" + Date.now() + Math.floor(Math.random() * 1000),
-    hash: location.hash || "#/",
-    page: curPageLabel(),
-    time: new Date().toLocaleString("zh-CN", {hour12:false}),
-    quote: quote || "",
-    comment: comment || ""
-  };
-  ANN.push(item);
-  saveAnns();
-  annRenderPanel();
-  return item;
-}
-function annIsUi(t){
-  return !!(t && t.closest && t.closest(".ann-ui, .ann-box, .back-top, .site-head"));
-}
-function annOnDown(e){
-  if(e.button !== 0 || annIsUi(e.target)) return;
-  var vr = view.getBoundingClientRect();
-  if(e.clientY < vr.top || e.clientY > vr.bottom || e.clientX < vr.left || e.clientX > vr.right) return;
-  annDrag = {x0: e.clientX, y0: e.clientY, x1: e.clientX, y1: e.clientY};
-  if(!annBoxEl){
-    annBoxEl = document.createElement("div");
-    annBoxEl.className = "ann-box";
-    document.body.appendChild(annBoxEl);
-  }
-  annBoxEl.style.display = "block";
-  annBoxEl.style.left = e.clientX + "px";
-  annBoxEl.style.top = e.clientY + "px";
-  annBoxEl.style.width = "0px";
-  annBoxEl.style.height = "0px";
-}
-function annOnMove(e){
-  if(!annDrag) return;
-  annDrag.x1 = e.clientX; annDrag.y1 = e.clientY;
-  var x = Math.min(annDrag.x0, annDrag.x1), y = Math.min(annDrag.y0, annDrag.y1);
-  annBoxEl.style.left = x + "px";
-  annBoxEl.style.top = y + "px";
-  annBoxEl.style.width = Math.abs(annDrag.x1 - annDrag.x0) + "px";
-  annBoxEl.style.height = Math.abs(annDrag.y1 - annDrag.y0) + "px";
-}
-function annOnUp(){
-  if(!annDrag) return;
-  var d = annDrag;
-  var w = Math.abs(d.x1 - d.x0), h = Math.abs(d.y1 - d.y0);
-  annDrag = null;
-  if(annBoxEl) annBoxEl.style.display = "none";
-  if(w < 6 && h < 6) return;
-  var quote = annQuoteFromSelection();
-  if(!quote) quote = annHitText((d.x0 + d.x1) / 2, (d.y0 + d.y1) / 2);
-  try { window.getSelection().removeAllRanges(); } catch(_) {}
-  annOpenComposer(quote, {x: Math.min(d.x0, d.x1), y: Math.min(d.y0, d.y1), w: w, h: h});
-}
-function annOnTap(e){
-  if(annIsUi(e.target)) return;
-  if(e.target.closest && e.target.closest("#articleBody, .article") === null) return;
-  var quote = annHitText(e.clientX, e.clientY);
-  if(!quote) return;
-  e.preventDefault();
-  annOpenComposer(quote, {x: e.clientX - 10, y: e.clientY, w: 20, h: 4});
-}
-function annEnableDrag(){
-  if(annCoarse){ document.addEventListener("click", annOnTap); }
-  else {
-    document.addEventListener("mousedown", annOnDown);
-    document.addEventListener("mousemove", annOnMove);
-    document.addEventListener("mouseup", annOnUp);
-  }
-}
-function annDisableDrag(){
-  document.removeEventListener("click", annOnTap);
-  document.removeEventListener("mousedown", annOnDown);
-  document.removeEventListener("mousemove", annOnMove);
-  document.removeEventListener("mouseup", annOnUp);
-}
-function annSetActive(on){
-  annActive = !!on;
-  document.body.classList.toggle("ann-mode", annActive);
-  var btn = document.getElementById("annModeBtn");
-  if(btn) btn.classList.toggle("on", annActive);
-  if(annActive){ annEnableDrag(); }
-  else { annDisableDrag(); if(annBoxEl) annBoxEl.style.display = "none"; annCloseComposer(); }
-  annToast(annActive ? "批注模式已开启：拖动框选不满意的段落（Alt+A 退出）" : "批注模式已关闭");
-}
-function annOpenPanel(){ document.getElementById("annPanel").classList.add("open"); annRenderPanel(); }
-function annClosePanel(){ document.getElementById("annPanel").classList.remove("open"); }
-function annRenderPanel(){
-  var list = document.getElementById("annList");
-  if(!list) return;
-  annCountAll();
-  if(!ANN.length){ list.innerHTML = '<p class="ann-empty">还没有批注。按 <b>Alt+A</b> 进入批注模式，拖动框选不满意的段落，写一句意见保存。</p>'; return; }
-  list.innerHTML = ANN.map(function(a){
-    return '<div class="ann-item">' +
-      '<div class="ann-item-top"><span class="ann-time">' + a.time + '</span>' +
-      '<button class="ann-del" data-id="' + a.id + '" title="删除批注" aria-label="删除批注">✕</button></div>' +
-      '<div class="ann-page">' + escapeHtml(a.page) + '</div>' +
-      (a.comment ? '<div class="ann-comment">' + escapeHtml(a.comment) + '</div>' : '') +
-      (a.quote ? '<div class="ann-quote">' + escapeHtml(a.quote) + '</div>' : '') +
-      '<div class="ann-item-ops"><a class="ann-jump" href="' + a.hash + '" data-quote="' + escapeHtml(a.quote || "") + '">定位到该段落 →</a></div>' +
-      '</div>';
-  }).join("");
-}
-function annReport(){
-  var lines = [];
-  lines.push("【批注汇报】量子力学学习网站 v" + VERSION);
-  lines.push("生成时间：" + new Date().toLocaleString("zh-CN", {hour12:false}));
-  lines.push("批注总数：" + ANN.length);
-  lines.push("");
-  ANN.forEach(function(a, i){
-    lines.push("## 批注 " + (i + 1));
-    lines.push("- 页面：" + a.page);
-    lines.push("- 地址：" + (location.origin + location.pathname + a.hash));
-    lines.push("- 时间：" + a.time);
-    if(a.comment) lines.push("- 意见：" + a.comment);
-    if(a.quote) lines.push("- 原文引用：");
-    lines.push("> " + a.quote.split("\n").join("\n> "));
-    lines.push("");
-  });
-  return lines.join("\n");
-}
-function annCopy(){
-  var txt = annReport();
-  function fallback(){
-    var ta = document.createElement("textarea");
-    ta.value = txt;
-    ta.style.position = "fixed"; ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch(e) {}
-    document.body.removeChild(ta);
-    annToast("已复制批注报告，直接粘贴到豆包对话发给我即可");
-  }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(txt).then(function(){ annToast("已复制批注报告，直接粘贴到豆包对话发给我即可"); }, fallback);
-  } else fallback();
-}
-function annExportJson(){
-  var blob = new Blob([JSON.stringify(ANN, null, 2)], {type: "application/json"});
-  var a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "量子力学批注-" + new Date().toISOString().slice(0, 10) + ".json";
-  document.body.appendChild(a); a.click(); a.remove();
-}
-function annClear(){
-  if(!ANN.length) return;
-  if(!confirm("确定清除全部 " + ANN.length + " 条批注？")) return;
-  ANN = []; saveAnns(); annRenderPanel(); annToast("已清空全部批注");
-}
-function annLocate(quote){
-  var q = String(quote || "").trim();
-  if(!q) return;
-  /* 多候选键：开头可能落在页面标题（articleBody 之外），故同时取中间段与末尾段提高命中 */
-  var keys = [q.slice(0, 18)];
-  if(q.length > 24) keys.push(q.slice(Math.floor(q.length / 2), Math.floor(q.length / 2) + 18));
-  keys.push(q.slice(-18));
-  var nodes = view.querySelectorAll("#articleBody p, #articleBody li, #articleBody h1, #articleBody h2, #articleBody h3, #articleBody h4, #articleBody h5, #articleBody td, #articleBody th, #articleBody blockquote, #articleBody pre, .page-head h1");
-  for(var k = 0; k < keys.length; k++){
-    var key = keys[k];
-    if(!key) continue;
-    for(var i = 0; i < nodes.length; i++){
-      var t = nodes[i].textContent.trim().replace(/\s+/g, " ");
-      if(t.indexOf(key) >= 0){
-        nodes[i].classList.add("ann-flash");
-        (function(n){ setTimeout(function(){ n.classList.remove("ann-flash"); }, 2500); })(nodes[i]);
-        nodes[i].scrollIntoView({behavior: "smooth", block: "center"});
-        return;
-      }
-    }
-  }
-}
-function annWaitLocate(){
-  var tries = 0;
-  var iv = setInterval(function(){
-    tries++;
-    var body = document.getElementById("articleBody");
-    if(body && body.querySelector("p, li, h2, h3")){
-      clearInterval(iv);
-      setTimeout(function(){ annLocate(annPendingQuote); }, 120);
-    } else if(tries > 40){ clearInterval(iv); }
-  }, 100);
-}
-function annInit(){
-  loadAnns();
-  document.getElementById("annModeBtn").addEventListener("click", function(){ annSetActive(!annActive); });
-  document.getElementById("annTogglePanel").addEventListener("click", function(){
-    var p = document.getElementById("annPanel");
-    if(p.classList.contains("open")) annClosePanel(); else annOpenPanel();
-  });
-  document.getElementById("annClosePanel").addEventListener("click", annClosePanel);
-  document.getElementById("annSaveBtn").addEventListener("click", function(){
-    var comment = document.getElementById("annComment").value.trim();
-    var quote = document.getElementById("annComposer").getAttribute("data-quote") || "";
-    if(!comment && !quote){ annToast("写一句意见，或保留引用文本再保存"); return; }
-    annAdd(comment, quote);
-    annCloseComposer();
-    annToast("已保存批注（共 " + ANN.length + " 条），面板可查看 / 复制");
-  });
-  document.getElementById("annCancelBtn").addEventListener("click", annCloseComposer);
-  document.getElementById("annCopyBtn").addEventListener("click", annCopy);
-  document.querySelectorAll(".ann-chip").forEach(function(ch){
-    ch.addEventListener("click", function(){
-      var cm = document.getElementById("annComment");
-      cm.value = ch.getAttribute("data-comment") || "";
-      cm.focus();
-    });
-  });
-  document.getElementById("annExportBtn").addEventListener("click", annExportJson);
-  document.getElementById("annClearBtn").addEventListener("click", annClear);
-  document.getElementById("annList").addEventListener("click", function(e){
-    var del = e.target.closest(".ann-del");
-    if(del){
-      var id = del.getAttribute("data-id");
-      ANN = ANN.filter(function(a){ return a.id !== id; });
-      saveAnns(); annRenderPanel(); annToast("已删除该批注");
-      return;
-    }
-    var jump = e.target.closest(".ann-jump");
-    if(jump){
-      e.preventDefault();
-      annClosePanel();
-      annPendingQuote = jump.getAttribute("data-quote") || "";
-      var h = jump.getAttribute("href") || "#/";
-      location.hash = h.charAt(0) === "#" ? h.slice(1) : h;
-      annWaitLocate();
-    }
-  });
-  document.addEventListener("keydown", function(e){
-    if(e.altKey && (e.key === "a" || e.key === "A")){ e.preventDefault(); annSetActive(!annActive); return; }
-    if(e.key === "Escape"){
-      if(document.getElementById("annComposer").style.display !== "none") annCloseComposer();
-      else if(annActive) annSetActive(false);
-      else if(document.getElementById("annPanel").classList.contains("open")) annClosePanel();
-    }
-  });
-  annRenderPanel();
+function loadQuiz(md){
+  document.querySelectorAll("#quizNav a").forEach(function(a){a.classList.toggle("on",a.href.indexOf(md.id)>=0);});
+  if(QUIZ.loaded[md.id]){document.getElementById("quizBody").innerHTML="";document.getElementById("quizBody").appendChild(QUIZ.loaded[md.id]);return;}
+  var el=document.getElementById("quizBody");
+  fetch("content/"+md.problem).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();})
+    .then(function(t){var box=renderMarkdown(t);QUIZ.loaded[md.id]=box;el.innerHTML="";el.appendChild(box);})
+    .catch(function(){el.innerHTML='<div class="err">例题加载失败：'+md.problem+'</div>';});
 }
 
-boot();
-annInit();
-})();
-
+/* ================= 启动 ================= */
+renderVersion();
+route();
 </script>
 </body>
 </html>
