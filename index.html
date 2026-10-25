@@ -361,7 +361,7 @@ function graphInit(){
   ]).then(function(arr){
     GF.edges=arr[0].edges;
     buildGraph(arr[0].nodes,arr[1]||{});
-  }).catch(function(){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败，请通过 GitHub Pages 访问。</div>';});
+  }).catch(function(e){document.getElementById("gchart").innerHTML='<div class="err" style="margin:20px">公式数据加载失败：'+(e&&e.message?esc(e.message):String(e))+'（请通过 GitHub Pages 访问）</div>';});
 }
 function buildGraph(nodes, proofs){
   GF.nodes=nodes;
