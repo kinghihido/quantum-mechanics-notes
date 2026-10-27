@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>量子力学学习笔记 · 数理逻辑版</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1526'/%3E%3Ctext x='16' y='24' font-size='22' font-family='Georgia,serif' fill='%23E8B27A' text-anchor='middle'%3E%CF%86%3C/text%3E%3C/svg%3E">
 <style>
 :root{
   --ink:#1e2733; --ink2:#4a5568; --ink3:#718096;
@@ -22,7 +23,10 @@ a:hover{text-decoration:underline}
 /* ===== 顶部导航 ===== */
 .topnav{position:sticky;top:0;z-index:50;background:var(--accent2);color:#eaf0f6}
 .topnav .wrap{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
-.topnav .brand{font-weight:700;font-size:15px;color:#fff;margin-right:14px;letter-spacing:.5px}
+.topnav .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:#fff;margin-right:14px;letter-spacing:.5px;padding:4px 10px 4px 0;border-radius:0;text-decoration:none}
+.topnav .brand:hover{text-decoration:none}
+.topnav .brand .mark{width:27px;height:27px;flex:none;display:block;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.topnav .brand:hover .mark{transform:translateY(-1px);transition:transform .15s}
 .topnav a{color:#c9d7e6;padding:6px 12px;border-radius:6px;font-size:14px;display:inline-block}
 .topnav a:hover{background:rgba(255,255,255,.12);color:#fff;text-decoration:none}
 .topnav a.on{background:rgba(255,255,255,.18);color:#fff;font-weight:600}
@@ -132,7 +136,10 @@ a:hover{text-decoration:underline}
 </head>
 <body>
 <nav class="topnav"><div class="wrap">
-  <span class="brand">量子与统计 · 学习站</span>
+  <a class="brand" href="#/" aria-label="回到首页">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0E1526"/><text x="16" y="24" font-size="21" font-family="Georgia,serif" font-weight="700" fill="#E8B27A" text-anchor="middle">φ</text></svg>
+    <span>量子与统计 · 学习站</span>
+  </a>
   <a href="#/" data-nav="home">首页</a>
   <a href="#/math" data-nav="math">数学库</a>
   <a href="#/overview" data-nav="overview">概论</a>
@@ -234,7 +241,7 @@ a:hover{text-decoration:underline}
   </div>
 </div>
 
-<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.1.7</span> · 以数理逻辑为骨架，静待花开</div></footer>
+<footer class="foot"><div class="wrap">量子力学学习笔记 · v<span id="footVer">2.1.8</span> · 以数理逻辑为骨架，静待花开</div></footer>
 
 <script src="https://fastly.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -243,8 +250,9 @@ a:hover{text-decoration:underline}
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script>
 /* ================= 配置与版本 ================= */
-var VERSION = "2.1.7";
+var VERSION = "2.1.8";
 var CHANGELOG = [
+  ["2.1.8","找回站点标志：顶栏恢复黑底金字的 φ 方形标（v2.0 改版时丢失），并与标题文字组成回到首页的链接；同时补上浏览器标签页图标（favicon），用同一个 φ 标。"],
   ["2.1.7","图谱交互大修：点击公式节点即「聚焦」——选中节点移到画布中央（带绿框放大），只显示它和直接相连的邻居，边在聚焦中保持绿/灰两色，点空白或「退出聚焦」按钮返回全图（修复点击后节点跑没的问题）；侧边栏公式全面 LaTeX 渲染——推导正文与注释里的公式自动识别并转成 KaTeX（不再显示原始 latex 源码）；搜索栏升级——支持编号/名称/公式/注释关键词，实时列出结果、点击直接聚焦跳转；新增 8 条亲手推导打卡（M16→M38 行波、M38→F121 含时薛定谔、F121→F123 概率流、F121→F124 连续性方程直接推、F123→F124、F121→F125 定态分解、F125→F126 定态方程、F133→F118 群速度驻相），对应边已变绿；修复脚本库（ECharts/marked/KaTeX）与数据文件加载竞态导致图谱偶发白屏的问题。"],
   ["2.1.6","公式图谱推导边第二轮全面复核（v2.1.5 之后的纠错延续）：删除 6 条错误或跳步边——对易子定义→ΔxΔp（正确链为广义不确定→ΔxΔp）、张量积→自旋态空间（自旋来自 Stern–Gerlach 实验，非张量积推论）、对称守恒律→宇称（宇称是分立对称，不属 Noether 连续对称框架）、级数解法→SL 理论、对易子→相容观测量（共同本征态来自谱定理）、谐振子能谱→相干态定义（改为占据数表象→相干态定义）；新增 5 条正确边——德布罗意→康普顿散射（光子动量假设 p=h/λ）、含时薛定谔方程→概率流密度、初值问题三步解→定态性质、德布罗意→动量算符（平面波本征态要求）、占据数表象→相干态定义；并补动量算符/自旋态空间/概率流/定态性质/宇称/CSCO 的来路说明。"],
   ["2.1.5","公式图谱「公设」节点全面补来历，纠正「公设=凭空」的错误：含时薛定谔方程 F121 改由行波假设（M38）+ 德布罗意关系（F107）+ 经典能量关系 E=p²/2m 启发式构造，附完整推导并诚实标注公设化仅发生在「线性叠加推广」与「时间一阶」两处；删除 4 条逻辑错误边（行波→德布罗意（颠倒）、统计方差→ΔxΔp、TDSE→线性性（方向反）、时间演化→平移生成元（弱连）），F121 入边改回 M38/F107 并列；普朗克能量子、Born 诠释、态叠加、厄米性、正则对易、测量公设等根节点全部补实验/历史动机说明。"],
