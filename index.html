@@ -113,10 +113,60 @@ a:hover{text-decoration:underline}
 #fcard details{margin:10px 0 0}
 #fcard summary{cursor:pointer;color:var(--accent2);font-size:14px;font-weight:600}
 #fcard .fc-deriv{margin-top:8px;font-size:14.5px;color:var(--ink)}
+/* ===== 推导弹窗（Modal） ===== */
+.proof-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;display:none;align-items:center;justify-content:center;animation:fadeIn 0.2s ease-out}
+.proof-modal-overlay.open{display:flex}
+.proof-modal{background:#fff;border-radius:16px;max-width:800px;width:90%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:slideUp 0.3s ease-out}
+.proof-modal-header{position:sticky;top:0;background:linear-gradient(135deg,#1e8e5a 0%,#2ba36a 100%);color:#fff;padding:24px 28px;border-radius:16px 16px 0 0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.proof-modal-header h2{margin:0;font-size:22px;font-weight:700;line-height:1.3}
+.proof-modal-header .proof-id{font-size:13px;opacity:0.9;margin-top:4px;font-family:monospace}
+.proof-modal-close{background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:28px;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0}
+.proof-modal-close:hover{background:rgba(255,255,255,0.3)}
+.proof-modal-body{padding:28px}
+.proof-section{margin-bottom:24px}
+.proof-section-title{font-size:14px;font-weight:700;color:#1e8e5a;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #e8f5e9}
+.proof-content{font-size:15.5px;line-height:1.8;color:#2c3e50}
+.proof-content p{margin:0 0 12px}
+.proof-content strong{color:#1a5c3a;font-weight:600}
+.proof-content .math-block{background:#f8f9fa;border-left:4px solid #1e8e5a;padding:16px 20px;margin:16px 0;border-radius:0 8px 8px 0;overflow-x:auto}
+.proof-conclusion{background:#e8f5e9;border-radius:12px;padding:20px 24px;margin-top:24px}
+.proof-conclusion-title{font-size:15px;font-weight:700;color:#1e8e5a;margin-bottom:8px}
+.proof-conclusion-content{font-size:15px;line-height:1.7;color:#2c3e50}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(max-width:700px){
+  .proof-modal{width:95%;max-height:90vh}
+  .proof-modal-header{padding:20px}
+  .proof-modal-body{padding:20px}
+}
 /* ===== 例题视图 ===== */
 .quiz-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .quiz-nav a{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:13.5px;color:var(--ink2)}
 .quiz-nav a.on{background:var(--accent2);border-color:var(--accent2);color:#fff}
+/* ===== 讲义列表 ===== */
+.lecture-list{display:flex;flex-direction:column;gap:16px}
+.lecture-card{display:flex;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;cursor:pointer;transition:all 0.2s;box-shadow:var(--shadow)}
+.lecture-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,32,48,.12);border-color:var(--accent2)}
+.lecture-num{font-size:14px;font-weight:700;color:var(--accent2);flex:none;width:60px;padding-top:2px}
+.lecture-info h3{font-size:18px;margin:0 0 8px;color:var(--ink)}
+.lecture-info p{font-size:14.5px;color:var(--ink2);margin:0 0 12px;line-height:1.6}
+.lecture-tags{display:flex;flex-wrap:wrap;gap:8px}
+.lecture-tags span{background:#f0ede4;border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-size:12.5px;color:var(--accent2)}
+.lecture-content{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:32px;box-shadow:var(--shadow)}
+.lecture-content h1{font-size:28px;margin:0 0 8px;color:var(--accent2)}
+.lecture-content h2{font-size:22px;margin:32px 0 16px;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:8px}
+.lecture-content h3{font-size:18px;margin:24px 0 12px;color:var(--ink)}
+.lecture-content p{font-size:15.5px;line-height:1.8;color:var(--ink2);margin:0 0 16px}
+.lecture-content blockquote{background:#f8f9fa;border-left:4px solid var(--accent2);padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;font-style:italic;color:var(--ink)}
+.lecture-content ul,.lecture-content ol{margin:16px 0;padding-left:28px}
+.lecture-content li{font-size:15.5px;line-height:1.8;color:var(--ink2);margin:8px 0}
+.lecture-content code{background:#f0ede4;padding:2px 6px;border-radius:4px;font-size:14px;color:var(--accent2)}
+.lecture-content pre{background:#1e1e1e;color:#d4d4d4;padding:16px 20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+.lecture-content .math-block{background:#f8f9fa;border-left:4px solid var(--accent);padding:16px 20px;margin:16px 0;border-radius:0 8px 8px 0;overflow-x:auto}
+@media(max-width:700px){
+  .lecture-card{flex-direction:column;gap:12px}
+  .lecture-num{width:auto}
+}
 /* ===== 版本/关于 ===== */
 .ver-list{margin-top:10px}
 .ver-list .v{display:flex;gap:14px;border-bottom:1px solid var(--line);padding:12px 0}
@@ -142,6 +192,7 @@ a:hover{text-decoration:underline}
   </a>
   <a href="#/" data-nav="home">首页</a>
   <a href="#/math" data-nav="math">数学库</a>
+  <a href="#/lectures" data-nav="lectures">讲义</a>
   <a href="#/overview" data-nav="overview">概论</a>
   <a href="#/graph" data-nav="graph">公式图谱</a>
   <a href="#/quiz" data-nav="quiz">例题精解</a>
@@ -182,6 +233,98 @@ a:hover{text-decoration:underline}
   <div class="wrap">
     <div class="pagehead"><span class="tag">支柱一</span><h1>数学前备库</h1><div class="sub">56 条工具，按类编号 M01–M56。每条 = 定义要点 + 核心公式 + 用在哪。</div></div>
     <div class="content" id="mathBody">加载中…</div>
+  </div>
+</div>
+
+<!-- ================= 视图：讲义 ================= -->
+<div class="view" id="v-lectures">
+  <div class="wrap">
+    <div class="pagehead"><span class="tag">详细教材</span><h1>量子力学讲义</h1><div class="sub">10 章详实教材 · 从黑体辐射到表象理论 · 公式简化列出，点击跳转图谱查看推导</div></div>
+    <div class="content">
+      <div class="lecture-list" id="lectureList">
+        <div class="lecture-card" onclick="loadLecture(1)">
+          <div class="lecture-num">第1章</div>
+          <div class="lecture-info">
+            <h3>黑体辐射与能量量子化</h3>
+            <p>19世纪末物理学的晴空中的两朵乌云，普朗克的量子假设如何拯救了黑体辐射理论。</p>
+            <div class="lecture-tags"><span>紫外灾难</span><span>能量量子化</span><span>普朗克常数</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(2)">
+          <div class="lecture-num">第2章</div>
+          <div class="lecture-info">
+            <h3>光电效应与光子</h3>
+            <p>光不仅是波，还是粒子。爱因斯坦的光量子假设如何完美解释光电效应。</p>
+            <div class="lecture-tags"><span>光电效应</span><span>光子</span><span>波粒二象性</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(3)">
+          <div class="lecture-num">第3章</div>
+          <div class="lecture-info">
+            <h3>康普顿散射与物质波</h3>
+            <p>光子具有动量，物质粒子具有波动性。德布罗意的革命性假设。</p>
+            <div class="lecture-tags"><span>康普顿散射</span><span>物质波</span><span>德布罗意关系</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(4)">
+          <div class="lecture-num">第4章</div>
+          <div class="lecture-info">
+            <h3>波函数的统计诠释</h3>
+            <p>物质波到底是什么？玻恩的概率诠释，不确定关系，态叠加原理。</p>
+            <div class="lecture-tags"><span>玻恩诠释</span><span>不确定关系</span><span>态叠加</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(5)">
+          <div class="lecture-num">第5章</div>
+          <div class="lecture-info">
+            <h3>薛定谔方程</h3>
+            <p>量子力学的核心方程：如何构造？有什么性质？概率守恒如何保证？</p>
+            <div class="lecture-tags"><span>薛定谔方程</span><span>哈密顿算符</span><span>概率守恒</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(6)">
+          <div class="lecture-num">第6章</div>
+          <div class="lecture-info">
+            <h3>一维无限深势阱</h3>
+            <p>最简单的束缚态问题：能量量子化、零点能、节点定理。</p>
+            <div class="lecture-tags"><span>势阱</span><span>能量量子化</span><span>零点能</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(7)">
+          <div class="lecture-num">第7章</div>
+          <div class="lecture-info">
+            <h3>有限深势阱与隧穿</h3>
+            <p>粒子可以穿过能量上不可能越过的势垒。STM、α衰变的量子原理。</p>
+            <div class="lecture-tags"><span>隧穿效应</span><span>STM</span><span>WKB近似</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(8)">
+          <div class="lecture-num">第8章</div>
+          <div class="lecture-info">
+            <h3>量子谐振子</h3>
+            <p>任何光滑势能在极小点附近都是谐振子。分子振动、声子、等间距能级。</p>
+            <div class="lecture-tags"><span>谐振子</span><span>厄米多项式</span><span>Viral定理</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(9)">
+          <div class="lecture-num">第9章</div>
+          <div class="lecture-info">
+            <h3>态矢量与Dirac符号</h3>
+            <p>量子力学的抽象表述：希尔伯特空间、右矢左矢、厄米算符、测量公设。</p>
+            <div class="lecture-tags"><span>Dirac符号</span><span>希尔伯特空间</span><span>测量公设</span></div>
+          </div>
+        </div>
+        <div class="lecture-card" onclick="loadLecture(10)">
+          <div class="lecture-num">第10章</div>
+          <div class="lecture-info">
+            <h3>表象理论</h3>
+            <p>同一量子态的不同表示：坐标表象、动量表象、能量表象，幺正变换。</p>
+            <div class="lecture-tags"><span>表象</span><span>傅里叶变换</span><span>幺正变换</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="lectureContent" style="display:none"></div>
+    </div>
   </div>
 </div>
 
@@ -339,7 +482,7 @@ function loadMD(path,el){
 }
 
 /* ================= 路由 ================= */
-var VIEWS = ["home","math","overview","graph","quiz","changelog","about"];
+var VIEWS = ["home","math","lectures","overview","graph","quiz","changelog","about"];
 function route(){
   var h = location.hash.replace(/^#\/?/,"") || "home";
   var name = h.split("?")[0].split("/")[0];
@@ -358,12 +501,58 @@ function route(){
     document.getElementById("ovBody").setAttribute("data-loaded","1");
     loadMD("content/overview.md",document.getElementById("ovBody"));
   }
+  if(name==="lectures"){
+    // 讲义列表已静态加载，无需额外处理
+  }
   if(name==="quiz"){quizLoad();}
   if(name==="graph"){graphInit();}
   document.querySelectorAll(".view.on .content").forEach(function(c){c.scrollTop=0;});
   window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",route);
+
+/* ================= 讲义加载 ================= */
+function loadLecture(num){
+  var files = [
+    "", // 0 not used
+    "content/lectures/lecture-01-blackbody.md",
+    "content/lectures/lecture-02-photoelectric.md",
+    "content/lectures/lecture-03-compton-debroglie.md",
+    "content/lectures/lecture-04-wavefunction.md",
+    "content/lectures/lecture-05-schrodinger.md",
+    "content/lectures/lecture-06-infinite-well.md",
+    "content/lectures/lecture-07-finite-well.md",
+    "content/lectures/lecture-08-harmonic-oscillator.md",
+    "content/lectures/lecture-09-dirac-notation.md",
+    "content/lectures/lecture-10-representation.md"
+  ];
+  if(num<1||num>files.length-1)return;
+  
+  document.getElementById("lectureList").style.display="none";
+  var contentDiv=document.getElementById("lectureContent");
+  contentDiv.style.display="block";
+  contentDiv.innerHTML="<p style='text-align:center;padding:40px;color:#999'>加载中…</p>";
+  
+  fetch(files[num]).then(function(r){
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    return r.text();
+  }).then(function(md){
+    var html=renderMarkdown(md);
+    contentDiv.innerHTML="<button onclick='backToLectureList()' style='background:var(--accent2);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;font-size:14px'>← 返回讲义列表</button>"+html;
+    if(typeof renderMathInElement==="function"){
+      renderMathInElement(contentDiv,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+    }
+    window.scrollTo(0,0);
+  }).catch(function(err){
+    contentDiv.innerHTML="<p style='color:red;padding:20px'>加载失败："+err.message+"</p>";
+  });
+}
+
+function backToLectureList(){
+  document.getElementById("lectureList").style.display="flex";
+  document.getElementById("lectureContent").style.display="none";
+  window.scrollTo(0,0);
+}
 
 /* ================= 版本 ================= */
 function renderVersion(){
@@ -552,23 +741,93 @@ function showCard(id){
   if(typeof renderMathInElement==="function")renderMathInElement(box,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
 }
 function showEdgeCard(e){
-  var card=document.getElementById("fcard");
   var a=GF.byId[e.from],b=GF.byId[e.to];
   if(!a||!b)return;
-  GF.selected=e.from;
-  var h='<button class="fc-close" onclick="closeCard()">&times;</button>';
-  h+='<div class="fc-id">推导打卡 · '+e.from+' → '+e.to+'</div>';
-  h+='<h3>'+esc(a.name)+' → '+esc(b.name)+'</h3>';
-  h+='<div class="fc-latex">由 $$'+a.latex+'$$<br>推出 &nbsp;$$'+b.latex+'$$</div>';
-  h+='<div class="fc-sec">推导记录 <span class="arrow">（已亲自推导）</span></div>';
-  h+='<div class="fc-deriv" id="fcProof"></div>';
-  card.innerHTML=h;
-  card.classList.add("open");
-  var proofBox=renderMarkdown(e.proof);
-  document.getElementById("fcProof").appendChild(proofBox);
-  if(typeof renderMathInElement==="function")renderMathInElement(card,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  
+  // 创建或获取modal
+  var overlay=document.getElementById("proofModalOverlay");
+  if(!overlay){
+    overlay=document.createElement("div");
+    overlay.id="proofModalOverlay";
+    overlay.className="proof-modal-overlay";
+    overlay.onclick=function(evt){if(evt.target===overlay)closeProofModal();};
+    document.body.appendChild(overlay);
+  }
+  
+  // 构建内容
+  var modal=document.createElement("div");
+  modal.className="proof-modal";
+  
+  var h='<div class="proof-modal-header">';
+  h+='<div><h2>'+esc(a.name)+' → '+esc(b.name)+'</h2>';
+  h+='<div class="proof-id">推导 '+e.from+' → '+e.to+'</div></div>';
+  h+='<button class="proof-modal-close" onclick="closeProofModal()">&times;</button>';
+  h+='</div>';
+  
+  h+='<div class="proof-modal-body">';
+  
+  // 已知条件
+  h+='<div class="proof-section">';
+  h+='<div class="proof-section-title">已知</div>';
+  h+='<div class="proof-content">';
+  h+='<p>公式 <strong>'+e.from+'</strong>：'+a.name+'</p>';
+  h+='<div class="math-block">$$'+a.latex+'$$</div>';
+  if(a.note)h+='<p style="font-size:14px;color:#666;margin-top:8px">'+esc(a.note)+'</p>';
+  h+='</div></div>';
+  
+  // 要求推出
+  h+='<div class="proof-section">';
+  h+='<div class="proof-section-title">要求推出</div>';
+  h+='<div class="proof-content">';
+  h+='<p>公式 <strong>'+e.to+'</strong>：'+b.name+'</p>';
+  h+='<div class="math-block">$$'+b.latex+'$$</div>';
+  if(b.note)h+='<p style="font-size:14px;color:#666;margin-top:8px">'+esc(b.note)+'</p>';
+  h+='</div></div>';
+  
+  // 推导过程
+  if(e.proof){
+    h+='<div class="proof-section">';
+    h+='<div class="proof-section-title">推导过程</div>';
+    h+='<div class="proof-content" id="proofContent"></div>';
+    h+='</div>';
+  }
+  
+  h+='</div>'; // proof-modal-body
+  
+  modal.innerHTML=h;
+  overlay.innerHTML='';
+  overlay.appendChild(modal);
+  overlay.classList.add("open");
+  
+  // 渲染Markdown和LaTeX
+  if(e.proof){
+    var proofBox=renderMarkdown(e.proof);
+    document.getElementById("proofContent").appendChild(proofBox);
+  }
+  if(typeof renderMathInElement==="function"){
+    renderMathInElement(overlay,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
+  }
+  
+  // 禁止背景滚动
+  document.body.style.overflow="hidden";
 }
-function closeCard(){document.getElementById("fcard").classList.remove("open");}
+
+function closeProofModal(){
+  var overlay=document.getElementById("proofModalOverlay");
+  if(overlay){
+    overlay.classList.remove("open");
+    document.body.style.overflow="";
+  }
+}
+function closeCard(){
+  document.getElementById("fcard").classList.remove("open");
+  closeProofModal();
+}
+
+// ESC键关闭modal
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape")closeProofModal();
+});
 function catOf(n){
   var g=GF.groups[n.group]||n.group;
   for(var i=0;i<GF.categories.length;i++)if(GF.categories[i].name===g)return i;
