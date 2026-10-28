@@ -538,7 +538,13 @@ function loadLecture(num){
     return r.text();
   }).then(function(md){
     var html=renderMarkdown(md);
-    contentDiv.innerHTML="<button onclick='backToLectureList()' style='background:var(--accent2);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;font-size:14px'>← 返回讲义列表</button>"+html;
+    contentDiv.innerHTML="";
+    var btn=document.createElement("button");
+    btn.textContent="← 返回讲义列表";
+    btn.onclick=backToLectureList;
+    btn.style.cssText="background:var(--accent2);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;font-size:14px";
+    contentDiv.appendChild(btn);
+    contentDiv.appendChild(html);
     if(typeof renderMathInElement==="function"){
       renderMathInElement(contentDiv,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
     }
