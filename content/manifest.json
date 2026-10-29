@@ -6,15 +6,24 @@
   {"id":"m2","folder":"模块3-薛定谔方程与概率守恒","name":"模块3 · 薛定谔方程与概率守恒","status":"done","problem":""},
   {"id":"m3","folder":"模块4-一维束缚态","name":"模块4 · 一维束缚态","status":"done","problem":"problems/模块4-一维束缚态.md"},
   {"id":"m4","folder":"模块5-散射与隧穿","name":"模块5 · 散射与隧穿","status":"done","problem":""},
-  {"id":"m5","folder":"模块7-周期势与能带","name":"模块7 · 周期势与能带","status":"todo","problem":""},
+  {"id":"m5","folder":"模块7-周期势与能带","name":"模块7 · 周期势与能带","status":"partial","problem":""},
   {"id":"m6","folder":"模块8-态矢量与表象","name":"模块8 · 态矢量与表象","status":"done","problem":""},
   {"id":"m7","folder":"模块9-厄米算符与本征值问题","name":"模块9 · 厄米算符与本征值问题","status":"done","problem":""},
   {"id":"m8","folder":"模块10-对易与相容观测量","name":"模块10 · 对易与相容观测量","status":"done","problem":""},
   {"id":"m9","folder":"模块11-时间演化与守恒量","name":"模块11 · 时间演化与守恒量","status":"done","problem":""},
-  {"id":"m10","folder":"模块12-对称守恒律","name":"模块12 · 对称守恒律","status":"partial","problem":""},
+  {"id":"m10","folder":"模块12-对称守恒律","name":"模块12 · 对称守恒律","status":"done","problem":""},
   {"id":"m11","folder":"模块13-角动量代数","name":"模块13 · 角动量代数","status":"done","problem":"problems/模块13-14-角动量与自旋.md"},
   {"id":"m12","folder":"模块14-自旋与Zeeman","name":"模块14 · 自旋与Zeeman","status":"done","problem":"problems/模块13-14-角动量与自旋.md"},
   {"id":"m13","folder":"模块15-谐振子代数解法与相干态","name":"模块15 · 谐振子代数解法与相干态","status":"done","problem":""},
-  {"id":"m14","folder":"模块16-全同粒子","name":"模块16 · 全同粒子","status":"todo","problem":""}
+  {"id":"m14","folder":"模块16-全同粒子","name":"模块16 · 全同粒子","status":"done","problem":""},
+  {"id":"m15","folder":"模块17-定态微扰论","name":"模块17 · 定态微扰论","status":"partial","problem":""},
+  {"id":"m16","folder":"模块18-含时微扰论与跃迁","name":"模块18 · 含时微扰论与跃迁","status":"partial","problem":""},
+  {"id":"m17","folder":"模块19-变分法与WKB近似","name":"模块19 · 变分法与WKB近似","status":"partial","problem":""},
+  {"id":"m18","folder":"模块20-路径积分","name":"模块20 · 路径积分","status":"partial","problem":""},
+  {"id":"m19","folder":"模块21-量子纠缠与Bell不等式","name":"模块21 · 量子纠缠与Bell不等式","status":"partial","problem":""},
+  {"id":"m20","folder":"模块22-相对论量子力学","name":"模块22 · 相对论量子力学","status":"partial","problem":""},
+  {"id":"m21","folder":"模块23-量子测量问题","name":"模块23 · 量子测量问题","status":"partial","problem":""},
+  {"id":"m22","folder":"模块24-量子信息基础","name":"模块24 · 量子信息基础","status":"partial","problem":""},
+  {"id":"m23","folder":"模块25-前沿交叉","name":"模块25 · 前沿交叉","status":"partial","problem":""}
  ]
 }

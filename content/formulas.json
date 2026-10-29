@@ -1843,6 +1843,1139 @@
       "deriv": "电偶极跃迁要求分子有永久偶极矩；角动量守恒给出 ΔJ = ±1。",
       "app": true,
       "note": "谱线等间距 2B。由此可由转动光谱精确测定分子键长。"
+    },
+    {
+      "id": "F211",
+      "name": "斯特藩-玻尔兹曼定律",
+      "latex": "M=\\sigma T^4",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "黑体总辐射功率与T⁴成正比，σ=5.67×10⁻⁸ W/(m²·K⁴)。"
+    },
+    {
+      "id": "F212",
+      "name": "维恩位移定律",
+      "latex": "\\lambda_{\\max}T=b",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "峰值波长与温度成反比，b=2.898×10⁻³ m·K。"
+    },
+    {
+      "id": "F213",
+      "name": "瑞利-金斯公式",
+      "latex": "M_\\nu=\\frac{2\\pi\\nu^2}{c^2}kT",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "经典理论结果，高频发散导致紫外灾难。"
+    },
+    {
+      "id": "F214",
+      "name": "普朗克黑体辐射公式",
+      "latex": "M_\\nu=\\frac{2\\pi h\\nu^3}{c^2}\\frac{1}{e^{h\\nu/kT}-1}",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "引入能量量子化 E=nhν，低频趋于瑞利-金斯，高频趋于维恩。"
+    },
+    {
+      "id": "F215",
+      "name": "截止频率",
+      "latex": "\\nu_0=W/h",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "光电效应中，低于此频率无论光强多大都无法打出电子。"
+    },
+    {
+      "id": "F216",
+      "name": "康普顿波长",
+      "latex": "\\lambda_C=\\frac{h}{m_ec}=0.0243\\text{ Å}",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "康普顿散射的特征长度尺度。"
+    },
+    {
+      "id": "F217",
+      "name": "布拉格公式",
+      "latex": "2d\\sin\\theta=n\\lambda",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "晶体衍射条件，证实电子波动性（Davisson-Germer实验）。"
+    },
+    {
+      "id": "F218",
+      "name": "玻尔轨道半径",
+      "latex": "r_n=n^2 a_0",
+      "group": "m0",
+      "module": "模块1 · 旧量子论与诞生",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "a₀=0.529 Å 为玻尔半径。"
+    },
+    {
+      "id": "F219",
+      "name": "一般力学量期望值",
+      "latex": "\\langle A\\rangle=\\int\\psi^*\\hat A\\psi\\,d^3r",
+      "group": "m1",
+      "module": "模块2 · 波函数与统计诠释",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F220",
+      "name": "双缝干涉概率",
+      "latex": "|\\psi|^2=|\\psi_A|^2+|\\psi_B|^2+2\\text{Re}(\\psi_A^*\\psi_B)",
+      "group": "m1",
+      "module": "模块2 · 波函数与统计诠释",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "交叉项体现量子干涉，是态叠加原理的直接后果。"
+    },
+    {
+      "id": "F221",
+      "name": "动量空间波函数",
+      "latex": "\\phi(p)=\\frac{1}{(2\\pi\\hbar)^{3/2}}\\int\\psi(r)e^{-ipr/\\hbar}d^3r",
+      "group": "m1",
+      "module": "模块2 · 波函数与统计诠释",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "位置与动量表象由傅里叶变换连接。"
+    },
+    {
+      "id": "F222",
+      "name": "多粒子薛定谔方程",
+      "latex": "i\\hbar\\frac{\\partial\\psi}{\\partial t}=\\left[-\\sum_i\\frac{\\hbar^2}{2m_i}\\nabla_i^2+V(\\mathbf{r}_1,\\ldots,\\mathbf{r}_N)\\right]\\psi",
+      "group": "m2",
+      "module": "模块3 · 薛定谔方程与概率守恒",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "N体问题的基本方程，精确解一般不存在，需要近似方法。"
+    },
+    {
+      "id": "F223",
+      "name": "含时方程一般解",
+      "latex": "\\psi(\\mathbf{r},t)=\\sum_n c_n\\phi_n(\\mathbf{r})e^{-iE_nt/\\hbar}",
+      "group": "m2",
+      "module": "模块3 · 薛定谔方程与概率守恒",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "展开系数 c_n=∫φₙ*ψ(0)d³r，各分量独立演化。"
+    },
+    {
+      "id": "F224",
+      "name": "δ势阱束缚态",
+      "latex": "E=-\\frac{m\\alpha^2}{2\\hbar^2}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "V(x)=−αδ(x) 恰好一个束缚态。"
+    },
+    {
+      "id": "F225",
+      "name": "δ势垒透射系数",
+      "latex": "T=\\frac{1}{1+(m\\alpha/\\hbar^2k)^2}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "δ势垒的透射系数解析可求，是隧穿的简单模型。"
+    },
+    {
+      "id": "F226",
+      "name": "玻尔-索末菲量子化",
+      "latex": "\\int_{x_1}^{x_2}p(x)dx=\\left(n+\\frac12\\right)\\pi\\hbar",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "WKB近似的量子化条件，对谐振子给出精确能级。"
+    },
+    {
+      "id": "F227",
+      "name": "三维势箱能级",
+      "latex": "E=\\frac{\\pi^2\\hbar^2}{2m}\\left(\\frac{n_x^2}{L_x^2}+\\frac{n_y^2}{L_y^2}+\\frac{n_z^2}{L_z^2}\\right)",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F228",
+      "name": "态密度（3D）",
+      "latex": "g(E)=\\frac{V}{2\\pi^2}\\left(\\frac{2m}{\\hbar^2}\\right)^{3/2}\\sqrt{E}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "统计物理的关键输入，费米能和半导体态密度的基础。"
+    },
+    {
+      "id": "F229",
+      "name": "散射渐近形式",
+      "latex": "\\psi\\xrightarrow{r\\to\\infty}e^{ikz}+f(\\theta)\\frac{e^{ikr}}{r}",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "平面波 + 出射球面波，f(θ) 为散射振幅。"
+    },
+    {
+      "id": "F230",
+      "name": "微分散射截面",
+      "latex": "\\frac{d\\sigma}{d\\Omega}=|f(\\theta)|^2",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "实验测量的核心量，与散射振幅模方成正比。"
+    },
+    {
+      "id": "F231",
+      "name": "分波法散射振幅",
+      "latex": "f(\\theta)=\\frac{1}{k}\\sum_\\ell(2\\ell+1)e^{i\\delta_\\ell}\\sin\\delta_\\ell P_\\ell(\\cos\\theta)",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "将散射按角动量分波展开，δ_ℓ 为相移。"
+    },
+    {
+      "id": "F232",
+      "name": "第一Born近似",
+      "latex": "f(\\theta)=-\\frac{m}{2\\pi\\hbar^2}\\int e^{-i\\mathbf{q}\\cdot\\mathbf{r}}V(\\mathbf{r})d^3r",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "弱散射近似，散射振幅正比于势的傅里叶变换。"
+    },
+    {
+      "id": "F233",
+      "name": "卢瑟福散射公式",
+      "latex": "\\frac{d\\sigma}{d\\Omega}=\\left(\\frac{Z_1Z_2e^2}{16\\pi\\epsilon_0E}\\right)^2\\frac{1}{\\sin^4(\\theta/2)}",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Born近似与精确量子结果巧合一致，经典推导也给出同一公式。"
+    },
+    {
+      "id": "F234",
+      "name": "光学定理",
+      "latex": "\\sigma_{\\text{tot}}=\\frac{4\\pi}{k}\\text{Im}\\,f(0)",
+      "group": "m4",
+      "module": "模块5 · 散射与隧穿",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "总截面与前向散射振幅虚部的关系，概率守恒的体现。"
+    },
+    {
+      "id": "F235",
+      "name": "Bloch定理",
+      "latex": "\\psi_{n\\mathbf{k}}(\\mathbf{r})=e^{i\\mathbf{k}\\cdot\\mathbf{r}}u_{n\\mathbf{k}}(\\mathbf{r})",
+      "group": "m5",
+      "module": "模块7 · 周期势与能带",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "周期势中波函数 = 平面波 × 周期函数，是能带论的基石。"
+    },
+    {
+      "id": "F236",
+      "name": "一维紧束缚能带",
+      "latex": "E(k)=E_0-2t\\cos(ka)",
+      "group": "m5",
+      "module": "模块7 · 周期势与能带",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "最近邻跳跃积分 t，带宽 4t。半导体和石墨烯能带的基础。"
+    },
+    {
+      "id": "F237",
+      "name": "有效质量",
+      "latex": "\\frac{1}{m^*}=\\frac{1}{\\hbar^2}\\frac{\\partial^2E}{\\partial k^2}",
+      "group": "m5",
+      "module": "模块7 · 周期势与能带",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "能带曲率决定载流子有效质量，直接影响迁移率。"
+    },
+    {
+      "id": "F238",
+      "name": "整数量子霍尔效应",
+      "latex": "R_H=\\frac{h}{\\nu e^2},\\quad\\nu=1,2,3,\\ldots",
+      "group": "m5",
+      "module": "模块7 · 周期势与能带",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "霍尔电阻量子化为 h/νe²，精度达 10⁻⁹，用于定义电阻标准。"
+    },
+    {
+      "id": "F239",
+      "name": "Landau能级",
+      "latex": "E_n=\\hbar\\omega_c\\left(n+\\frac12\\right),\\quad\\omega_c=\\frac{eB}{m^*}",
+      "group": "m5",
+      "module": "模块7 · 周期势与能带",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "磁场中二维电子气能级量子化，量子霍尔效应的物理基础。"
+    },
+    {
+      "id": "F240",
+      "name": "密度矩阵",
+      "latex": "\\rho=\\sum_i p_i|\\psi_i\\rangle\\langle\\psi_i|",
+      "group": "m6",
+      "module": "模块8 · 态矢量与表象",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "纯态 ρ²=ρ，混合态 ρ²<ρ。统计物理与量子力学的接头。"
+    },
+    {
+      "id": "F241",
+      "name": "完备性关系",
+      "latex": "\\sum_n|a_n\\rangle\\langle a_n|=\\hat I",
+      "group": "m6",
+      "module": "模块8 · 态矢量与表象",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "任意基的投影算符之和为单位算符，用于插入恒等变换。"
+    },
+    {
+      "id": "F242",
+      "name": "表象变换（幺正变换）",
+      "latex": "\\mathbf{A}'=U^\\dagger\\mathbf{A}U",
+      "group": "m6",
+      "module": "模块8 · 态矢量与表象",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "U†U = I，物理量本征值不随表象改变。"
+    },
+    {
+      "id": "F243",
+      "name": "投影算符",
+      "latex": "\\hat P_n=|a_n\\rangle\\langle a_n|",
+      "group": "m7",
+      "module": "模块9 · 厄米算符与本征值问题",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "P_n² = P_n（幂等），测量后态投影到本征子空间。"
+    },
+    {
+      "id": "F244",
+      "name": "算符函数",
+      "latex": "f(\\hat A)=\\sum_n f(a_n)|a_n\\rangle\\langle a_n|",
+      "group": "m7",
+      "module": "模块9 · 厄米算符与本征值问题",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "谱定理的推论，如 e^{iÂ} 等。"
+    },
+    {
+      "id": "F245",
+      "name": "相容观测量定理",
+      "latex": "[\\hat A,\\hat B]=0\\Rightarrow\\text{共同本征态完备集}",
+      "group": "m8",
+      "module": "模块10 · 对易与相容观测量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "对易是同时确定两个力学量的充要条件。"
+    },
+    {
+      "id": "F246",
+      "name": "CSCO定义",
+      "latex": "[\\hat A_i,\\hat A_j]=0\\text{ 且共同本征值唯一标记每个态}",
+      "group": "m8",
+      "module": "模块10 · 对易与相容观测量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "完备对易观测量集的量子数唯一确定态。"
+    },
+    {
+      "id": "F247",
+      "name": "时间演化算符",
+      "latex": "\\hat U(t)=e^{-i\\hat Ht/\\hbar}",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "幺正、可逆、保概率。Ĥ 不含时时的精确解。"
+    },
+    {
+      "id": "F248",
+      "name": "海森堡运动方程",
+      "latex": "\\frac{d\\hat A_H}{dt}=\\frac{i}{\\hbar}[\\hat H,\\hat A_H]+\\left(\\frac{\\partial\\hat A}{\\partial t}\\right)_H",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "海森堡绘景中算符的演化方程。"
+    },
+    {
+      "id": "F249",
+      "name": "Ehrenfest定理（位置）",
+      "latex": "\\frac{d\\langle x\\rangle}{dt}=\\frac{\\langle p\\rangle}{m}",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "期望值满足经典运动方程，是量子到经典的桥。"
+    },
+    {
+      "id": "F250",
+      "name": "Ehrenfest定理（动量）",
+      "latex": "\\frac{d\\langle p\\rangle}{dt}=-\\left\\langle\\frac{dV}{dx}\\right\\rangle",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "⟨F⟩ = −⟨dV/dx⟩，牛顿第二定律的量子版本。"
+    },
+    {
+      "id": "F251",
+      "name": "平移生成元",
+      "latex": "\\hat T(a)=e^{-i\\hat pa/\\hbar}",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "动量是空间平移的生成元。"
+    },
+    {
+      "id": "F252",
+      "name": "旋转生成元",
+      "latex": "\\hat R(\\theta)=e^{-i\\hat L\\theta/\\hbar}",
+      "group": "m9",
+      "module": "模块11 · 时间演化与守恒量",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "角动量是旋转的生成元。"
+    },
+    {
+      "id": "F253",
+      "name": "宇称算符",
+      "latex": "\\hat P\\psi(x)=\\psi(-x)",
+      "group": "m10",
+      "module": "模块12 · 对称守恒律",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "本征值 ±1。对称势中 [Ĥ,P̂]=0，宇称守恒。"
+    },
+    {
+      "id": "F254",
+      "name": "球坐标中 L_z 算符",
+      "latex": "\\hat L_z=-i\\hbar\\frac{\\partial}{\\partial\\phi}",
+      "group": "m11",
+      "module": "模块13 · 角动量代数",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "位置表象中的具体形式，本征函数 e^{imφ}。"
+    },
+    {
+      "id": "F255",
+      "name": "球坐标中 L² 算符",
+      "latex": "\\hat L^2=-\\hbar^2\\left[\\frac{1}{\\sin\\theta}\\frac{\\partial}{\\partial\\theta}\\left(\\sin\\theta\\frac{\\partial}{\\partial\\theta}\\right)+\\frac{1}{\\sin^2\\theta}\\frac{\\partial^2}{\\partial\\phi^2}\\right]",
+      "group": "m11",
+      "module": "模块13 · 角动量代数",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "只含角度导数，与径向无关。"
+    },
+    {
+      "id": "F256",
+      "name": "球谐函数正交归一",
+      "latex": "\\int Y_{l'}^{m'*}Y_l^m\\sin\\theta\\,d\\theta\\,d\\phi=\\delta_{ll'}\\delta_{mm'}",
+      "group": "m11",
+      "module": "模块13 · 角动量代数",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F257",
+      "name": "Landé g 因子",
+      "latex": "g_J=1+\\frac{J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}",
+      "group": "m12",
+      "module": "模块14 · 自旋与Zeeman",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "反常 Zeeman 效应的 g 因子，统一轨道和自旋贡献。"
+    },
+    {
+      "id": "F258",
+      "name": "自旋-轨道耦合哈密顿量",
+      "latex": "\\hat H_{SO}=\\xi(r)\\mathbf{L}\\cdot\\mathbf{S}",
+      "group": "m12",
+      "module": "模块14 · 自旋与Zeeman",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "相对论效应的领头项，碱金属精细结构的来源。"
+    },
+    {
+      "id": "F259",
+      "name": "任意方向自旋态",
+      "latex": "|\\uparrow_{\\hat n}\\rangle=\\cos\\frac\\theta2|\\uparrow\\rangle+e^{i\\phi}\\sin\\frac\\theta2|\\downarrow\\rangle",
+      "group": "m12",
+      "module": "模块14 · 自旋与Zeeman",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Bloch 球上 (θ,φ) 方向的自旋本征态。"
+    },
+    {
+      "id": "F260",
+      "name": "泡利矩阵乘积公式",
+      "latex": "(\\vec a\\cdot\\vec\\sigma)(\\vec b\\cdot\\vec\\sigma)=\\vec a\\cdot\\vec b\\,I+i(\\vec a\\times\\vec b)\\cdot\\vec\\sigma",
+      "group": "m12",
+      "module": "模块14 · 自旋与Zeeman",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Pauli 矩阵的核心恒等式，简化自旋计算。"
+    },
+    {
+      "id": "F261",
+      "name": "氢原子能级（精确）",
+      "latex": "E_n=-\\frac{m_e(ke^2)^2}{2\\hbar^2}\\frac{1}{n^2}=-\\frac{13.6\\text{ eV}}{n^2}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "n=1,2,3,...，简并度 n²（不计自旋）。"
+    },
+    {
+      "id": "F262",
+      "name": "玻尔半径",
+      "latex": "a_0=\\frac{\\hbar^2}{m_eke^2}=0.529\\text{ Å}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F263",
+      "name": "氢原子能级简并度",
+      "latex": "g_n=n^2",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "库仑势的特殊对称性（SO(4)）导致 n² 简并。"
+    },
+    {
+      "id": "F264",
+      "name": "电偶极选择定则",
+      "latex": "\\Delta\\ell=\\pm1,\\quad\\Delta m=0,\\pm1",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "光子携带角动量 1，跃迁必须守恒。"
+    },
+    {
+      "id": "F265",
+      "name": "类氢离子能级",
+      "latex": "E_n=-\\frac{Z^2\\times13.6\\text{ eV}}{n^2}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "核电荷 Z 替换，能级加深 Z² 倍。"
+    },
+    {
+      "id": "F266",
+      "name": "约化质量",
+      "latex": "\\mu=\\frac{m_em_p}{m_e+m_p}",
+      "group": "m3",
+      "module": "模块4 · 一维束缚态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "氢原子中用约化质量替代电子质量，修正里德伯常数。"
+    },
+    {
+      "id": "F267",
+      "name": "湮灭算符",
+      "latex": "\\hat a=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x+\\frac{i\\hat p}{m\\omega}\\right)",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F268",
+      "name": "产生算符",
+      "latex": "\\hat a^\\dagger=\\sqrt{\\frac{m\\omega}{2\\hbar}}\\left(\\hat x-\\frac{i\\hat p}{m\\omega}\\right)",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F269",
+      "name": "粒子数算符",
+      "latex": "\\hat N=\\hat a^\\dagger\\hat a",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "本征值 n=0,1,2,...，Ĥ = ℏω(N̂ + 1/2)。"
+    },
+    {
+      "id": "F270",
+      "name": "激发态构造",
+      "latex": "|n\\rangle=\\frac{(\\hat a^\\dagger)^n}{\\sqrt{n!}}|0\\rangle",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F271",
+      "name": "相干态展开",
+      "latex": "|\\alpha\\rangle=e^{-|\\alpha|^2/2}\\sum_n\\frac{\\alpha^n}{\\sqrt{n!}}|n\\rangle",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "光子数服从泊松分布 P(n)=e^{-n̄}n̄ⁿ/n!。"
+    },
+    {
+      "id": "F272",
+      "name": "位移算符",
+      "latex": "\\hat D(\\alpha)=e^{\\alpha\\hat a^\\dagger-\\alpha^*\\hat a}",
+      "group": "m13",
+      "module": "模块15 · 谐振子代数解法与相干态",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "相干态 |α⟩ = D̂(α)|0⟩，是平移后的基态。"
+    },
+    {
+      "id": "F273",
+      "name": "交换算符",
+      "latex": "\\hat P_{12}\\psi(x_1,x_2)=\\psi(x_2,x_1)",
+      "group": "m14",
+      "module": "模块16 · 全同粒子",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "本征值 ±1：+1 对称（玻色子），−1 反对称（费米子）。"
+    },
+    {
+      "id": "F274",
+      "name": "自旋-统计定理",
+      "latex": "\\text{整数自旋}\\to\\text{玻色子},\\quad\\text{半整数自旋}\\to\\text{费米子}",
+      "group": "m14",
+      "module": "模块16 · 全同粒子",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "相对论量子场论的结论，在量子力学中作为公设。"
+    },
+    {
+      "id": "F275",
+      "name": "Slater行列式",
+      "latex": "\\Psi=\\frac{1}{\\sqrt{N!}}\\det[\\psi_{a_i}(x_j)]",
+      "group": "m14",
+      "module": "模块16 · 全同粒子",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "N个费米子的反对称波函数，自动满足泡利不相容。"
+    },
+    {
+      "id": "F276",
+      "name": "费米能",
+      "latex": "E_F=\\frac{\\hbar^2}{2m}(3\\pi^2n)^{2/3}",
+      "group": "m14",
+      "module": "模块16 · 全同粒子",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "T=0 时最高占据能级，金属导电性的关键参数。"
+    },
+    {
+      "id": "F277",
+      "name": "BEC临界温度",
+      "latex": "T_c\\approx\\frac{2\\pi\\hbar^2}{mk_B}\\left(\\frac{N}{V\\cdot2.612}\\right)^{2/3}",
+      "group": "m14",
+      "module": "模块16 · 全同粒子",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "玻色-爱因斯坦凝聚的临界温度。"
+    },
+    {
+      "id": "F278",
+      "name": "能量一阶修正",
+      "latex": "E_n^{(1)}=\\langle n^{(0)}|\\hat H'|n^{(0)}\\rangle",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "微扰 Ĥ = Ĥ₀ + Ĥ'，能量一阶修正 = 未微扰态中 Ĥ' 的期望值。"
+    },
+    {
+      "id": "F279",
+      "name": "态一阶修正",
+      "latex": "|n^{(1)}\\rangle=\\sum_{m\\neq n}\\frac{\\langle m^{(0)}|\\hat H'|n^{(0)}\\rangle}{E_n^{(0)}-E_m^{(0)}}|m^{(0)}\\rangle",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "其他态的混入与矩阵元成正比，与能级差成反比。"
+    },
+    {
+      "id": "F280",
+      "name": "能量二阶修正",
+      "latex": "E_n^{(2)}=\\sum_{m\\neq n}\\frac{|\\langle m^{(0)}|\\hat H'|n^{(0)}\\rangle|^2}{E_n^{(0)}-E_m^{(0)}}",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "基态二阶修正恒负（能级被压低）。"
+    },
+    {
+      "id": "F281",
+      "name": "简并微扰久期方程",
+      "latex": "\\det(W-\\varepsilon^{(1)}I)=0",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "W_{ij}=⟨D,i|Ĥ'|D,j⟩，简并态中先对角化微扰矩阵。"
+    },
+    {
+      "id": "F282",
+      "name": "氢原子线性Stark效应",
+      "latex": "\\Delta E=\\pm3ea_0\\mathcal{E},\\quad0,\\quad0",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "n=2 能级在电场中分裂，简并微扰的教科书例子。"
+    },
+    {
+      "id": "F283",
+      "name": "二次Stark效应",
+      "latex": "\\Delta E_0^{(2)}=\\sum_{n\\neq0}\\frac{|\\langle n|\\hat H'|0\\rangle|^2}{E_0-E_n}<0",
+      "group": "m_pert",
+      "module": "模块17 · 定态微扰论",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "无永久偶极矩的体系（如基态氢原子），能级被电场压低。"
+    },
+    {
+      "id": "F284",
+      "name": "Fermi黄金定则",
+      "latex": "\\Gamma_{i\\to f}=\\frac{2\\pi}{\\hbar}|\\langle f|\\hat V_0|i\\rangle|^2\\rho(E_f)",
+      "group": "m_time",
+      "module": "模块18 · 含时微扰论与跃迁",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "跃迁速率 = 矩阵元模方 × 末态密度。量子跃迁的核心公式。"
+    },
+    {
+      "id": "F285",
+      "name": "一阶跃迁振幅",
+      "latex": "c_f^{(1)}(t)=-\\frac{i}{\\hbar}\\int_0^t\\langle f|\\hat V(t')|i\\rangle e^{i\\omega_{fi}t'}dt'",
+      "group": "m_time",
+      "module": "模块18 · 含时微扰论与跃迁",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F286",
+      "name": "Bohr频率",
+      "latex": "\\omega_{fi}=(E_f-E_i)/\\hbar",
+      "group": "m_time",
+      "module": "模块18 · 含时微扰论与跃迁",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "辐射频率由能级差决定，是光谱学的基础。"
+    },
+    {
+      "id": "F287",
+      "name": "Einstein系数关系",
+      "latex": "A_{21}=\\frac{8\\pi h\\nu^3}{c^3}B_{21},\\quad B_{12}=B_{21}",
+      "group": "m_time",
+      "module": "模块18 · 含时微扰论与跃迁",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "自发辐射、受激辐射和吸收系数之间的关系。"
+    },
+    {
+      "id": "F288",
+      "name": "绝热定理",
+      "latex": "\\text{变化足够慢时，量子数守恒}",
+      "group": "m_time",
+      "module": "模块18 · 含时微扰论与跃迁",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "参数缓慢变化时系统保持在瞬时本征态。"
+    },
+    {
+      "id": "F289",
+      "name": "变分原理",
+      "latex": "\\langle\\psi_{\\text{trial}}|\\hat H|\\psi_{\\text{trial}}\\rangle\\geq E_0",
+      "group": "m_var",
+      "module": "模块19 · 变分法与WKB近似",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "任意试探态的能量期望值是基态能量的上界。"
+    },
+    {
+      "id": "F290",
+      "name": "有效核电荷",
+      "latex": "Z_{\\text{eff}}=Z-\\frac{5}{16}=\\frac{27}{16}\\approx1.69",
+      "group": "m_var",
+      "module": "模块19 · 变分法与WKB近似",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "氦原子变分法结果，屏蔽效应使有效核电荷减小。"
+    },
+    {
+      "id": "F291",
+      "name": "线性变分（Ritz法）",
+      "latex": "\\mathbf{Hc}=E\\mathbf{Sc}",
+      "group": "m_var",
+      "module": "模块19 · 变分法与WKB近似",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "广义本征值问题，量子化学计算方法的基础。"
+    },
+    {
+      "id": "F292",
+      "name": "DFT变分原理",
+      "latex": "E_0=\\min_{n(\\mathbf{r})}\\{T_s[n]+E_H[n]+E_{xc}[n]+\\int v_{\\text{ext}}n\\,d\\mathbf{r}\\}",
+      "group": "m_var",
+      "module": "模块19 · 变分法与WKB近似",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "密度泛函理论的核心，将多体问题化为电子密度的泛函极小。"
+    },
+    {
+      "id": "F293",
+      "name": "路径积分传播子",
+      "latex": "\\langle x_f,t_f|x_i,t_i\\rangle=\\int\\mathcal{D}[x(t)]\\,e^{iS[x(t)]/\\hbar}",
+      "group": "m_path",
+      "module": "模块20 · 路径积分",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Feynman 路径积分：对所有路径求和，权重 e^{iS/ℏ}。"
+    },
+    {
+      "id": "F294",
+      "name": "经典作用量",
+      "latex": "S[x(t)]=\\int_{t_i}^{t_f}L(x,\\dot x,t)dt",
+      "group": "m_path",
+      "module": "模块20 · 路径积分",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": ""
+    },
+    {
+      "id": "F295",
+      "name": "自由粒子传播子",
+      "latex": "\\langle x_f,t_f|x_i,t_i\\rangle=\\sqrt{\\frac{m}{2\\pi i\\hbar T}}\\exp\\left[\\frac{im(x_f-x_i)^2}{2\\hbar T}\\right]",
+      "group": "m_path",
+      "module": "模块20 · 路径积分",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "路径积分可精确计算的高斯积分。"
+    },
+    {
+      "id": "F296",
+      "name": "Aharonov-Bohm效应",
+      "latex": "\\Delta\\phi=\\frac{q}{\\hbar}\\oint\\mathbf{A}\\cdot d\\mathbf{l}=\\frac{q\\Phi_B}{\\hbar}",
+      "group": "m_path",
+      "module": "模块20 · 路径积分",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "即使 B=0，矢势 A 也能影响相位——量子力学的非局域性。"
+    },
+    {
+      "id": "F297",
+      "name": "Bell态",
+      "latex": "|\\Phi^\\pm\\rangle=\\frac{1}{\\sqrt2}(|\\uparrow\\uparrow\\rangle\\pm|\\downarrow\\downarrow\\rangle)",
+      "group": "m_bell",
+      "module": "模块21 · 量子纠缠与Bell不等式",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "最大纠缠态，4 个 Bell 态构成两比特基。"
+    },
+    {
+      "id": "F298",
+      "name": "CHSH不等式",
+      "latex": "|S|\\leq2,\\quad S=E(\\mathbf{a},\\mathbf{b})-E(\\mathbf{a},\\mathbf{b}')+E(\\mathbf{a}',\\mathbf{b})+E(\\mathbf{a}',\\mathbf{b}')",
+      "group": "m_bell",
+      "module": "模块21 · 量子纠缠与Bell不等式",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "隐变量理论的上界。QM 给出 S=2√2（Tsirelson界）。"
+    },
+    {
+      "id": "F299",
+      "name": "纠缠熵",
+      "latex": "S_A=-\\text{Tr}(\\rho_A\\log_2\\rho_A)",
+      "group": "m_bell",
+      "module": "模块21 · 量子纠缠与Bell不等式",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "度量纠缠的量，纯态子系统的 von Neumann 熵。"
+    },
+    {
+      "id": "F300",
+      "name": "GHZ态",
+      "latex": "|\\text{GHZ}\\rangle=\\frac{1}{\\sqrt2}(|000\\rangle+|111\\rangle)",
+      "group": "m_bell",
+      "module": "模块21 · 量子纠缠与Bell不等式",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "三比特最大纠缠态，用于量子纠错和量子通信。"
+    },
+    {
+      "id": "F301",
+      "name": "Klein-Gordon方程",
+      "latex": "\\left(\\frac{1}{c^2}\\frac{\\partial^2}{\\partial t^2}-\\nabla^2+\\frac{m^2c^2}{\\hbar^2}\\right)\\psi=0",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "自旋 0 粒子的相对论波动方程，概率密度不正定。"
+    },
+    {
+      "id": "F302",
+      "name": "Dirac方程",
+      "latex": "i\\hbar\\frac{\\partial\\psi}{\\partial t}=(-i\\hbar c\\boldsymbol{\\alpha}\\cdot\\nabla+\\beta mc^2)\\psi",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "自旋 1/2 粒子的相对论方程，自然给出 g=2 和反粒子。"
+    },
+    {
+      "id": "F303",
+      "name": "Dirac方程协变形式",
+      "latex": "(i\\hbar\\gamma^\\mu\\partial_\\mu-mc)\\psi=0",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "洛伦兹协变形式，γ^μ 为 Dirac 矩阵。"
+    },
+    {
+      "id": "F304",
+      "name": "Pauli方程",
+      "latex": "i\\hbar\\frac{\\partial\\phi}{\\partial t}=\\left[\\frac{(\\mathbf{p}-q\\mathbf{A})^2}{2m}+q\\phi-\\frac{q\\hbar}{2m}\\boldsymbol{\\sigma}\\cdot\\mathbf{B}\\right]\\phi",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "非相对论极限，自动出现自旋-磁场耦合项。"
+    },
+    {
+      "id": "F305",
+      "name": "氢原子精细结构（Dirac）",
+      "latex": "E_{nj}\\approx-\\frac{13.6\\text{ eV}}{n^2}\\left[1+\\frac{\\alpha^2}{n^2}\\left(\\frac{n}{j+1/2}-\\frac34\\right)\\right]",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "相对论修正 + 自旋-轨道耦合的统一结果。"
+    },
+    {
+      "id": "F306",
+      "name": "Darwin项",
+      "latex": "\\hat H_D=\\frac{\\hbar^2}{8m^2c^2}\\nabla^2V",
+      "group": "m_dirac",
+      "module": "模块22 · 相对论量子力学",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Zitterbewegung 的效应，只影响 s 轨道。"
+    },
+    {
+      "id": "F307",
+      "name": "von Neumann测量模型",
+      "latex": "\\left(\\sum_nc_n|a_n\\rangle\\right)\\otimes|R\\rangle\\xrightarrow{U}\\sum_nc_n|a_n\\rangle\\otimes|M_n\\rangle",
+      "group": "m_meas",
+      "module": "模块23 · 量子测量问题",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "系统与测量仪器的纠缠，退相干后变为经典概率混合。"
+    },
+    {
+      "id": "F308",
+      "name": "退相干",
+      "latex": "\\rho_{SM}=\\sum_n|c_n|^2|a_n,M_n\\rangle\\langle a_n,M_n|",
+      "group": "m_meas",
+      "module": "模块23 · 量子测量问题",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "环境自由度迹掉后，非对角元消失，量子→经典过渡。"
+    },
+    {
+      "id": "F309",
+      "name": "量子比特",
+      "latex": "|\\psi\\rangle=\\cos\\frac\\theta2|0\\rangle+e^{i\\phi}\\sin\\frac\\theta2|1\\rangle",
+      "group": "m_qi",
+      "module": "模块24 · 量子信息基础",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "Bloch 球参数化，一个量子比特的最一般态。"
+    },
+    {
+      "id": "F310",
+      "name": "Hadamard门",
+      "latex": "H=\\frac{1}{\\sqrt2}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}",
+      "group": "m_qi",
+      "module": "模块24 · 量子信息基础",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "创建叠加态：H|0⟩ = (|0⟩+|1⟩)/√2。"
+    },
+    {
+      "id": "F311",
+      "name": "不可克隆定理",
+      "latex": "\\text{未知量子态不能被完美复制}",
+      "group": "m_qi",
+      "module": "模块24 · 量子信息基础",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "量子密码安全性的基础。"
+    },
+    {
+      "id": "F312",
+      "name": "Landauer原理",
+      "latex": "E_{\\min}=k_BT\\ln2",
+      "group": "m_qi",
+      "module": "模块24 · 量子信息基础",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "擦除 1 bit 信息的最小能量代价。"
+    },
+    {
+      "id": "F313",
+      "name": "Lindblad方程",
+      "latex": "\\frac{d\\rho}{dt}=-\\frac{i}{\\hbar}[\\hat H,\\rho]+\\sum_k\\gamma_k\\left(\\hat L_k\\rho\\hat L_k^\\dagger-\\frac12\\{\\hat L_k^\\dagger\\hat L_k,\\rho\\}\\right)",
+      "group": "m_front",
+      "module": "模块25 · 前沿交叉",
+      "link": "",
+      "deriv": "",
+      "app": false,
+      "note": "开放量子系统的主方程，描述退相干和耗散。"
     }
   ],
   "edges": [
@@ -2269,6 +3402,170 @@
     {
       "from": "F205",
       "to": "F191"
+    },
+    {
+      "from": "F101",
+      "to": "F211"
+    },
+    {
+      "from": "F101",
+      "to": "F212"
+    },
+    {
+      "from": "F101",
+      "to": "F214"
+    },
+    {
+      "from": "F102",
+      "to": "F217"
+    },
+    {
+      "from": "F103",
+      "to": "F218"
+    },
+    {
+      "from": "F104",
+      "to": "F219"
+    },
+    {
+      "from": "F104",
+      "to": "F220"
+    },
+    {
+      "from": "F121",
+      "to": "F222"
+    },
+    {
+      "from": "F125",
+      "to": "F223"
+    },
+    {
+      "from": "F147",
+      "to": "F224"
+    },
+    {
+      "from": "F147",
+      "to": "F225"
+    },
+    {
+      "from": "F160",
+      "to": "F226"
+    },
+    {
+      "from": "F158",
+      "to": "F229"
+    },
+    {
+      "from": "F229",
+      "to": "F230"
+    },
+    {
+      "from": "F230",
+      "to": "F231"
+    },
+    {
+      "from": "F230",
+      "to": "F232"
+    },
+    {
+      "from": "F232",
+      "to": "F233"
+    },
+    {
+      "from": "F231",
+      "to": "F234"
+    },
+    {
+      "from": "F235",
+      "to": "F236"
+    },
+    {
+      "from": "F236",
+      "to": "F237"
+    },
+    {
+      "from": "F238",
+      "to": "F239"
+    },
+    {
+      "from": "F250",
+      "to": "F251"
+    },
+    {
+      "from": "F251",
+      "to": "F252"
+    },
+    {
+      "from": "F250",
+      "to": "F253"
+    },
+    {
+      "from": "F256",
+      "to": "F257"
+    },
+    {
+      "from": "F257",
+      "to": "F258"
+    },
+    {
+      "from": "F265",
+      "to": "F266"
+    },
+    {
+      "from": "F267",
+      "to": "F268"
+    },
+    {
+      "from": "F269",
+      "to": "F270"
+    },
+    {
+      "from": "F270",
+      "to": "F271"
+    },
+    {
+      "from": "F273",
+      "to": "F274"
+    },
+    {
+      "from": "F274",
+      "to": "F275"
+    },
+    {
+      "from": "F274",
+      "to": "F277"
+    },
+    {
+      "from": "F188",
+      "to": "F274"
+    },
+    {
+      "from": "F190",
+      "to": "F276"
+    },
+    {
+      "from": "F175",
+      "to": "F245"
+    },
+    {
+      "from": "F176",
+      "to": "F247"
+    },
+    {
+      "from": "F181",
+      "to": "F259"
+    },
+    {
+      "from": "F185",
+      "to": "F263"
+    },
+    {
+      "from": "F192",
+      "to": "F264"
+    },
+    {
+      "from": "F197",
+      "to": "F267"
     }
   ]
 }
