@@ -12,8 +12,8 @@
   {"id":"m8","folder":"模块10-对易与相容观测量","name":"模块10 · 对易与相容观测量","status":"done","problem":""},
   {"id":"m9","folder":"模块11-时间演化与守恒量","name":"模块11 · 时间演化与守恒量","status":"done","problem":""},
   {"id":"m10","folder":"模块12-对称守恒律","name":"模块12 · 对称守恒律","status":"partial","problem":""},
-  {"id":"m11","folder":"模块13-角动量代数","name":"模块13 · 角动量代数","status":"todo","problem":""},
-  {"id":"m12","folder":"模块14-自旋与Zeeman","name":"模块14 · 自旋与Zeeman","status":"partial","problem":""},
+  {"id":"m11","folder":"模块13-角动量代数","name":"模块13 · 角动量代数","status":"done","problem":"problems/模块13-14-角动量与自旋.md"},
+  {"id":"m12","folder":"模块14-自旋与Zeeman","name":"模块14 · 自旋与Zeeman","status":"done","problem":"problems/模块13-14-角动量与自旋.md"},
   {"id":"m13","folder":"模块15-谐振子代数解法与相干态","name":"模块15 · 谐振子代数解法与相干态","status":"done","problem":""},
   {"id":"m14","folder":"模块16-全同粒子","name":"模块16 · 全同粒子","status":"todo","problem":""}
  ]
