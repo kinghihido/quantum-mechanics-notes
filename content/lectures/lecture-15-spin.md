@@ -290,6 +290,6 @@ $$|0\rangle \equiv |\uparrow\rangle, \quad |1\rangle \equiv |\downarrow\rangle$$
 
 ---
 
-**上一章**：[第14章 角动量代数](lecture-14-angular-momentum.md)
+**上一章**：[第14章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-14-angular-momentum.md)
 
-**下一章**：[第16章 谐振子代数解法与相干态](lecture-16-oscillator-algebra.md)
+**下一章**：[第16章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-16-hydrogen-atom.md)

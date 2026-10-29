@@ -296,6 +296,6 @@ $$\psi(x) = N \exp\left(-\frac{(x - \langle x\rangle)^2}{4\sigma_x^2} + \frac{i\
 
 ---
 
-**上一章**：[第11章 厄米算符与本征值问题](lecture-11-hermitian.md)
+**上一章**：[第11章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-11-hermitian.md)
 
-**下一章**：[第13章 时间演化与守恒量](lecture-13-time-evolution.md)
+**下一章**：[第13章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-13-time-evolution.md)

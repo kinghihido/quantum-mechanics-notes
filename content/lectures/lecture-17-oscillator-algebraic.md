@@ -1,3 +1,5 @@
+
+**上一章**：[第16章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-16-hydrogen-atom.md)
 # 第17章 · 谐振子代数解法与相干态
 
 > 第8章我们用解微分方程的方法得到了谐振子的能级和波函数（厄米多项式）。本章介绍一种更深刻、更代数的方法——**升降算符法**（Dirac, 1930），以及由此引出的**相干态**。这套方法直接通向量子场论的粒子产生与湮灭。
@@ -203,3 +205,5 @@ $$E=\sum_k\hbar\omega_k\left(n_k+\frac{1}{2}\right)$$
 ---
 
 > **下一步**：到目前为止，我们讨论的都是单个粒子。但当有两个或更多全同粒子时，量子力学出现了一个全新的现象——**交换对称性**，它决定了元素周期表的结构、金属的导电性、甚至白矮星为什么不会坍缩。这就是第18章的主题。
+
+**下一章**：[第18章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-18-identical-particles.md)

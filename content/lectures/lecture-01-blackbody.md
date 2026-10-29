@@ -230,4 +230,4 @@ $$\Delta E = h\nu = 6.626 \times 10^{-34} \text{ J}$$
 
 ---
 
-**下一章**：[第2章 光电效应与光子](lecture-02-photoelectric.md)——光不仅是波，还是粒子。
+**下一章**：[第2章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-02-photoelectric.md)——光不仅是波，还是粒子。

@@ -320,6 +320,6 @@ $$|0, 0\rangle = \frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle - |\downarrow\upa
 
 ---
 
-**上一章**：[第13章 时间演化与守恒量](lecture-13-time-evolution.md)
+**上一章**：[第13章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-13-time-evolution.md)
 
-**下一章**：[第15章 自旋与Zeeman效应](lecture-15-spin.md)
+**下一章**：[第15章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-15-spin.md)

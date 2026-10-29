@@ -309,6 +309,6 @@ $$V(x) = \alpha[\delta(x + a) + \delta(x - a)]$$
 
 ---
 
-**上一章**：[第6章 一维无限深势阱](lecture-06-infinite-well.md)
+**上一章**：[第6章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-06-infinite-well.md)
 
-**下一章**：[第8章 谐振子](lecture-08-harmonic-oscillator.md)
+**下一章**：[第8章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-08-harmonic-oscillator.md)

@@ -1,3 +1,5 @@
+
+**上一章**：[第22章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-22-variational-wkb.md)
 # 第23章 · 周期势与能带理论
 
 > 固体由大量原子周期性排列而成。晶体中的电子不是在自由空间运动，而是处在**周期势** $V(\mathbf{r}+\mathbf{R})=V(\mathbf{r})$ 中（$\mathbf{R}$ 是晶格矢量）。这种周期性带来了量子力学中最丰富的结构之一：**能带理论**——它解释了为什么有些材料是导体、有些是绝缘体、有些是半导体，奠定了整个现代电子工业的理论基础。
@@ -191,3 +193,5 @@ $\nu=1/3, 2/5, 3/7, \dots$ 等分数填充因子处也出现平台——这是**
 ---
 
 > **下一步**：到目前为止，我们用的都是"波函数"的语言——粒子在空间中有概率分布。但费曼（Feynman）提出了另一种完全等价的表述：**路径积分**——粒子同时走所有可能的路径，每条路径贡献一个相位。这种表述更深刻地揭示了量子力学与经典力学的关系，也是量子场论的标准语言。第24章。
+
+**下一章**：[第24章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-24-path-integral.md)

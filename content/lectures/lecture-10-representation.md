@@ -332,6 +332,6 @@ $$[\hat{x}, \hat{p}]_{mn} = \sum_k (x_{mk}p_{kn} - p_{mk}x_{kn}) = i\hbar\delta_
 
 ---
 
-**上一章**：[第9章 态矢量与Dirac符号](lecture-09-dirac-notation.md)
+**上一章**：[第9章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-09-dirac-notation.md)
 
-**下一章**：[第11章 厄米算符与本征值问题](lecture-11-hermitian.md)
+**下一章**：[第11章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-11-hermitian.md)

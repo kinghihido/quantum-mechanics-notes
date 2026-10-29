@@ -1,3 +1,5 @@
+
+**上一章**：[第15章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-15-spin.md)
 # 第16章 · 三维中心势与氢原子
 
 > 从一维走向三维，最重要的特殊情况是**中心势** $V(r)$——势能只依赖于到原点的距离。氢原子是物理学中唯一能精确求解的原子模型，也是理解原子结构、元素周期表的起点。
@@ -202,3 +204,5 @@ $$E_N=\left(N+\frac{3}{2}\right)\hbar\omega,\quad N=0,1,2,\dots$$
 ---
 
 > **下一步**：我们已经用"解微分方程"的方式（坐标表象）求出了氢原子。但谐振子有一种更优雅的**代数方法**——用升降算符，不碰微分方程就能得到全部能级。这就是第17章的内容。
+
+**下一章**：[第17章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-17-oscillator-algebraic.md)

@@ -1,3 +1,5 @@
+
+**上一章**：[第28章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-28-quantum-information.md)
 # 第29章 · 量子力学的前沿交叉
 
 > 量子力学不是封闭的理论——它与物理学、化学、信息科学、甚至生物学的各个前沿领域深度交叉。本章简要介绍几个激动人心的方向：量子引力、量子生物学、量子热力学、以及拓扑量子物质。
@@ -202,3 +204,5 @@ $$\frac{d\rho}{dt}=-\frac{i}{\hbar}[\hat H,\rho]+\sum_k\gamma_k\left(\hat L_k\rh
 ---
 
 > **下一步**：最后一章，我们回顾量子力学的百年历程，总结核心概念，展望那些仍未解答的根本问题。
+
+**下一章**：[第30章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-30-summary-outlook.md)

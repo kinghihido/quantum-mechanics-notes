@@ -278,6 +278,6 @@ $$\lambda = \frac{h}{p}$$
 
 ---
 
-**上一章**：[第1章 黑体辐射与能量量子化](lecture-01-blackbody.md)
+**上一章**：[第1章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-01-blackbody.md)
 
-**下一章**：[第3章 康普顿散射与物质波](lecture-03-compton-debroglie.md)
+**下一章**：[第3章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-03-compton-debroglie.md)

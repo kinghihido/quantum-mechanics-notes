@@ -1,3 +1,5 @@
+
+**上一章**：[第17章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-17-oscillator-algebraic.md)
 # 第18章 · 全同粒子
 
 > 经典力学中，两个全同粒子（比如两个电子）虽然性质完全相同，但原则上可以"追踪轨迹"来区分它们。量子力学中，粒子的位置是不确定的，全同粒子**从根本上不可区分**。这个看似简单的事实，导致了物理学中最深刻的后果之一：泡利不相容原理、元素周期表、固体的能带结构。
@@ -213,3 +215,5 @@ $$|\Psi^-\rangle=\frac{1}{\sqrt{2}}(|\uparrow\downarrow\rangle-|\downarrow\uparr
 ---
 
 > **下一步**：到目前为止，我们求解的都是精确可解的模型（无限深势阱、谐振子、氢原子）。但真实的物理问题大多没有精确解。如何从已知的精确解出发，近似求解复杂问题？这就是**微扰论**的主题——第19章。
+
+**下一章**：[第19章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-19-scattering.md)

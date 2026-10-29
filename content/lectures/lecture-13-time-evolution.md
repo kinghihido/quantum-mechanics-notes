@@ -327,6 +327,6 @@ $$m\frac{d^2\langle x\rangle}{dt^2} = \langle F\rangle$$
 
 ---
 
-**上一章**：[第12章 对易关系与相容观测量](lecture-12-commutation.md)
+**上一章**：[第12章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-12-commutation.md)
 
-**下一章**：[第14章 角动量代数](lecture-14-angular-momentum.md)
+**下一章**：[第14章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-14-angular-momentum.md)

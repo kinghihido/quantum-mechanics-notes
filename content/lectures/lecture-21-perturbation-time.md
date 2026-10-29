@@ -1,3 +1,5 @@
+
+**上一章**：[第20章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-20-perturbation-static.md)
 # 第21章 · 含时微扰论与跃迁
 
 > 原子为什么能吸收和发射光？激光的原理是什么？核磁共振怎么工作？这些问题的共同理论基础是**含时微扰论**——当哈密顿量随时间变化时，系统在不同能级之间跃迁的概率如何计算。
@@ -178,3 +180,5 @@ $$|\psi(0^+)\rangle=\sum_n c_n|n'\rangle,\quad c_n=\langle n'|\psi(0^+)\rangle$$
 ---
 
 > **下一步**：微扰论的前提是"已知精确可解的零级问题"。但很多问题连零级解都找不到——这时可以用**变分法**：猜一个试探波函数，调参数使能量最低。第22章。
+
+**下一章**：[第22章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-22-variational-wkb.md)

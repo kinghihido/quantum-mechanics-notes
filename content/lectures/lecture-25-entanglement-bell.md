@@ -1,3 +1,5 @@
+
+**上一章**：[第24章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-24-path-integral.md)
 # 第25章 · 量子纠缠与Bell不等式
 
 > 量子力学中最"诡异"的现象，不是隧穿、不是零点能，而是**纠缠**——两个粒子可以形成一种关联，使得对其中一个的测量**瞬时**确定另一个的状态，无论它们相距多远。Einstein 称之为"spooky action at a distance"（鬼魅般的超距作用）。但实验证明，这种"超距作用"是真实的——自然界确实是非定域的。
@@ -206,3 +208,5 @@ $$E(A:B)+E(A:C)\le E(A:BC)$$
 ---
 
 > **下一步**：我们已经看到了量子力学最深刻的方面——纠缠和非定域性。但量子力学还有一个未完成的使命：与狭义相对论统一。第26章，我们走向**相对论量子力学**——Dirac方程、反物质、量子场论的起点。
+
+**下一章**：[第26章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-26-relativistic-dirac.md)

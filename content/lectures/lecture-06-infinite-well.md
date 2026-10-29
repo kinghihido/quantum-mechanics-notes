@@ -266,6 +266,6 @@ $$|\phi_n(x)|^2 \approx \frac{2}{L} \cdot \frac{1}{2} = \frac{1}{L} = P_{\text{c
 
 ---
 
-**上一章**：[第5章 薛定谔方程](lecture-05-schrodinger.md)
+**上一章**：[第5章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-05-schrodinger.md)
 
-**下一章**：[第7章 有限深势阱与隧穿](lecture-07-finite-well.md)
+**下一章**：[第7章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-07-finite-well.md)

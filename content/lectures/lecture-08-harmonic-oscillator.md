@@ -309,6 +309,6 @@ $$E_n = \left(n + \frac{1}{2}\right)\hbar\omega, \quad \omega = \sqrt{k/\mu}$$
 
 ---
 
-**上一章**：[第7章 有限深势阱与隧穿](lecture-07-finite-well.md)
+**上一章**：[第7章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-07-finite-well.md)
 
-**下一章**：[第9章 态矢量与Dirac符号](lecture-09-dirac-notation.md)
+**下一章**：[第9章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-09-dirac-notation.md)
