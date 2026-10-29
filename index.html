@@ -713,10 +713,13 @@ function loadLecture(num){
   contentDiv.style.display="block";
   contentDiv.innerHTML="<p style='text-align:center;padding:40px;color:#999'>加载中…</p>";
   
+  console.log("Loading lecture", num, "from", files[num]);
   fetch(files[num]+"?v="+Date.now()).then(function(r){
-    if(!r.ok)throw new Error("HTTP "+r.status);
+    console.log("Fetch response:", r.status, r.url);
+    if(!r.ok)throw new Error("HTTP "+r.status+" for "+files[num]);
     return r.text();
   }).then(function(md){
+    console.log("Markdown loaded, length:", md.length);
     var html=renderMarkdown(md);
     contentDiv.innerHTML="";
     var btn=document.createElement("button");
@@ -730,7 +733,8 @@ function loadLecture(num){
     }
     window.scrollTo(0,0);
   }).catch(function(err){
-    contentDiv.innerHTML="<p style='color:red;padding:20px'>加载失败："+err.message+"</p>";
+    console.error("Load error:", err);
+    contentDiv.innerHTML="<p style='color:red;padding:20px'>加载失败："+err.message+"<br>文件路径："+files[num]+"</p>";
   });
 }
 
