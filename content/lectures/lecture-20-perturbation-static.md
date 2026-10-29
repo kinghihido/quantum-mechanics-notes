@@ -1,5 +1,4 @@
 
-**上一章**：[第19章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-19-scattering.md)
 # 第20章 · 定态微扰论
 
 > 量子力学中能精确求解的问题屈指可数（谐振子、氢原子、无限深势阱……）。真实的物理系统几乎总是需要近似方法。**微扰论**的核心思想：如果哈密顿量 $\hat H=\hat H_0+\hat H'$，其中 $\hat H_0$ 可精确求解、$\hat H'$ 很小，那么可以从 $\hat H_0$ 的已知解出发，逐阶修正得到 $\hat H$ 的近似解。
@@ -172,4 +171,3 @@ $$g_J=1+\frac{j(j+1)+s(s+1)-\ell(\ell+1)}{2j(j+1)}$$
 
 > **下一步**：定态微扰论处理的是与时间无关的微扰。如果微扰随时间变化——比如原子受到光波的交变电场作用——系统会在不同能级之间跃迁。这就是**含时微扰论**和**Fermi黄金定则**，第21章的主题。
 
-**下一章**：[第21章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-21-perturbation-time.md)

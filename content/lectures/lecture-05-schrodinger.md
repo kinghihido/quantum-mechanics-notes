@@ -310,6 +310,4 @@ $$i\hbar\frac{\partial\psi}{\partial t} = \left[-\sum_{i=1}^N \frac{\hbar^2}{2m_
 
 ---
 
-**上一章**：[第4章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-04-wavefunction.md)
 
-**下一章**：[第6章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-06-infinite-well.md)

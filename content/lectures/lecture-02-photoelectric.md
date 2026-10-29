@@ -278,6 +278,4 @@ $$\lambda = \frac{h}{p}$$
 
 ---
 
-**上一章**：[第1章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-01-blackbody.md)
 
-**下一章**：[第3章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-03-compton-debroglie.md)

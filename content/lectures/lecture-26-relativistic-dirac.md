@@ -1,5 +1,4 @@
 
-**上一章**：[第25章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-25-entanglement-bell.md)
 # 第26章 · 相对论量子力学与Dirac方程
 
 > 薛定谔方程是非相对论的——时间和空间导数的阶数不同（时间一阶、空间二阶），不满足 Lorentz 对称性。要把量子力学与狭义相对论统一，需要新的方程。Klein-Gordon 方程是最简单的尝试，但有问题；Dirac 方程天才般地解决了这些问题，同时预言了反物质的存在。
@@ -222,4 +221,3 @@ QED 是可重整化的——所有无穷大可以被吸收到质量和电荷的�
 
 > **下一步**：我们已经走到了量子力学的边界——从非相对论到相对论，从单粒子到场论。最后一章，我们回顾量子力学的概念基础，展望它与其他领域的交叉，以及那些仍未解答的问题。
 
-**下一章**：[第27章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-27-measurement.md)

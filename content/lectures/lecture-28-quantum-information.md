@@ -1,5 +1,4 @@
 
-**上一章**：[第27章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-27-measurement.md)
 # 第28章 · 量子信息基础
 
 > 量子力学不仅是关于原子和光子的理论——它还是关于**信息**的理论。20世纪末，物理学家意识到：量子态是一种信息资源，可以用来做经典信息无法做到的事。这催生了量子信息科学——包括量子计算、量子密码、量子通信，以及关于物理实在本质的新认识。
@@ -230,4 +229,3 @@ QKD 的安全性基于**物理定律**（量子力学），而非**计算假设*
 
 > **下一步**：量子力学已经走过了一个世纪。从黑体辐射到量子计算机，从光电效应到量子密码，从波函数到量子场论。最后一章，我们回顾这段旅程，展望量子力学与其他前沿领域的交叉——量子引力、量子生物学、以及那些仍未解答的根本问题。
 
-**下一章**：[第29章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-29-frontiers.md)

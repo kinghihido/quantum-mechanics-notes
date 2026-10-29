@@ -1,5 +1,4 @@
 
-**上一章**：[第23章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-23-energy-bands.md)
 # 第24章 · 路径积分与Feynman表述
 
 > 量子力学有三种等价表述：波动力学（薛定谔）、矩阵力学（海森堡）、路径积分（费曼）。前两种我们在前面章节已经见过。路径积分提供了第三种视角——粒子不是沿一条确定轨迹运动，而是**同时探索所有可能的路径**，每条路径贡献一个相位 $e^{iS/\hbar}$。这种表述不仅优美，而且是量子场论和统计物理的标准工具。
@@ -177,4 +176,3 @@ $d$ 维量子系统 $\leftrightarrow$ $(d+1)$ 维经典统计系统。
 
 > **下一步**：量子力学不仅是微观世界的理论，它还引出了关于**实在本质**的深刻哲学问题：测量到底发生了什么？两个遥远的粒子可以"瞬时关联"吗？量子力学是"完备"的吗？第25章讨论量子纠缠、EPR佯谬和Bell不等式——物理学中最引人深思的内容。
 
-**下一章**：[第25章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-25-entanglement-bell.md)

@@ -229,5 +229,4 @@ $$\Delta E = h\nu = 6.626 \times 10^{-34} \text{ J}$$
 4. 太阳表面温度约 5800 K，估算其辐射峰值波长，并解释为什么人眼对这个波段最敏感。
 
 ---
-
-**下一章**：[第2章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-02-photoelectric.md)——光不仅是波，还是粒子。
+——光不仅是波，还是粒子。

@@ -346,6 +346,4 @@ $$|\psi|^2 = |\psi_A|^2 + |\psi_B|^2 + 2\text{Re}(\psi_A^* \psi_B)$$
 
 ---
 
-**上一章**：[第3章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-03-compton-debroglie.md)
 
-**下一章**：[第5章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-05-schrodinger.md)

@@ -290,6 +290,4 @@ $$|0\rangle \equiv |\uparrow\rangle, \quad |1\rangle \equiv |\downarrow\rangle$$
 
 ---
 
-**上一章**：[第14章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-14-angular-momentum.md)
 
-**下一章**：[第16章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-16-hydrogen-atom.md)

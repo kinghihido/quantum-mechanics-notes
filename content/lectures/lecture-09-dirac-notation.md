@@ -274,6 +274,4 @@ $$\hat{A} = \begin{pmatrix} A_{11} & A_{12} & \cdots \\ A_{21} & A_{22} & \cdots
 
 ---
 
-**上一章**：[第8章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-08-harmonic-oscillator.md)
 
-**下一章**：[第10章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-10-representation.md)

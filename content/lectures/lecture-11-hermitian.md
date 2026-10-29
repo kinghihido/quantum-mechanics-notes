@@ -318,6 +318,4 @@ $$\Delta E \Delta t \geq \frac{\hbar}{2}$$
 
 ---
 
-**上一章**：[第10章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-10-representation.md)
 
-**下一章**：[第12章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-12-commutation.md)

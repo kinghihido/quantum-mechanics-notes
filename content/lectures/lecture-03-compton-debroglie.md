@@ -347,6 +347,4 @@ $$i\hbar\frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2\psi + V\ps
 
 ---
 
-**上一章**：[第2章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-02-photoelectric.md)
 
-**下一章**：[第4章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-04-wavefunction.md)

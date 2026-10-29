@@ -1,5 +1,4 @@
 
-**上一章**：[第18章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-18-identical-particles.md)
 # 第19章 · 散射理论与Born近似
 
 > 高能物理实验的核心手段：用一束粒子轰击靶，看散射后的角分布，反推相互作用势。从卢瑟福发现原子核到LHC发现Higgs玻色子，散射理论是量子力学最重要的应用之一。
@@ -181,4 +180,3 @@ $$f=f^{(1)}+f^{(2)}+f^{(3)}+\cdots$$
 
 > **下一步**：散射理论处理的是连续谱问题。现在回到束缚态——如果哈密顿量不能精确求解，但接近一个可解的哈密顿量，如何近似求能级和波函数？这就是**定态微扰论**，第20章的主题。
 
-**下一章**：[第20章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-20-perturbation-static.md)

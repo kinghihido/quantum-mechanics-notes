@@ -1,5 +1,4 @@
 
-**上一章**：[第29章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-29-frontiers.md)
 # 第30章 · 总结与展望
 
 > 量子力学已经走过了一个世纪。从1900年普朗克的量子假设到2020年代的量子计算机和量子互联网，这段旅程是人类理智最伟大的冒险之一。本章回顾这段历程，梳理核心概念，展望未来的方向。

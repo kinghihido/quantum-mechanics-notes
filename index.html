@@ -722,12 +722,40 @@ function loadLecture(num){
     console.log("Markdown loaded, length:", md.length);
     var html=renderMarkdown(md);
     contentDiv.innerHTML="";
-    var btn=document.createElement("button");
-    btn.textContent="← 返回讲义列表";
-    btn.onclick=backToLectureList;
-    btn.style.cssText="background:var(--accent2);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;font-size:14px";
-    contentDiv.appendChild(btn);
+    /* 顶部导航栏 */
+    var navBar=document.createElement("div");
+    navBar.style.cssText="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;flex-wrap:wrap";
+    var btnBack=document.createElement("button");
+    btnBack.textContent="← 讲义列表";
+    btnBack.onclick=backToLectureList;
+    btnBack.style.cssText="background:var(--accent2);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px";
+    navBar.appendChild(btnBack);
+    var navBtns=document.createElement("div");
+    navBtns.style.cssText="display:flex;gap:10px";
+    if(num>1){
+      var btnPrev=document.createElement("button");
+      btnPrev.textContent="← 上一章";
+      btnPrev.onclick=(function(n){return function(){loadLecture(n);};})(num-1);
+      btnPrev.style.cssText="background:#555;color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px";
+      navBtns.appendChild(btnPrev);
+    }
+    if(num<30){
+      var btnNext=document.createElement("button");
+      btnNext.textContent="下一章 →";
+      btnNext.onclick=(function(n){return function(){loadLecture(n);};})(num+1);
+      btnNext.style.cssText="background:var(--accent2);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px";
+      navBtns.appendChild(btnNext);
+    }
+    navBar.appendChild(navBtns);
+    contentDiv.appendChild(navBar);
     contentDiv.appendChild(html);
+    /* 底部导航栏 */
+    var navBar2=navBar.cloneNode(true);
+    navBar2.querySelectorAll("button").forEach(function(b,i){
+      var orig=navBar.querySelectorAll("button")[i];
+      b.onclick=orig.onclick;
+    });
+    contentDiv.appendChild(navBar2);
     if(typeof renderMathInElement==="function"){
       renderMathInElement(contentDiv,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false});
     }

@@ -1,5 +1,4 @@
 
-**上一章**：[第21章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-21-perturbation-time.md)
 # 第22章 · 变分法与近似方法
 
 > 变分法是量子力学中最强大的近似工具之一。它不需要"可解的零级问题"，只需要一个合理的**试探波函数**（含可调参数），通过最小化能量期望值来逼近真实基态。从氦原子到分子，从核物理到凝聚态，变分法无处不在。
@@ -186,4 +185,3 @@ $$E_0=\min_{n(\mathbf{r})}\left\{T_s[n]+E_H[n]+E_{xc}[n]+\int v_{\text{ext}}(\ma
 
 > **下一步**：我们已经讨论了束缚态问题（势阱、谐振子、氢原子）和散射问题（分波法、Born近似）。现在回到固体物理——晶体中的电子在**周期势**中运动，会出现什么新现象？能带、带隙、导体/绝缘体/半导体——第23章。
 
-**下一章**：[第23章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-23-energy-bands.md)

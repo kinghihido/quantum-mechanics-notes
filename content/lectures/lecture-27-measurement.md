@@ -1,5 +1,4 @@
 
-**上一章**：[第26章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-26-relativistic-dirac.md)
 # 第27章 · 量子测量问题
 
 > 量子力学在数学上极其成功，但在概念上始终有一个未解之谜：**测量**到底是什么？当我们"观察"一个量子系统时，发生了什么？波函数"坍缩"是真实的物理过程吗？这些问题从1927年 Solvay 会议争论至今，仍然是物理学和哲学的前沿。
@@ -203,4 +202,3 @@ $$\rho_{SM}=\sum_n|c_n|^2|a_n,M_n\rangle\langle a_n,M_n|$$
 
 > **下一步**：最后一章，我们回顾量子力学的历史发展脉络，展望它与其他前沿领域的交叉——量子计算、量子引力、量子生物学——以及那些仍然敞开的问题。
 
-**下一章**：[第28章](https://kinghihido.github.io/quantum-mechanics-notes/content/lectures/lecture-28-quantum-information.md)
