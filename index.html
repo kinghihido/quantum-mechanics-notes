@@ -713,7 +713,7 @@ function loadLecture(num){
   contentDiv.style.display="block";
   contentDiv.innerHTML="<p style='text-align:center;padding:40px;color:#999'>加载中…</p>";
   
-  fetch(files[num]).then(function(r){
+  fetch(files[num]+"?v="+Date.now()).then(function(r){
     if(!r.ok)throw new Error("HTTP "+r.status);
     return r.text();
   }).then(function(md){
